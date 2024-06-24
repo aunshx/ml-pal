@@ -1,0 +1,1 @@
+### Place to store the architectural diagrams for acel-ai
