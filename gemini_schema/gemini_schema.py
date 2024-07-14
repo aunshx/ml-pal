@@ -1,13 +1,11 @@
 import json
-import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.prompts import PromptTemplate
 
-# Load the original JSON file
-with open('models.json', 'r') as infile:
+
+with open('gemini_schema/model.json', 'r') as infile:
     original_data = json.load(infile)
 
-# Define the prompt template
 template = """
 Given the following model specifications in JSON format, transform each model into a unified schema and provide the transformed JSON.
 
@@ -92,21 +90,30 @@ prompt = PromptTemplate(template=template, input_variables=['context'])
 llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key='AIzaSyCPTjKCLXLnW3ssrCDXTeLgWeFhhUSnJtM')
 transformed_models = {}
 
-# Process each model in the original JSON
 for model_name, model_data in original_data.items():
 
     context = json.dumps({model_name: model_data}, indent=4)
     formatted_prompt = prompt.format(context=context)
     response = llm.invoke(formatted_prompt)
- 
-    print(f"Response Content for model {model_name}:")
-    print(response.content)
     
-   
-    if model_name not in transformed_models:
-        transformed_models[model_name] = []
-    transformed_models[model_name].append(response.content)
+    response_content = response.content.strip()  # Remove leading/trailing whitespace
+    # Find the JSON part in the response content
+    start_idx = response_content.find('{')
+    end_idx = response_content.rfind('}') + 1
+    
+    if start_idx != -1 and end_idx != -1:
+        json_str = response_content[start_idx:end_idx]
+        try:
+            transformed_json = json.loads(json_str)
+            transformed_models[model_name] = transformed_json
+        except json.JSONDecodeError:
+            print(f"Error decoding JSON for model {model_name}:")
+            print(response_content)
+    else:
+        print(f"Could not find JSON structure for model {model_name}:")
+        print(response_content)
 
-with open('unified_schema_models.json', 'w') as outfile:
+with open('gemini_schema/unified_schema_models.json', 'w') as outfile:
     json.dump(transformed_models, outfile, indent=4)
+
 print("Combined transformed schema saved to unified_schema_models.json")
