@@ -3,7 +3,7 @@
     <img src="https://i.postimg.cc/x19jCb68/acel-ai-logo.png" alt="Logo" style="width: 100px; height: 100px; margin-right: 10px;" />
   </div>
   <h1>
-    Acel.AI
+    archx.AI
   </h1>
 </div>
 
@@ -13,7 +13,6 @@ An AI solutions architect.
 
 - [@aunshx](https://www.github.com/aunshx)
 - [@SaishaShetty](https://www.github.com/SaishaShetty)
-- [@klvijeth](https://www.github.com/klvijeth)
 
 ## Currently Devleoped @
 
