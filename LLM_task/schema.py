@@ -10,7 +10,7 @@ import os
 os.environ['OPENAI_API_KEY'] = 'sk-proj-NvqIphRNzF9iGBurzBy2T3BlbkFJ1yFpMCXSYc2ubsrt8Xh1'
 
 # Load the original data
-with open('LLM_task/LLM_models_overview.json', 'r') as infile:
+with open('LLM_task/LLM_models_schema.json', 'r') as infile:
     original_data = json.load(infile)
 
 # Define the prompt template
