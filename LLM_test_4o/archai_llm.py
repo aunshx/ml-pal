@@ -18,38 +18,63 @@ client = chromadb.Client(Settings(persist_directory="./chroma"))
 collection = client.create_collection("model_index")
 
 # Load JSON data
-with open('LLM_task/tranformed_schema(test3).json', 'r') as f:
+with open('LLM_test_4o/tranformed_schema.json', 'r') as f:
     json_data = json.load(f)
 
 model_info_map = {}
 
-def flatten_dict(d, parent_key='', sep=' - '):
-    items = []
-    for k, v in d.items():
-        new_key = f"{parent_key}{sep}{k}" if parent_key else k
-        if isinstance(v, dict):
-            items.extend(flatten_dict(v, new_key, sep=sep).items())
-        else:
-            items.append((new_key, v))
-    return dict(items)
 
-# Process each entry in the JSON data
 for model_type, model_info in json_data.items():
     if isinstance(model_info, dict):
-        flat_info = flatten_dict(model_info)
-        text = ' - '.join(f"{key}: {value}" for key, value in flat_info.items() if value)
+        model_name = model_info.get("model_name", model_type)
+        developed_by = model_info.get("developed_by", "")
+        model_type_info = model_info.get("model_type", "")
+        licensing = model_info.get("licensing", "")
+        installation = model_info.get("installation", {})
+        python_version = installation.get("python_version", "")
+        additional_libraries = installation.get("additional_libraries", "")
+        installation_command = installation.get("installation_command", "")
+        usage = model_info.get("usage", {})
+        cli_example = usage.get("cli_example", "")
+        python_example = usage.get("python_example", "")
+        pretrained_models = model_info.get("pretrained_models_and_performance_metrics", {})
+        available_models = pretrained_models.get("available_models", "")
+        pretrained_datasets = pretrained_models.get("pretrained_datasets", "")
+        performance_metrics = pretrained_models.get("performance_metrics", {})
+        model_architecture = model_info.get("model_details", {}).get("model_description", "")
+        supported_labels = model_info.get("model_details", {}).get("supported_labels", "")
+        limitations = model_info.get("limitations_and_biases", {}).get("limitations", "")
+        biases = model_info.get("limitations_and_biases", {}).get("biases", "")
+        risks = model_info.get("limitations_and_biases", {}).get("risks", "")
+        recommendations = model_info.get("recommendations", "")
+        hardware = model_info.get("compute_infrastructure", {}).get("hardware", "")
+        software = model_info.get("compute_infrastructure", {}).get("software", "")
+        model_card_contact = model_info.get("contact_information", {}).get("model_card_contact", "")
+        related_papers_and_resources = model_info.get("references", {}).get("related_papers_and_resources", "")
+        sample_code = model_info.get("example_implementation", {}).get("sample_code", "")
+        
+        text = (f"{model_name} - Developed by: {developed_by} - Model Type: {model_type_info} - Licensing: {licensing} "
+                f"- Python Version: {python_version} - Additional Libraries: {additional_libraries} "
+                f"- Installation Command: {installation_command} - CLI Example: {cli_example} "
+                f"- Python Example: {python_example} - Available Models: {available_models} "
+                f"- Pretrained Datasets: {pretrained_datasets} - Performance Metrics: {performance_metrics} "
+                f"- Model Architecture: {model_architecture} - Supported Labels: {supported_labels} "
+                f"- Limitations: {limitations} - Biases: {biases} - Risks: {risks} "
+                f"- Recommendations: {recommendations} - Hardware: {hardware} - Software: {software} "
+                f"- Model Card Contact: {model_card_contact} - Related Papers and Resources: {related_papers_and_resources} "
+                f"- Sample Code: {sample_code}")
         
         embedding = model.encode(text).tolist()
         collection.add(
             embeddings=[embedding],
-            metadatas=[{"description": flat_info.get('model_details - model_description', ''), "type": model_type}],
-            ids=[flat_info.get('model_name', model_type)]
-        )
-        model_info_map[flat_info.get('model_name', model_type)] = model_info
+            metadatas=[{"description": model_architecture, "type": model_type}],
+            ids=[model_name]
+        ) ## Takes in json file data emdeddings
+        model_info_map[model_name] = model_info
 
 def query_model(query_text):
     query_embedding = model.encode(query_text).tolist()
-    results = collection.query(query_embeddings=[query_embedding], n_results=2)
+    results = collection.query(query_embeddings=[query_embedding], n_results=5) #Takes in query embeddings
     
     if results and results['metadatas']:
         retrieved_documents = []
@@ -80,7 +105,6 @@ prompt = PromptTemplate(template=template, input_variables=['query', 'documents'
 # Initialize the OpenAI LLM
 llm = ChatOpenAI(model='gpt-4o')
 
-# Initialize the LLMChain with the LLM and prompt
 chain = LLMChain(llm=llm, prompt=prompt)
 
 def answer_query(query, retrieved_documents):
@@ -89,12 +113,9 @@ def answer_query(query, retrieved_documents):
     response_content = chain.run({"query": query, "documents": documents_json}).strip()
     return response_content
 
-# Example usage
-query = "I want a model that is not transformed based. Is there any such model?"
+query = "I want a model that can handle multilingual stuff, which one is the best in that case?"
 
-# First, use the ChromaDB-based model query
 retrieved_documents = query_model(query)
 
-# Use the retrieved documents from ChromaDB for the LangChain LLM
 langchain_response = answer_query(query, retrieved_documents)
 print("LangChain AI Response:", langchain_response)
