@@ -43,6 +43,10 @@ The following libraries will be installed:
 - `sentence-transformers`
 - `requests`
 - `beautifulsoup4`
+- `jsonlib-python3`
+- `langchain-community`
+- `openai`
+- `os-sys`
 
 ## Usage
 
