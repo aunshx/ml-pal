@@ -1,0 +1,1073 @@
+{
+    "gpt2": {
+        "model_name": "gpt2",
+        "developed_by": "OpenAI",
+        "model_type": "transformers",
+        "licensing": "Not specified",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": "transformers",
+            "installation_command": "pip install transformers"
+        },
+        "usage": {
+            "cli_example": "Not specified",
+            "python_example": "fromtransformersimportpipeline, set_seed\ngenerator = pipeline('text-generation', model='gpt2')\nset_seed(42)\ngenerator(\"Hello, I'm a language model,\", max_length=30, num_return_sequences=5)"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "GPT-2",
+                "GPT-Large",
+                "GPT-Medium",
+                "GPT-XL"
+            ],
+            "pretrained_datasets": [
+                "English Text Corpus"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "GPT-2",
+                        "size_pixels": "Not specified",
+                        "map_val50_95": "Not specified",
+                        "speed_cpu_onnx_ms": "Not specified",
+                        "speed_a100_tensorrt_ms": "Not specified",
+                        "params_m": "124M parameters",
+                        "flops_b": "Not specified"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "GPT-2 is a transformers model pretrained on a very large corpus of English data in a self-supervised fashion.",
+            "supported_labels": [
+                "Not specified"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "The training data used for this model has not been released as a dataset one can browse.",
+                "Because large-scale language models like GPT-2 do not distinguish fact from fiction, we don\u2019t support use-cases that require the generated text to be true."
+            ],
+            "biases": [
+                "Additionally, language models like GPT-2 reflect the biases inherent to the systems they were trained on, so we do not recommend that they be deployed into systems that interact with humans > unless the deployers first carry out a study of biases relevant to the intended use-case."
+            ],
+            "risks": [
+                "Not specified"
+            ]
+        },
+        "recommendations": [
+            "Not specified"
+        ],
+        "compute_infrastructure": {
+            "hardware": "256 cloud TPU v3 cores",
+            "software": "Not specified"
+        },
+        "contact_information": {
+            "model_card_contact": "Hugging Face team"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "Language Models are Unsupervised Multitask Learners"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "fromtransformersimportGPT2Tokenizer, GPT2Model\ntokenizer = GPT2Tokenizer.from_pretrained('gpt2')\nmodel = GPT2Model.from_pretrained('gpt2')\ntext =\"Replace me by any text you'd like.\"encoded_input = tokenizer(text, return_tensors='pt')\noutput = model(**encoded_input)"
+        }
+    },
+    "openai-gpt": {
+        "model_name": "openai-gpt",
+        "developed_by": "Alec Radford, Karthik Narasimhan, Tim Salimans, Ilya Sutskever",
+        "model_type": "Transformer-based language model",
+        "licensing": "MIT License",
+        "installation": {
+            "python_version": "3.x",
+            "additional_libraries": "transformers",
+            "installation_command": "pip install transformers"
+        },
+        "usage": {
+            "cli_example": "N/A",
+            "python_example": "from transformers import OpenAIGPTTokenizer, OpenAIGPTModel\nimport torch\ntokenizer = OpenAIGPTTokenizer.from_pretrained(\"openai-gpt\")\nmodel = OpenAIGPTModel.from_pretrained(\"openai-gpt\")\ninputs = tokenizer(\"Hello, my dog is cute\", return_tensors=\"pt\")\noutputs = model(**inputs)\nlast_hidden_states = outputs.last_hidden_state"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "GPT2",
+                "GPT2-Medium",
+                "GPT2-Large",
+                "GPT2-XL"
+            ],
+            "pretrained_datasets": [
+                "BooksCorpus dataset (Zhu et al., 2015)"
+            ],
+            "performance_metrics": "N/A"
+        },
+        "model_details": {
+            "model_description": "openai-gpt(a.k.a. \"GPT-1\") is the first transformer-based language model created and released by OpenAI. The model is a causal (unidirectional) transformer pre-trained using language modeling on a large corpus with long range dependencies.",
+            "supported_labels": [
+                "English"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "Compute Requirements",
+                "The limits and bias of learning about the world through text",
+                "Still brittle generalization"
+            ],
+            "biases": [
+                "Biases in predictions related to disturbing and harmful stereotypes across protected classes; identity characteristics; and sensitive, social, and occupational groups"
+            ],
+            "risks": [
+                "Misuse and Out-of-scope Use"
+            ]
+        },
+        "recommendations": [
+            "N/A"
+        ],
+        "compute_infrastructure": {
+            "hardware": "8 P600 GPUs",
+            "software": "N/A"
+        },
+        "contact_information": {
+            "model_card_contact": "N/A"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "Research Paper",
+                "OpenAI Blog Post",
+                "GitHub Repo"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "from transformers import pipeline, set_seed\ngenerator = pipeline('text-generation', model='openai-gpt')\nset_seed(42)\ngenerator(\"Hello, I'm a language model,\", max_length=30, num_return_sequences=5)"
+        }
+    },
+    "Meta-Llama-3-8B": {
+        "model_name": "Meta-Llama-3-8B",
+        "developed_by": "Meta",
+        "model_type": "Large Language Models (LLMs)",
+        "licensing": "A custom commercial license is available at: https://llama.meta.com/llama3/license",
+        "installation": {
+            "python_version": "Not Specified",
+            "additional_libraries": "transformers, torch",
+            "installation_command": "Not Specified"
+        },
+        "usage": {
+            "cli_example": "huggingface-cli download meta-llama/Meta-Llama-3-8B --include \"original/*\" --local-dir Meta-Llama-3-8B",
+            "python_example": "import transformers\nimport torch\nmodel_id =\"meta-llama/Meta-Llama-3-8B\"\npipeline = transformers.pipeline(\"text-generation\", model=model_id, model_kwargs={\"torch_dtype\": torch.bfloat16}, device_map=\"auto\")\npipeline(\"Hey how are you doing today?\")"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "Llama 3 8B",
+                "Llama 3 70B"
+            ],
+            "pretrained_datasets": [
+                "A new mix of publicly available online data."
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "Not Specified",
+                        "size_pixels": "Not Specified",
+                        "map_val50_95": "Not Specified",
+                        "speed_cpu_onnx_ms": "Not Specified",
+                        "speed_a100_tensorrt_ms": "Not Specified",
+                        "params_m": "Not Specified",
+                        "flops_b": "Not Specified"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "Large Language Models (LLMs) developed and released by Meta. The Llama 3 instruction tuned models are optimized for dialogue use cases and outperform many of the available open source chat models on common industry benchmarks.",
+            "supported_labels": [
+                "Not Specified"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "Testing conducted to date has been in English, and has not covered, nor could it cover, all scenarios. Llama 3\u2019s potential outputs cannot be predicted in advance, and the model may in some instances produce inaccurate, biased or other objectionable responses to user prompts."
+            ],
+            "biases": [
+                "Not Specified"
+            ],
+            "risks": [
+                "Llama 3 is a new technology, and like any new technology, there are risks associated with its use."
+            ]
+        },
+        "recommendations": [
+            "Developers should perform safety testing and tuning tailored to their specific applications of the model. We recommend incorporatingPurple Llamasolutions into your workflows and specificallyLlama Guardwhich provides a base model to filter input and output prompts to layer system-level safety on top of model-level safety."
+        ],
+        "compute_infrastructure": {
+            "hardware": "We used custom training libraries, Meta's Research SuperCluster, and production clusters for pretraining. Fine-tuning, annotation, and evaluation were also performed on third-party cloud compute.",
+            "software": "Not Specified"
+        },
+        "contact_information": {
+            "model_card_contact": "Not Specified"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "https://github.com/meta-llama/llama3/blob/main/MODEL_CARD.md"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "Not Specified"
+        }
+    },
+    "Llama-2-7b": {
+        "model_name": "Llama-2-7b",
+        "developed_by": "Meta",
+        "model_type": "Generative text model",
+        "licensing": "Custom commercial license available at: https://ai.meta.com/resources/models-and-libraries/llama-downloads/",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": "Not specified",
+            "installation_command": "Model weights and tokenizer can be downloaded from the Meta website"
+        },
+        "usage": {
+            "cli_example": "Not specified",
+            "python_example": "Not specified"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "Llama 2-7b",
+                "Llama 2-13b",
+                "Llama 2-70b"
+            ],
+            "pretrained_datasets": [
+                "A new mix of publicly available online data"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "Not specified",
+                        "size_pixels": "Not applicable",
+                        "map_val50_95": "Not specified",
+                        "speed_cpu_onnx_ms": "Not specified",
+                        "speed_a100_tensorrt_ms": "Not specified",
+                        "params_m": "7B, 13B, 70B",
+                        "flops_b": "Not specified"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "Llama 2 is a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters.",
+            "supported_labels": [
+                "Not specified"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "Llama 2\u2019s potential outputs cannot be predicted in advance, and the model may in some instances produce inaccurate, biased or other objectionable responses to user prompts."
+            ],
+            "biases": [
+                "Not specified"
+            ],
+            "risks": [
+                "Llama 2 is a new technology that carries risks with use."
+            ]
+        },
+        "recommendations": [
+            "Developers should perform safety testing and tuning tailored to their specific applications of the model."
+        ],
+        "compute_infrastructure": {
+            "hardware": "Meta's Research Super Cluster and production clusters for pretraining. Fine-tuning, annotation, and evaluation were also performed on third-party cloud compute.",
+            "software": "Custom training libraries"
+        },
+        "contact_information": {
+            "model_card_contact": "Report issues with the model at github.com/facebookresearch/llama or developers.facebook.com/llama_output_feedback"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "\"Llama-2: Open Foundation and Fine-tuned Chat Models\""
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "See reference code in github for details: chat_completion."
+        }
+    },
+    "CodeLlama-70b-Instruct-hf": {
+        "model_name": "CodeLlama-70b-Instruct-hf",
+        "developed_by": "Meta",
+        "model_type": "Generative Text Model",
+        "licensing": "Custom commercial license is available at: https://ai.meta.com/resources/models-and-libraries/llama-downloads/",
+        "installation": {
+            "python_version": "3.8",
+            "additional_libraries": "transformers, accelerate",
+            "installation_command": "pip install transformers accelerate"
+        },
+        "usage": {
+            "cli_example": "Not Provided",
+            "python_example": "See 'Model Overview' for examples"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "CodeLlama-70b-hf",
+                "CodeLlama-70b-Python-hf",
+                "CodeLlama-70b-Instruct-hf",
+                "CodeLlama-13b-hf",
+                "CodeLlama-13b-Python-hf",
+                "CodeLlama-13b-Instruct-hf",
+                "CodeLlama-34b-hf",
+                "CodeLlama-34b-Python-hf",
+                "CodeLlama-34b-Instruct-hf",
+                "CodeLlama-70b-hf",
+                "CodeLlama-70b-Python-hf",
+                "CodeLlama-70b-Instruct-hf"
+            ],
+            "pretrained_datasets": [
+                "Not Provided"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "Not Provided",
+                        "size_pixels": "Not Provided",
+                        "map_val50_95": "Not Provided",
+                        "speed_cpu_onnx_ms": "Not Provided",
+                        "speed_a100_tensorrt_ms": "Not Provided",
+                        "params_m": "Not Provided",
+                        "flops_b": "Not Provided"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "Code Llama is a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters.",
+            "supported_labels": [
+                "Not Provided"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "Code Llama and its variants are a new technology that carries risks with use."
+            ],
+            "biases": [
+                "Testing has been conducted in English, and has not covered all scenarios."
+            ],
+            "risks": [
+                "The potential outputs cannot be predicted in advance, and the model may in some instances produce inaccurate or objectionable responses to user prompts."
+            ]
+        },
+        "recommendations": [
+            "Developers should perform safety testing and tuning tailored to their specific applications of the model."
+        ],
+        "compute_infrastructure": {
+            "hardware": "Meta's Research Super Cluster",
+            "software": "Custom training libraries"
+        },
+        "contact_information": {
+            "model_card_contact": "Not Provided"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "Code Llama: Open Foundation Models for Code"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "See 'Model Overview' for examples"
+        }
+    },
+    "bert-base-uncased": {
+        "model_name": "bert-base-uncased",
+        "developed_by": "Google Research",
+        "model_type": "Transformer",
+        "licensing": "Apache License 2.0",
+        "installation": {
+            "python_version": "3.6+",
+            "additional_libraries": "transformers, torch, tensorflow",
+            "installation_command": "pip install transformers"
+        },
+        "usage": {
+            "cli_example": "python <script> --model 'bert-base-uncased' --input 'input.txt'",
+            "python_example": "from transformers import BertTokenizer, BertModel\ntokenizer = BertTokenizer.from_pretrained('bert-base-uncased')\nmodel = BertModel.from_pretrained(\"bert-base-uncased\")\ntext =\"Replace me by any text you'd like.\"encoded_input = tokenizer(text, return_tensors='pt')\noutput = model(**encoded_input)"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "bert-base-uncased",
+                "bert-large-uncased",
+                "bert-base-cased",
+                "bert-large-cased",
+                "bert-base-chinese",
+                "bert-base-multilingual-cased",
+                "bert-large-uncased-whole-word-masking",
+                "bert-large-cased-whole-word-masking"
+            ],
+            "pretrained_datasets": [
+                "BookCorpus",
+                "English Wikipedia"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "bert-base-uncased",
+                        "params_m": "110M",
+                        "flops_b": "N/A"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "BERT is a transformers model pretrained on a large corpus of English data in a self-supervised fashion. This means it was pretrained on the raw texts only, with no humans labeling them in any way (which is why it can use lots of publicly available data) with an automatic process to generate inputs and labels from those texts.",
+            "supported_labels": [
+                "N/A"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "This model is primarily aimed at being fine-tuned on tasks that use the whole sentence (potentially masked) to make decisions, such as sequence classification, token classification or question answering."
+            ],
+            "biases": [
+                "Even if the training data used for this model could be characterized as fairly neutral, this model can have biased predictions."
+            ],
+            "risks": [
+                "This bias will also affect all fine-tuned versions of this model."
+            ]
+        },
+        "recommendations": [
+            "For tasks such as text generation you should look at model like GPT2."
+        ],
+        "compute_infrastructure": {
+            "hardware": "4 cloud TPUs in Pod configuration (16 TPU chips total)",
+            "software": "N/A"
+        },
+        "contact_information": {
+            "model_card_contact": "N/A"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "https://arxiv.org/abs/1810.04805"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "from transformers import BertTokenizer, BertModel\ntokenizer = BertTokenizer.from_pretrained('bert-base-uncased')\nmodel = BertModel.from_pretrained(\"bert-base-uncased\")\ntext =\"Replace me by any text you'd like.\"encoded_input = tokenizer(text, return_tensors='pt')\noutput = model(**encoded_input)"
+        }
+    },
+    "roberta-base": {
+        "model_name": "roberta-base",
+        "developed_by": "Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer and Veselin Stoyanov",
+        "model_type": "Pretrained model on English language using a masked language modeling (MLM) objective",
+        "licensing": "Not provided",
+        "installation": {
+            "python_version": "Not provided",
+            "additional_libraries": "transformers",
+            "installation_command": "pip install transformers"
+        },
+        "usage": {
+            "cli_example": "Not provided",
+            "python_example": "from transformers import RobertaTokenizer, RobertaModel\ntokenizer = RobertaTokenizer.from_pretrained('roberta-base')\nmodel = RobertaModel.from_pretrained('roberta-base')\ntext ='Replace me by any text you'd like.'\nencoded_input = tokenizer(text, return_tensors='pt')\noutput = model(**encoded_input)"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "roberta-base"
+            ],
+            "pretrained_datasets": [
+                "BookCorpus, English Wikipedia, CC-News, OpenWebText, Stories"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "roberta-base",
+                        "size_pixels": "Not applicable",
+                        "map_val50_95": "Not applicable",
+                        "speed_cpu_onnx_ms": "Not provided",
+                        "speed_a100_tensorrt_ms": "Not provided",
+                        "params_m": "Not provided",
+                        "flops_b": "Not provided"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "RoBERTa is a transformers model pretrained on a large corpus of English data in a self-supervised fashion. This means it was pretrained on the raw texts only, with no humans labelling them in any way.",
+            "supported_labels": [
+                "English"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "The training data used for this model contains a lot of unfiltered content from the internet, which is far from neutral. Therefore, the model can have biased predictions."
+            ],
+            "biases": [
+                "Not provided"
+            ],
+            "risks": [
+                "Not provided"
+            ]
+        },
+        "recommendations": [
+            "You can use the raw model for masked language modeling, but it's mostly intended to be fine-tuned on a downstream task."
+        ],
+        "compute_infrastructure": {
+            "hardware": "Not provided",
+            "software": "Python, transformers"
+        },
+        "contact_information": {
+            "model_card_contact": "Not provided"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "RoBERTa: A Robustly Optimized BERT Pretraining Approach"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "from transformers import RobertaTokenizer, RobertaModel\ntokenizer = RobertaTokenizer.from_pretrained('roberta-base')\nmodel = RobertaModel.from_pretrained('roberta-base')\ntext ='Replace me by any text you'd like.'\nencoded_input = tokenizer(text, return_tensors='pt')\noutput = model(**encoded_input)"
+        }
+    },
+    "t5-base": {
+        "model_name": "t5-base",
+        "developed_by": "Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, Peter J. Liu",
+        "model_type": "Language model",
+        "licensing": "Apache 2.0",
+        "installation": {
+            "python_version": "3.x",
+            "additional_libraries": "transformers",
+            "installation_command": "pip install transformers"
+        },
+        "usage": {
+            "cli_example": "",
+            "python_example": "from transformers import T5Tokenizer, T5Model\n\ntokenizer = T5Tokenizer.from_pretrained(\"t5-base\")\nmodel = T5Model.from_pretrained(\"t5-base\")\n\ninput_ids = tokenizer(\"Studies have been shown that owning a dog is good for you\", return_tensors=\"pt\").input_ids\ndecoder_input_ids = tokenizer(\"Studies show that\", return_tensors=\"pt\").input_ids\n\noutputs = model(input_ids=input_ids, decoder_input_ids=decoder_input_ids)\nlast_hidden_states = outputs.last_hidden_state"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "t5-base"
+            ],
+            "pretrained_datasets": [
+                "Colossal Clean Crawled Corpus (C4)"
+            ],
+            "performance_metrics": {}
+        },
+        "model_details": {
+            "model_description": "The developers of the Text-To-Text Transfer Transformer (T5) write: With T5, we propose reframing all NLP tasks into a unified text-to-text-format where the input and output are always text strings, in contrast to BERT-style models that can only output either a class label or a span of the input. Our text-to-text framework allows us to use the same model, loss function, and hyperparameters on any NLP task.",
+            "supported_labels": []
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "More information needed."
+            ],
+            "biases": [
+                "More information needed."
+            ],
+            "risks": [
+                "More information needed."
+            ]
+        },
+        "recommendations": [
+            "More information needed."
+        ],
+        "compute_infrastructure": {
+            "hardware": "Google Cloud TPU Pods",
+            "software": "GCP"
+        },
+        "contact_information": {
+            "model_card_contact": "Hugging Face"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer",
+                "http://jmlr.org/papers/v21/20-074.html",
+                "Google's T5 Blog Post",
+                "GitHub Repo",
+                "Hugging Face T5 Docs"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "from transformers import T5Tokenizer, T5Model\n\ntokenizer = T5Tokenizer.from_pretrained(\"t5-base\")\nmodel = T5Model.from_pretrained(\"t5-base\")\n\ninput_ids = tokenizer(\"Studies have been shown that owning a dog is good for you\", return_tensors=\"pt\").input_ids\ndecoder_input_ids = tokenizer(\"Studies show that\", return_tensors=\"pt\").input_ids\n\noutputs = model(input_ids=input_ids, decoder_input_ids=decoder_input_ids)\nlast_hidden_states = outputs.last_hidden_state"
+        }
+    },
+    "bloom": {
+        "model_name": "BLOOM",
+        "developed_by": "BigScience",
+        "model_type": "Transformer-based Language Model",
+        "licensing": "RAIL License v1.0",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": "transformers, accelerate",
+            "installation_command": "Not specified"
+        },
+        "usage": {
+            "cli_example": "Not specified",
+            "python_example": "Not specified"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "Not specified"
+            ],
+            "pretrained_datasets": [
+                "46 natural languages, 13 programming languages"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "Not specified",
+                        "size_pixels": "Not specified",
+                        "map_val50_95": "Not specified",
+                        "speed_cpu_onnx_ms": "Not specified",
+                        "speed_a100_tensorrt_ms": "Not specified",
+                        "params_m": "Not specified",
+                        "flops_b": "Not specified"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "BLOOM is an autoregressive Large Language Model (LLM), trained to continue text from a prompt on vast amounts of text data using industrial-scale computational resources. As such, it is able to output coherent text in 46 languages and 13 programming languages that is hardly distinguishable from text written by humans.",
+            "supported_labels": [
+                "Not specified"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "Overrepresent some viewpoints and underrepresent others",
+                "Contain stereotypes",
+                "Contain personal information",
+                "Generate: Hateful, abusive, or violent language",
+                "Discriminatory or prejudicial language",
+                "Content that may not be appropriate for all settings, including sexual content",
+                "Make errors, including producing incorrect information as if it were factual",
+                "Generate irrelevant or repetitive outputs",
+                "Induce users into attributing human traits to it, such as sentience or consciousness"
+            ],
+            "biases": [
+                "Not specified"
+            ],
+            "risks": [
+                "Not specified"
+            ]
+        },
+        "recommendations": [
+            "Indirect users should be made aware when the content they're working with is created by the LLM.",
+            "Users should be aware of Risks and Limitations, and include an appropriate age disclaimer or blocking interface as necessary.",
+            "Models trained or finetuned downstream of BLOOM LM should include an updated Model Card.",
+            "Users of the model should provide mechanisms for those affected to provide feedback, such as an email address for comments."
+        ],
+        "compute_infrastructure": {
+            "hardware": "384 A100 80GB GPUs (48 nodes), Additional 32 A100 80GB GPUs (4 nodes) in reserve, 8 GPUs per node Using NVLink 4 inter-gpu connects, 4 OmniPath links, CPU: AMD, CPU memory: 512GB per node, GPU memory: 640GB per node, Inter-node connect: Omni-Path Architecture (OPA), NCCL-communications network: a fully dedicated subnet, Disc IO network: shared network with other types of nodes",
+            "software": "Megatron-DeepSpeed, DeepSpeed, PyTorch (pytorch-1.11 w/ CUDA-11.5), apex"
+        },
+        "contact_information": {
+            "model_card_contact": "bigscience-contact@googlegroups.com"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "BigScience, BigScience Language Open-science Open-access Multilingual (BLOOM) Language Model. International, May 2021-May 2022"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "Not specified"
+        }
+    },
+    "xlnet-base-cased": {
+        "model_name": "xlnet-base-cased",
+        "developed_by": "Yang et al.",
+        "model_type": "XLNet model pre-trained on English language",
+        "licensing": "Not Specified",
+        "installation": {
+            "python_version": "Not Specified",
+            "additional_libraries": "transformers",
+            "installation_command": "Not Specified"
+        },
+        "usage": {
+            "cli_example": "Not Specified",
+            "python_example": "from transformers import XLNetTokenizer, XLNetModel\n\ntokenizer = XLNetTokenizer.from_pretrained('xlnet-base-cased')\nmodel = XLNetModel.from_pretrained('xlnet-base-cased')\n\ninputs = tokenizer(\"Hello, my dog is cute\", return_tensors=\"pt\")\noutputs = model(**inputs)\n\nlast_hidden_states = outputs.last_hidden_state"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "xlnet-base-cased"
+            ],
+            "pretrained_datasets": [
+                "Not Specified"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "xlnet-base-cased",
+                        "size_pixels": "Not Specified",
+                        "map_val50_95": "Not Specified",
+                        "speed_cpu_onnx_ms": "Not Specified",
+                        "speed_a100_tensorrt_ms": "Not Specified",
+                        "params_m": "Not Specified",
+                        "flops_b": "Not Specified"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "XLNet is a new unsupervised language representation learning method based on a novel generalized permutation language modeling objective. Additionally, XLNet employs Transformer-XL as the backbone model, exhibiting excellent performance for language tasks involving long context. Overall, XLNet achieves state-of-the-art (SOTA) results on various downstream language tasks including question answering, natural language inference, sentiment analysis, and document ranking.",
+            "supported_labels": [
+                "Not Specified"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "The model is mostly intended to be fine-tuned on a downstream task."
+            ],
+            "biases": [
+                "Not Specified"
+            ],
+            "risks": [
+                "Not Specified"
+            ]
+        },
+        "recommendations": [
+            "The model is primarily aimed at being fine-tuned on tasks that use the whole sentence (potentially masked) to make decisions, such as sequence classification, token classification or question answering. For tasks such as text generation, you should look at models like GPT2."
+        ],
+        "compute_infrastructure": {
+            "hardware": "Not Specified",
+            "software": "Not Specified"
+        },
+        "contact_information": {
+            "model_card_contact": "Not Specified"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "XLNet: Generalized Autoregressive Pretraining for Language Understanding"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "Not Specified"
+        }
+    },
+    "Mixtral-8x7B-v0.1": {
+        "model_name": "Mixtral-8x7B-v0.1",
+        "developed_by": "Mistral AI Team",
+        "model_type": "Large Language Model (LLM), Sparse Mixture of Experts",
+        "licensing": "Not specified",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": "Transformers, Torch",
+            "installation_command": "pip install transformers"
+        },
+        "usage": {
+            "python_example": "from transformers import AutoModelForCausalLM, AutoTokenizer\n\nmodel_id = \"mistralai/Mixtral-8x7B-v0.1\"\ntokenizer = AutoTokenizer.from_pretrained(model_id)\n\nmodel = AutoModelForCausalLM.from_pretrained(model_id)\n\ntext = \"Hello my name is\"\ninputs = tokenizer(text, return_tensors=\"pt\")\n\noutputs = model.generate(**inputs, max_new_tokens=20)print(tokenizer.decode(outputs[0], skip_special_tokens=True))"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "Mixtral-8x7B-v0.1"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "Mixtral-8x7B-v0.1",
+                        "size_pixels": "Not specified",
+                        "map_val50_95": "Outperforms Llama 2 70B on most benchmarks",
+                        "speed_cpu_onnx_ms": "Not specified",
+                        "speed_a100_tensorrt_ms": "Not specified",
+                        "params_m": "Not specified",
+                        "flops_b": "Not specified"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mistral-8x7B outperforms Llama 2 70B on most benchmarks.",
+            "supported_labels": [
+                "Not specified"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "Mixtral-8x7B is a pretrained base model and therefore does not have any moderation mechanisms."
+            ],
+            "biases": [
+                "Not specified"
+            ],
+            "risks": [
+                "Not specified"
+            ]
+        },
+        "recommendations": [
+            "Not specified"
+        ],
+        "compute_infrastructure": {
+            "hardware": "Not specified",
+            "software": "Python, Transformers, Torch"
+        },
+        "contact_information": {
+            "model_card_contact": "Not specified"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "Not specified"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "from transformers import AutoModelForCausalLM, AutoTokenizer\n\nmodel_id = \"mistralai/Mixtral-8x7B-v0.1\"\ntokenizer = AutoTokenizer.from_pretrained(model_id)\n\nmodel = AutoModelForCausalLM.from_pretrained(model_id)\n\ntext = \"Hello my name is\"\ninputs = tokenizer(text, return_tensors=\"pt\")\n\noutputs = model.generate(**inputs, max_new_tokens=20)print(tokenizer.decode(outputs[0], skip_special_tokens=True))"
+        }
+    },
+    "distilbert-base-uncased": {
+        "model_name": "distilbert-base-uncased",
+        "developed_by": "Hugging Face",
+        "model_type": "Transformer",
+        "licensing": "Apache-2.0",
+        "installation": {
+            "python_version": "3.6+",
+            "additional_libraries": "transformers",
+            "installation_command": "pip install transformers"
+        },
+        "usage": {
+            "cli_example": "N/A",
+            "python_example": "from transformers import DistilBertTokenizer, DistilBertModel\ntokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')\nmodel = DistilBertModel.from_pretrained('distilbert-base-uncased')\ntext = 'Replace me by any text you'd like.'\nencoded_input = tokenizer(text, return_tensors='pt')\noutput = model(**encoded_input)"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "distilbert-base-uncased"
+            ],
+            "pretrained_datasets": [
+                "BookCorpus, English Wikipedia"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "distilbert-base-uncased",
+                        "size_pixels": "N/A",
+                        "map_val50_95": "N/A",
+                        "speed_cpu_onnx_ms": "N/A",
+                        "speed_a100_tensorrt_ms": "N/A",
+                        "params_m": "66M",
+                        "flops_b": "N/A"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "DistilBERT base model (uncased) is a transformers model, smaller and faster than BERT, which was pretrained on the same corpus in a self-supervised fashion, using the BERT base model as a teacher.",
+            "supported_labels": [
+                "N/A"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "This model is primarily aimed at being fine-tuned on tasks that use the whole sentence (potentially masked) to make decisions, such as sequence classification, token classification or question answering. For tasks such as text generation you should look at model like GPT2."
+            ],
+            "biases": [
+                "Even if the training data used for this model could be characterized as fairly neutral, this model can have biased predictions. It also inherits some of the bias of its teacher model."
+            ],
+            "risks": [
+                "N/A"
+            ]
+        },
+        "recommendations": [
+            "Fine-tune the model on a specific task for better results."
+        ],
+        "compute_infrastructure": {
+            "hardware": "8 16 GB V100",
+            "software": "PyTorch or TensorFlow"
+        },
+        "contact_information": {
+            "model_card_contact": "N/A"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter by Victor Sanh, Lysandre Debut, Julien Chaumond, Thomas Wolf"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "from transformers import pipeline\nunmasker = pipeline('fill-mask', model='distilbert-base-uncased')\nunmasker('Hello I'm a [MASK] model.')"
+        }
+    },
+    "gemma-2-9b": {
+        "model_name": "gemma-2-9b",
+        "developed_by": "Google",
+        "model_type": "Generative Text-to-Text Language Model",
+        "licensing": "Terms of Use: Terms",
+        "installation": {
+            "python_version": "Python 3",
+            "additional_libraries": "transformers, torch, accelerate, bitsandbytes, flash-attn",
+            "installation_command": "pip install -U transformers, torch, accelerate, bitsandbytes, flash-attn"
+        },
+        "usage": {
+            "cli_example": "N/A",
+            "python_example": "See 'Model Information' section in original JSON"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "gemma-2-9b"
+            ],
+            "pretrained_datasets": [
+                "Web documents, Code, Mathematics"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "gemma-2-9b",
+                        "size_pixels": "N/A",
+                        "map_val50_95": "N/A",
+                        "speed_cpu_onnx_ms": "N/A",
+                        "speed_a100_tensorrt_ms": "N/A",
+                        "params_m": "N/A",
+                        "flops_b": "N/A"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "Gemma is a family of lightweight, state-of-the-art open models from Google, built from the same research and technology used to create the Gemini models. They are text-to-text, decoder-only large language models, available in English, with open weights for both pre-trained variants and instruction-tuned variants.",
+            "supported_labels": [
+                "N/A"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "Training Data, Context and Task Complexity, Language Ambiguity and Nuance, Factual Accuracy, Common Sense"
+            ],
+            "biases": [
+                "Bias and Fairness"
+            ],
+            "risks": [
+                "Misinformation and Misuse, Transparency and Accountability, Privacy violations"
+            ]
+        },
+        "recommendations": [
+            "See 'Ethical Considerations and Risks' section in original JSON"
+        ],
+        "compute_infrastructure": {
+            "hardware": "Tensor Processing Unit (TPU) hardware (TPUv5p)",
+            "software": "JAX and ML Pathways"
+        },
+        "contact_information": {
+            "model_card_contact": "Google"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "Responsible Generative AI Toolkit, Gemma on Kaggle, Gemma on Vertex Model Garden"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "See 'Model Information' section in original JSON"
+        }
+    },
+    "gemma-2-27b-it": {
+        "model_name": "gemma-2-27b-it",
+        "developed_by": "Google",
+        "model_type": "text-to-text, decoder-only large language models",
+        "licensing": "Terms of Use: Terms",
+        "installation": {
+            "python_version": "",
+            "additional_libraries": "transformers, torch, bitsandbytes, accelerate",
+            "installation_command": "pip install -U transformers"
+        },
+        "usage": {
+            "cli_example": "",
+            "python_example": "from transformers import AutoTokenizer, AutoModelForCausalLM ... (see original JSON for full example)"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [],
+            "pretrained_datasets": [],
+            "performance_metrics": {}
+        },
+        "model_details": {
+            "model_description": "Gemma is a family of lightweight, state-of-the-art open models from Google, built from the same research and technology used to create the Gemini models. They are text-to-text, decoder-only large language models, available in English, with open weights for both pre-trained variants and instruction-tuned variants. Gemma models are well-suited for a variety of text generation tasks, including question answering, summarization, and reasoning.",
+            "supported_labels": []
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "Training Data",
+                "Context and Task Complexity",
+                "Language Ambiguity and Nuance",
+                "Factual Accuracy",
+                "Common Sense"
+            ],
+            "biases": [
+                "Bias and Fairness"
+            ],
+            "risks": [
+                "Misinformation and Misuse",
+                "Privacy violations"
+            ]
+        },
+        "recommendations": [
+            "Continuous monitoring",
+            "Exploration of de-biasing techniques",
+            "Implementing appropriate content safety safeguards",
+            "Adherence to privacy regulations"
+        ],
+        "compute_infrastructure": {
+            "hardware": "Tensor Processing Unit (TPU) hardware (TPUv5p)",
+            "software": "JAX and ML Pathways"
+        },
+        "contact_information": {
+            "model_card_contact": ""
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "Responsible Generative AI Toolkit",
+                "Gemma on Kaggle",
+                "Gemma on Vertex Model Garden"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "from transformers import AutoTokenizer, AutoModelForCausalLM ... (see original JSON for full example)"
+        }
+    },
+    "codegen-350M-multi": {
+        "model_name": "codegen-350M-multi",
+        "developed_by": "Erik Nijkamp, Bo Pang, Hiroaki Hayashi, Lifu Tu, Huan Wang, Yingbo Zhou, Silvio Savarese, Caiming Xiong",
+        "model_type": "AutoModelForCausalLM",
+        "licensing": "Not specified",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": "transformers",
+            "installation_command": "Not specified"
+        },
+        "usage": {
+            "cli_example": "Not specified",
+            "python_example": "from transformers import AutoTokenizer, AutoModelForCausalLM\ntokenizer = AutoTokenizer.from_pretrained(\"Salesforce/codegen-350M-multi\")\nmodel = AutoModelForCausalLM.from_pretrained(\"Salesforce/codegen-350M-multi\")\n\ntext =\"def hello_world():\"\ninput_ids = tokenizer(text, return_tensors=\"pt\").input_ids\n\ngenerated_ids = model.generate(input_ids, max_length=128)\nprint(tokenizer.decode(generated_ids[0], skip_special_tokens=True))"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "codegen-350M-multi"
+            ],
+            "pretrained_datasets": [
+                "BigQuery"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "codegen-350M-multi",
+                        "size_pixels": "Not applicable",
+                        "map_val50_95": "Not specified",
+                        "speed_cpu_onnx_ms": "Not specified",
+                        "speed_a100_tensorrt_ms": "Not specified",
+                        "params_m": "350M",
+                        "flops_b": "Not specified"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "CodeGen is a family of autoregressive language models for program synthesis. The models are originally released in this repository, under 3 pre-training data variants (NL, Multi, Mono) and 4 model size variants (350M, 2B, 6B, 16B). This checkpoint (CodeGen-Multi 350M) was firstly initialized with CodeGen-NL 350M, and then pre-trained on BigQuery, a large-scale dataset of multiple programming languages from GitHub repositories.",
+            "supported_labels": [
+                "Not specified"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "The model is intended for and best at program synthesis, that is, generating executable code given English prompts, where the prompts should be in the form of a comment string. The model can complete partially-generated code as well."
+            ],
+            "biases": [
+                "Not specified"
+            ],
+            "risks": [
+                "Not specified"
+            ]
+        },
+        "recommendations": [
+            "Not specified"
+        ],
+        "compute_infrastructure": {
+            "hardware": "TPU-v4-512 by Google",
+            "software": "Not specified"
+        },
+        "contact_information": {
+            "model_card_contact": "Not specified"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "A Conversational Paradigm for Program Synthesis by Erik Nijkamp, Bo Pang, Hiroaki Hayashi, Lifu Tu, Huan Wang, Yingbo Zhou, Silvio Savarese, Caiming Xiong."
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "Not specified"
+        }
+    }
+}
