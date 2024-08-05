@@ -1,0 +1,436 @@
+{
+    "YOLOv8": {
+        "model_task": "Object Detection",
+        "model_name": "YOLOv8",
+        "developed_by": "Ultralytics",
+        "model_type": "YOLO (You Only Look Once)",
+        "licensing": {
+            "open_source": {
+                "license_name": "AGPL-3.0",
+                "description": "This OSI-approved open-source license is ideal for students and enthusiasts, promoting open collaboration and knowledge sharing."
+            },
+            "enterprise": {
+                "description": "Designed for commercial use, this license permits seamless integration of Ultralytics software and AI models into commercial goods and services, bypassing the open-source requirements of AGPL-3.0."
+            }
+        },
+        "use_case": [
+            "Object detection and tracking",
+            "Instance segmentation",
+            "Image classification",
+            "Pose estimation"
+        ],
+        "advantages": "UltralyticsYOLOv8 is designed to be fast, accurate, and easy to use, making it an excellent choice for a wide range of tasks.",
+        "installation": {
+            "python_version": ">=3.8",
+            "additional_libraries": "PyTorch>=1.8",
+            "installation_command": "pip install ultralytics"
+        },
+        "usage": {
+            "cli_example": "yolo predict model=yolov8n.pt source='https://ultralytics.com/images/bus.jpg'",
+            "python_example": "from ultralytics import YOLO\nmodel = YOLO(\"yolov8n.yaml\")\nmodel.train(data=\"coco128.yaml\", epochs=3)"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "YOLOv8n",
+                "YOLOv8s",
+                "YOLOv8m",
+                "YOLOv8l",
+                "YOLOv8x"
+            ],
+            "pretrained_datasets": [
+                "COCO",
+                "Open Image V7",
+                "COCO-Seg",
+                "COCO-Pose",
+                "DOTAv1",
+                "ImageNet"
+            ],
+            "performance_metrics": [
+                {
+                    "model": "YOLOv8n",
+                    "size_pixels": "640",
+                    "map_val50_95": "37.3",
+                    "speed_cpu_onnx_ms": "80.4",
+                    "speed_a100_tensorrt_ms": "0.99",
+                    "params_m": "3.2",
+                    "flops_b": "8.7"
+                },
+                {
+                    "model": "YOLOv8s",
+                    "size_pixels": "640",
+                    "map_val50_95": "44.9",
+                    "speed_cpu_onnx_ms": "128.4",
+                    "speed_a100_tensorrt_ms": "1.20",
+                    "params_m": "11.2",
+                    "flops_b": "28.6"
+                },
+                {
+                    "model": "YOLOv8m",
+                    "size_pixels": "640",
+                    "map_val50_95": "50.2",
+                    "speed_cpu_onnx_ms": "234.7",
+                    "speed_a100_tensorrt_ms": "1.83",
+                    "params_m": "25.9",
+                    "flops_b": "78.9"
+                },
+                {
+                    "model": "YOLOv8l",
+                    "size_pixels": "640",
+                    "map_val50_95": "52.9",
+                    "speed_cpu_onnx_ms": "375.2",
+                    "speed_a100_tensorrt_ms": "2.39",
+                    "params_m": "43.7",
+                    "flops_b": "165.2"
+                },
+                {
+                    "model": "YOLOv8x",
+                    "size_pixels": "640",
+                    "map_val50_95": "53.9",
+                    "speed_cpu_onnx_ms": "479.1",
+                    "speed_a100_tensorrt_ms": "3.53",
+                    "params_m": "68.2",
+                    "flops_b": "257.8"
+                }
+            ]
+        },
+        "model_details": {
+            "model_description": "UltralyticsYOLOv8 is a cutting-edge, state-of-the-art (SOTA) model that builds upon the success of previous YOLO versions and introduces new features and improvements to further boost performance and flexibility.",
+            "supported_labels": [
+                "80 classes for COCO",
+                "600 classes for Open Image V7",
+                "1 class (person) for COCO-Pose",
+                "15 classes for DOTAv1",
+                "1000 classes for ImageNet"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": "Performance may vary based on the dataset used for training.",
+            "biases": "Model performance is dependent on the quality and diversity of the training dataset.",
+            "risks": "Usage in critical applications should be thoroughly tested to ensure reliability."
+        },
+        "recommendations": "For best performance, use the pretrained models and fine-tune them on your specific dataset.",
+        "compute_infrastructure": {
+            "hardware": "Amazon EC2 P4d instance",
+            "software": "Python 3.8, PyTorch 1.8"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "YOLOv8 Docs",
+                "Ultralytics GitHub",
+                "Ultralytics Discord Community",
+                "YOLOv8 YouTube Tutorials"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "from ultralytics import YOLO\nmodel = YOLO(\"yolov8n.yaml\")\nmodel.train(data=\"coco128.yaml\", epochs=3)"
+        }
+    },
+    "swin-tiny-patch4-window7-224": {
+        "model_task": "Object Detection",
+        "model_name": "swin-tiny-patch4-window7-224",
+        "developed_by": "Ze Liu, Yutong Lin, Yue Cao, Han Hu, Yixuan Wei, Zheng Zhang, Stephen Lin, Baining Guo",
+        "model_type": "Vision Transformer",
+        "licensing": "Not specified",
+        "use_case": "Image classification on ImageNet-1k",
+        "advantages": "Hierarchical feature maps with linear computation complexity to input image size",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": "PIL, requests, transformers",
+            "installation_command": "pip install transformers"
+        },
+        "usage": {
+            "cli_example": "Not provided",
+            "python_example": "from transformers import AutoImageProcessor, AutoModelForImageClassification\nfrom PIL import Image\nimport requests\n\nurl = \"http://images.cocodataset.org/val2017/000000039769.jpg\"\nimage = Image.open(requests.get(url, stream=True).raw)\n\nprocessor = AutoImageProcessor.from_pretrained(\"microsoft/swin-tiny-patch4-window7-224\")\nmodel = AutoModelForImageClassification.from_pretrained(\"microsoft/swin-tiny-patch4-window7-224\")\n\ninputs = processor(images=image, return_tensors=\"pt\")\noutputs = model(**inputs)\nlogits = outputs.logits\npredicted_class_idx = logits.argmax(-1).item()\nprint(\"Predicted class:\", model.config.id2label[predicted_class_idx])"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": "swin-tiny-patch4-window7-224",
+            "pretrained_datasets": "ImageNet-1k",
+            "performance_metrics": {
+                "model": "Not specified",
+                "size_pixels": "224x224",
+                "map_val50_95": "Not specified",
+                "speed_cpu_onnx_ms": "Not specified",
+                "speed_a100_tensorrt_ms": "Not specified",
+                "params_m": "Not specified",
+                "flops_b": "Not specified"
+            }
+        },
+        "model_details": {
+            "model_description": "The Swin Transformer is a type of Vision Transformer. It builds hierarchical feature maps by merging image patches in deeper layers and has linear computation complexity to input image size due to computation of self-attention only within each local window.",
+            "supported_labels": "1,000 ImageNet classes"
+        },
+        "limitations_and_biases": {
+            "limitations": "Not specified",
+            "biases": "Not specified",
+            "risks": "Not specified"
+        },
+        "recommendations": "Not specified",
+        "compute_infrastructure": {
+            "hardware": "Not specified",
+            "software": "Not specified"
+        },
+        "references": {
+            "related_papers_and_resources": "https://arxiv.org/abs/2103.14030"
+        },
+        "example_implementation": {
+            "sample_code": "from transformers import AutoImageProcessor, AutoModelForImageClassification\nfrom PIL import Image\nimport requests\n\nurl = \"http://images.cocodataset.org/val2017/000000039769.jpg\"\nimage = Image.open(requests.get(url, stream=True).raw)\n\nprocessor = AutoImageProcessor.from_pretrained(\"microsoft/swin-tiny-patch4-window7-224\")\nmodel = AutoModelForImageClassification.from_pretrained(\"microsoft/swin-tiny-patch4-window7-224\")\n\ninputs = processor(images=image, return_tensors=\"pt\")\noutputs = model(**inputs)\nlogits = outputs.logits\npredicted_class_idx = logits.argmax(-1).item()\nprint(\"Predicted class:\", model.config.id2label[predicted_class_idx])"
+        }
+    },
+    "detr-resnet-50": {
+        "model_task": "Object Detection",
+        "model_name": "detr-resnet-50",
+        "developed_by": "Hugging Face team (based on the original paper by Carion et al.)",
+        "model_type": "Encoder-Decoder Transformer with Convolutional Backbone",
+        "licensing": "N/A (No specific licensing information provided)",
+        "use_case": "Object detection in images",
+        "advantages": "End-to-end object detection with transformers, utilizes Hungarian matching algorithm for optimal one-to-one mapping between queries and annotations.",
+        "installation": {
+            "python_version": "Compatible with versions supporting torch and transformers libraries",
+            "additional_libraries": "torch, transformers, PIL, requests",
+            "installation_command": "pip install torch transformers Pillow requests"
+        },
+        "usage": {
+            "cli_example": "N/A",
+            "python_example": "from transformers import DetrImageProcessor, DetrForObjectDetection\nimport torch\nfrom PIL import Image\nimport requests\n\nurl =\"http://images.cocodataset.org/val2017/000000039769.jpg\"\nimage = Image.open(requests.get(url, stream=True).raw)\nprocessor = DetrImageProcessor.from_pretrained(\"facebook/detr-resnet-50\", revision=\"no_timm\")\nmodel = DetrForObjectDetection.from_pretrained(\"facebook/detr-resnet-50\", revision=\"no_timm\")\n\ninputs = processor(images=image, return_tensors=\"pt\")\noutputs = model(**inputs)\ntarget_sizes = torch.tensor([image.size[::-1]])\nresults = processor.post_process_object_detection(outputs, target_sizes=target_sizes, threshold=0.9)[0]\nfor score, label, box in zip(results[\"scores\"], results[\"labels\"], results[\"boxes\"]):\n    box = [round(i,2) for i in box.tolist()]\n    print(f\"Detected {model.config.id2label[label.item()]} with confidence {round(score.item(),3)} at location {box}\")"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": "facebook/detr-resnet-50",
+            "pretrained_datasets": "COCO 2017 object detection (118k annotated images)",
+            "performance_metrics": {
+                "model": "detr-resnet-50",
+                "size_pixels": "800-1333 (shortest side at least 800 pixels and the largest side at most 1333 pixels)",
+                "map_val50_95": "42.0",
+                "speed_cpu_onnx_ms": "N/A",
+                "speed_a100_tensorrt_ms": "N/A",
+                "params_m": "N/A",
+                "flops_b": "N/A"
+            }
+        },
+        "model_details": {
+            "model_description": "DETR (End-to-End Object Detection) model with ResNet-50 backbone. DETR is an encoder-decoder transformer with a convolutional backbone. Two heads are added on top of the decoder outputs for object detection: a linear layer for the class labels and a MLP (multi-layer perceptron) for the bounding boxes. The model uses object queries to detect objects in an image.",
+            "supported_labels": "COCO 2017 object detection labels"
+        },
+        "limitations_and_biases": {
+            "limitations": "The model was trained on COCO 2017, which may not generalize to all types of images or objects.",
+            "biases": "Potential biases inherent in the COCO dataset, such as certain object classes being underrepresented.",
+            "risks": "Misidentification or failure to detect certain objects, especially those not well-represented in the training dataset."
+        },
+        "recommendations": "Use this model for object detection tasks within the scope of COCO 2017 dataset. Evaluate performance on your specific dataset and consider fine-tuning if necessary.",
+        "compute_infrastructure": {
+            "hardware": "16 V100 GPUs for training",
+            "software": "PyTorch, transformers library"
+        },
+        "references": {
+            "related_papers_and_resources": "Carion et al., \"End-to-End Object Detection with Transformers\", https://arxiv.org/abs/2005.12872"
+        },
+        "example_implementation": {
+            "sample_code": "from transformers import DetrImageProcessor, DetrForObjectDetection\nimport torch\nfrom PIL import Image\nimport requests\n\nurl =\"http://images.cocodataset.org/val2017/000000039769.jpg\"\nimage = Image.open(requests.get(url, stream=True).raw)\nprocessor = DetrImageProcessor.from_pretrained(\"facebook/detr-resnet-50\", revision=\"no_timm\")\nmodel = DetrForObjectDetection.from_pretrained(\"facebook/detr-resnet-50\", revision=\"no_timm\")\n\ninputs = processor(images=image, return_tensors=\"pt\")\noutputs = model(**inputs)\ntarget_sizes = torch.tensor([image.size[::-1]])\nresults = processor.post_process_object_detection(outputs, target_sizes=target_sizes, threshold=0.9)[0]\nfor score, label, box in zip(results[\"scores\"], results[\"labels\"], results[\"boxes\"]):\n    box = [round(i,2) for i in box.tolist()]\n    print(f\"Detected {model.config.id2label[label.item()]} with confidence {round(score.item(),3)} at location {box}\")"
+        }
+    },
+    "gpt2": {
+        "model_task": "Large Language Models",
+        "model_name": "gpt2",
+        "developed_by": "OpenAI",
+        "model_type": "Transformers model",
+        "licensing": "Not specified",
+        "use_case": "Text generation, feature extraction",
+        "advantages": "Pretrained on a very large corpus of English data in a self-supervised fashion",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": "transformers",
+            "installation_command": "pip install transformers"
+        },
+        "usage": {
+            "cli_example": "Not specified",
+            "python_example": ">>> from transformers import pipeline, set_seed\n>>> generator = pipeline('text-generation', model='gpt2')\n>>> set_seed(42)\n>>> generator(\"Hello, I'm a language model,\", max_length=30, num_return_sequences=5)"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": "GPT-Large, GPT-Medium, GPT-XL",
+            "pretrained_datasets": "WebText (not publicly released)",
+            "performance_metrics": {
+                "model": "GPT-2",
+                "size_pixels": "Not applicable",
+                "map_val50_95": "Not applicable",
+                "speed_cpu_onnx_ms": "Not applicable",
+                "speed_a100_tensorrt_ms": "Not applicable",
+                "params_m": "124M",
+                "flops_b": "Not specified"
+            }
+        },
+        "model_details": {
+            "model_description": "GPT-2 is a transformers model pretrained on a very large corpus of English data in a self-supervised fashion. It was trained to guess the next word in sentences, using sequences of continuous text as inputs and the same sequences shifted one token to the right as targets. The model uses an internal mask mechanism to ensure predictions for a token only use the inputs from 1 to i but not future tokens.",
+            "supported_labels": "Not specified"
+        },
+        "limitations_and_biases": {
+            "limitations": "The training data used for this model has not been released as a dataset one can browse. It contains a lot of unfiltered content from the internet, which is far from neutral.",
+            "biases": "The model can reflect biases inherent to the systems it was trained on. Examples include biased predictions based on race and gender.",
+            "risks": "The generated text may not be factual and can contain biases."
+        },
+        "recommendations": "Do not deploy the model into systems that interact with humans unless a study of biases relevant to the intended use-case is carried out.",
+        "compute_infrastructure": {
+            "hardware": "256 cloud TPU v3 cores",
+            "software": "Not specified"
+        },
+        "references": {
+            "related_papers_and_resources": "@article{radford2019language,\n  title={Language Models are Unsupervised Multitask Learners},\n  author={Radford, Alec and Wu, Jeff and Child, Rewon and Luan, David and Amodei, Dario and Sutskever, Ilya},\n  year={2019}\n}"
+        },
+        "example_implementation": {
+            "sample_code": ">>> from transformers import GPT2Tokenizer, GPT2Model\n>>> tokenizer = GPT2Tokenizer.from_pretrained('gpt2')\n>>> model = GPT2Model.from_pretrained('gpt2')\n>>> text = \"Replace me by any text you'd like.\"\n>>> encoded_input = tokenizer(text, return_tensors='pt')\n>>> output = model(**encoded_input)\n\n# TensorFlow example\n>>> from transformers import GPT2Tokenizer, TFGPT2Model\n>>> tokenizer = GPT2Tokenizer.from_pretrained('gpt2')\n>>> model = TFGPT2Model.from_pretrained('gpt2')\n>>> text = \"Replace me by any text you'd like.\"\n>>> encoded_input = tokenizer(text, return_tensors='tf')\n>>> output = model(encoded_input)"
+        }
+    },
+    "bert-base-uncased": "Here's the transformed JSON based on the given schema for the BERT model, classified under \"Large Language Models\":\n\n```json\n[\n    {\n        \"model_task\": \"Large Language Models\",\n        \"model_name\": \"bert-base-uncased\",\n        \"developed_by\": \"Google Research\",\n        \"model_type\": \"Transformer\",\n        \"licensing\": \"Apache 2.0\",\n        \"use_case\": \"Masked language modeling, next sentence prediction, sequence classification, token classification, question answering\",\n        \"advantages\": \"BERT allows learning a bidirectional representation of the sentence, which is different from traditional recurrent neural networks (RNNs) and autoregressive models like GPT.\",\n        \"installation\": {\n            \"python_version\": \"3.6+\",\n            \"additional_libraries\": \"transformers, torch, tensorflow\",\n            \"installation_command\": \"pip install transformers torch tensorflow\"\n        },\n        \"usage\": {\n            \"cli_example\": \"N/A\",\n            \"python_example\": \"from transformers import pipeline\\nunmasker = pipeline('fill-mask', model='bert-base-uncased')\\nunmasker(\\\"Hello I'm a [MASK] model.\\\")\"\n        },\n        \"pretrained_models_and_performance_metrics\": {\n            \"available_models\": \"bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-chinese, bert-base-multilingual-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking\",\n            \"pretrained_datasets\": \"BookCorpus, English Wikipedia\",\n            \"performance_metrics\": [\n                {\n                    \"model\": \"bert-base-uncased\",\n                    \"size_pixels\": \"N/A\",\n                    \"map_val50_95\": \"N/A\",\n                    \"speed_cpu_onnx_ms\": \"N/A\",\n                    \"speed_a100_tensorrt_ms\": \"N/A\",\n                    \"params_m\": \"110M\",\n                    \"flops_b\": \"N/A\"\n                },\n                {\n                    \"model\": \"bert-large-uncased\",\n                    \"size_pixels\": \"N/A\",\n                    \"map_val50_95\": \"N/A\",\n                    \"speed_cpu_onnx_ms\": \"N/A\",\n                    \"speed_a100_tensorrt_ms\": \"N/A\",\n                    \"params_m\": \"340M\",\n                    \"flops_b\": \"N/A\"\n                }\n            ]\n        },\n        \"model_details\": {\n            \"model_description\": \"BERT is a transformers model pretrained on a large corpus of English data in a self-supervised fashion. It was pretrained with two objectives: Masked language modeling (MLM) and Next sentence prediction (NSP).\",\n            \"supported_labels\": \"N/A\"\n        },\n        \"limitations_and_biases\": {\n            \"limitations\": \"This model is primarily aimed at being fine-tuned on tasks that use the whole sentence (potentially masked) to make decisions, such as sequence classification, token classification, or question answering.\",\n            \"biases\": \"Even if the training data used for this model could be characterized as fairly neutral, this model can have biased predictions.\",\n            \"risks\": \"This bias will also affect all fine-tuned versions of this model.\"\n        },\n        \"recommendations\": \"For tasks such as text generation, you should look at models like GPT-2.\",\n        \"compute_infrastructure\": {\n            \"hardware\": \"4 cloud TPUs in Pod configuration (16 TPU chips total)\",\n            \"software\": \"PyTorch, TensorFlow\"\n        },\n        \"references\": {\n            \"related_papers_and_resources\": \"Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova: BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. CoRR abs/1810.04805 (2018).\"\n        },\n        \"example_implementation\": {\n            \"sample_code\": \"from transformers import BertTokenizer, BertModel\\ntokenizer = BertTokenizer.from_pretrained('bert-base-uncased')\\nmodel = BertModel.from_pretrained('bert-base-uncased')\\ntext = 'Replace me by any text you\\'d like.'\\nencoded_input = tokenizer(text, return_tensors='pt')\\noutput = model(**encoded_input)\"\n        }\n    }\n]\n```\n\nThis transformation includes the details specified in the original JSON into the unified schema for the BERT model. The model is classified under \"Large Language Models\" based on its use case and characteristics.",
+    "Meta-Llama-3-8B": {
+        "model_task": "Large Language Models",
+        "model_name": "Meta-Llama-3-8B",
+        "developed_by": "Meta",
+        "model_type": "Generative Text Model",
+        "licensing": "A custom commercial license is available at: https://llama.meta.com/llama3/license",
+        "use_case": "Llama 3 is intended for commercial and research use in English. Instruction tuned models are intended for assistant-like chat, whereas pretrained models can be adapted for a variety of natural language generation tasks.",
+        "advantages": "Llama 3 instruction tuned models are optimized for dialogue use cases and outperform many of the available open source chat models on common industry benchmarks.",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": "transformers, torch",
+            "installation_command": "huggingface-cli download meta-llama/Meta-Llama-3-8B --include \"original/*\" --local-dir Meta-Llama-3-8B"
+        },
+        "usage": {
+            "cli_example": "huggingface-cli download meta-llama/Meta-Llama-3-8B --include \"original/*\" --local-dir Meta-Llama-3-8B",
+            "python_example": "import transformers\nimport torch\nmodel_id = \"meta-llama/Meta-Llama-3-8B\"\npipeline = transformers.pipeline(\"text-generation\", model=model_id, model_kwargs={\"torch_dtype\": torch.bfloat16}, device_map=\"auto\")\npipeline(\"Hey how are you doing today?\")"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": "Llama 3 8B, Llama 3 70B",
+            "pretrained_datasets": "Over 15 trillion tokens of data from publicly available sources.",
+            "performance_metrics": {
+                "model": "Llama 3 8B",
+                "size_pixels": "Not applicable",
+                "map_val50_95": "Not applicable",
+                "speed_cpu_onnx_ms": "Not applicable",
+                "speed_a100_tensorrt_ms": "Not applicable",
+                "params_m": "8B parameters",
+                "flops_b": "Not specified"
+            }
+        },
+        "model_details": {
+            "model_description": "Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety.",
+            "supported_labels": "Not specified"
+        },
+        "limitations_and_biases": {
+            "limitations": "Use in any manner that violates applicable laws or regulations (including trade compliance laws). Use in any other way that is prohibited by the Acceptable Use Policy and Llama 3 Community License. Use in languages other than English.",
+            "biases": "The model may in some instances produce inaccurate, biased or other objectionable responses to user prompts.",
+            "risks": "Residual risks will likely remain and we recommend that developers assess these risks in the context of their use case."
+        },
+        "recommendations": "Developers should perform safety testing and tuning tailored to their specific applications of the model. Incorporating Purple Llama solutions into your workflows and specifically Llama Guard which provides a base model to filter input and output prompts to layer system-level safety on top of model-level safety.",
+        "compute_infrastructure": {
+            "hardware": "Meta's Research SuperCluster, and production clusters for pretraining. Fine-tuning, annotation, and evaluation were also performed on third-party cloud compute.",
+            "software": "Custom training libraries, transformers"
+        },
+        "references": {
+            "related_papers_and_resources": "https://github.com/meta-llama/llama3/blob/main/MODEL_CARD.md"
+        },
+        "example_implementation": {
+            "sample_code": "import transformers\nimport torch\nmodel_id = \"meta-llama/Meta-Llama-3-8B\"\npipeline = transformers.pipeline(\"text-generation\", model=model_id, model_kwargs={\"torch_dtype\": torch.bfloat16}, device_map=\"auto\")\npipeline(\"Hey how are you doing today?\")"
+        }
+    },
+    "stable-audio-open-1.0": {
+        "model_task": "Text-to-Audio Models",
+        "model_name": "stable-audio-open-1.0",
+        "developed_by": "Stability AI",
+        "model_type": "Latent diffusion model based on a transformer architecture",
+        "licensing": "Stability AI Community License. For commercial use, refer to https://stability.ai/license",
+        "use_case": "Research and experimentation on AI-based music and audio generation, including generating music and audio guided by text prompts.",
+        "advantages": "Generates variable-length (up to 47s) stereo audio at 44.1kHz from text prompts.",
+        "installation": {
+            "python_version": "Python 3.8+",
+            "additional_libraries": "torch, torchaudio, einops, diffusers, soundfile",
+            "installation_command": "pip install -U diffusers"
+        },
+        "usage": {
+            "cli_example": "N/A",
+            "python_example": "import torch\nimport torchaudio\nfrom einops import rearrange\nfrom stable_audio_tools import get_pretrained_model\nfrom stable_audio_tools.inference.generation import generate_diffusion_cond\n\ndevice = \"cuda\" if torch.cuda.is_available() else \"cpu\"\nmodel, model_config = get_pretrained_model(\"stabilityai/stable-audio-open-1.0\")\nsample_rate = model_config[\"sample_rate\"]\nsample_size = model_config[\"sample_size\"]\nmodel = model.to(device)\nconditioning = [{\"prompt\": \"128 BPM tech house drum loop\", \"seconds_start\": 0, \"seconds_total\": 30}]\noutput = generate_diffusion_cond(\n    model,\n    steps=100,\n    cfg_scale=7,\n    conditioning=conditioning,\n    sample_size=sample_size,\n    sigma_min=0.3,\n    sigma_max=500,\n    sampler_type=\"dpmpp-3m-sde\",\n    device=device\n)\noutput = rearrange(output, \"b d n -> d (b n)\")\noutput = output.to(torch.float32).div(torch.max(torch.abs(output))).clamp(-1, 1).mul(32767).to(torch.int16).cpu()\ntorchaudio.save(\"output.wav\", output, sample_rate)\n\nimport torch\nimport soundfile as sf\nfrom diffusers import StableAudioPipeline\n\npipe = StableAudioPipeline.from_pretrained(\"stabilityai/stable-audio-open-1.0\", torch_dtype=torch.float16)\npipe = pipe.to(\"cuda\")\nprompt = \"The sound of a hammer hitting a wooden surface.\"\nnegative_prompt = \"Low quality.\"\ngenerator = torch.Generator(\"cuda\").manual_seed(0)\naudio = pipe(\n    prompt,\n    negative_prompt=negative_prompt,\n    num_inference_steps=200,\n    audio_end_in_s=10.0,\n    num_waveforms_per_prompt=3,\n    generator=generator,\n).audios\noutput = audio[0].T.float().cpu().numpy()\nsf.write(\"hammer.wav\", output, pipe.vae.sampling_rate)"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": "stabilityai/stable-audio-open-1.0",
+            "pretrained_datasets": "Freesound, Free Music Archive (FMA)",
+            "performance_metrics": {
+                "model": "N/A",
+                "size_pixels": "N/A",
+                "map_val50_95": "N/A",
+                "speed_cpu_onnx_ms": "N/A",
+                "speed_a100_tensorrt_ms": "N/A",
+                "params_m": "N/A",
+                "flops_b": "N/A"
+            }
+        },
+        "model_details": {
+            "model_description": "Stable Audio Open 1.0 generates variable-length (up to 47s) stereo audio at 44.1kHz from text prompts. It comprises three components: an autoencoder, a T5-based text embedding for text conditioning, and a transformer-based diffusion (DiT) model.",
+            "supported_labels": "N/A"
+        },
+        "limitations_and_biases": {
+            "limitations": "The model is not able to generate realistic vocals. It has been trained with English descriptions and will not perform as well in other languages. It does not perform equally well for all music styles and cultures. It is better at generating sound effects and field recordings than music.",
+            "biases": "The source of data is potentially lacking diversity and all cultures are not equally represented in the dataset.",
+            "risks": "The model may not perform equally well on the wide variety of music genres and sound effects that exist. The generated samples from the model will reflect the biases from the training data."
+        },
+        "recommendations": "The model should not be used on downstream applications without further risk evaluation and mitigation. It should not be used to intentionally create or disseminate audio or music pieces that create hostile or alienating environments for people.",
+        "compute_infrastructure": {
+            "hardware": "CUDA-compatible GPU",
+            "software": "Python 3.8+, PyTorch"
+        },
+        "references": {
+            "related_papers_and_resources": "Research Paper: https://arxiv.org/abs/2407.14358"
+        },
+        "example_implementation": {
+            "sample_code": "import torch\nimport torchaudio\nfrom einops import rearrange\nfrom stable_audio_tools import get_pretrained_model\nfrom stable_audio_tools.inference.generation import generate_diffusion_cond\n\ndevice = \"cuda\" if torch.cuda.is_available() else \"cpu\"\nmodel, model_config = get_pretrained_model(\"stabilityai/stable-audio-open-1.0\")\nsample_rate = model_config[\"sample_rate\"]\nsample_size = model_config[\"sample_size\"]\nmodel = model.to(device)\nconditioning = [{\"prompt\": \"128 BPM tech house drum loop\", \"seconds_start\": 0, \"seconds_total\": 30}]\noutput = generate_diffusion_cond(\n    model,\n    steps=100,\n    cfg_scale=7,\n    conditioning=conditioning,\n    sample_size=sample_size,\n    sigma_min=0.3,\n    sigma_max=500,\n    sampler_type=\"dpmpp-3m-sde\",\n    device=device\n)\noutput = rearrange(output, \"b d n -> d (b n)\")\noutput = output.to(torch.float32).div(torch.max(torch.abs(output))).clamp(-1, 1).mul(32767).to(torch.int16).cpu()\ntorchaudio.save(\"output.wav\", output, sample_rate)\n\nimport torch\nimport soundfile as sf\nfrom diffusers import StableAudioPipeline\n\npipe = StableAudioPipeline.from_pretrained(\"stabilityai/stable-audio-open-1.0\", torch_dtype=torch.float16)\npipe = pipe.to(\"cuda\")\nprompt = \"The sound of a hammer hitting a wooden surface.\"\nnegative_prompt = \"Low quality.\"\ngenerator = torch.Generator(\"cuda\").manual_seed(0)\naudio = pipe(\n    prompt,\n    negative_prompt=negative_prompt,\n    num_inference_steps=200,\n    audio_end_in_s=10.0,\n    num_waveforms_per_prompt=3,\n    generator=generator,\n).audios\noutput = audio[0].T.float().cpu().numpy()\nsf.write(\"hammer.wav\", output, pipe.vae.sampling_rate)"
+        }
+    },
+    "ChatTTS": "Sure, let's transform the given JSON into the specified unified schema and classify it based on the task it performs.\n\n### Original JSON:\n```json\n{\n    \"ChatTTS\": {\n        \"Model Overview\": \"We are also training larger-scale models and need computational power and data support. If you can provide assistance, please contact OPEN-SOURCE@2NOISE.COM. Thank you very much. Clone the Repository. First, clone the Git repository: git clone https://github.com/2noise/ChatTTS.git. Model Inference: Import necessary libraries and configure settings import torch import torchaudio torch._dynamo.config.cache_size_limit = 64 torch._dynamo.config.suppress_errors = True torch.set_float32_matmul_precision('high') import ChatTTS from IPython.display import Audio. Initialize and load the model: chat = ChatTTS.Chat() chat.load_models(compile=False) # Set to True for better performance. Define the text input for inference (Support Batching) texts = [\\\"So we found being competitive and collaborative was a huge way of staying motivated towards our goals, so one person to call when you fall off, one person who gets you back on then one person to actually do the activity with.\\\"] # Perform inference and play the generated audio wavs = chat.infer(texts) Audio(wavs[0], rate=24_000, autoplay=True) # Save the generated audio torchaudio.save(\\\"output.wav\\\", torch.from_numpy(wavs[0]), 24000). For more usage examples, please refer to the example notebook, which includes parameters for finer control over the generated speech, such as specifying the speaker, adjusting speech speed, and adding laughter. Disclaimer: For Academic Purposes Only. The information provided in this document is for academic purposes only. It is intended for educational and research use, and should not be used for any commercial or legal purposes. The authors do not guarantee the accuracy, completeness, or reliability of the information.\"\n    }\n}\n```\n\n### Transformed JSON:\n```json\n{\n    \"model_task\": \"Text-to-Audio Models\",\n    \"model_name\": \"ChatTTS\",\n    \"developed_by\": \"2NOISE\",\n    \"model_type\": \"Text-to-Speech\",\n    \"licensing\": \"For Academic Purposes Only\",\n    \"use_case\": \"Converting text input into speech audio\",\n    \"advantages\": \"Supports fine control over generated speech, such as specifying the speaker, adjusting speech speed, and adding laughter\",\n    \"installation\": {\n        \"python_version\": \">=3.6\",\n        \"additional_libraries\": \"torch, torchaudio, IPython\",\n        \"installation_command\": \"git clone https://github.com/2noise/ChatTTS.git\"\n    },\n    \"usage\": {\n        \"cli_example\": \"N/A\",\n        \"python_example\": \"import torch\\nimport torchaudio\\ntorch._dynamo.config.cache_size_limit = 64\\ntorch._dynamo.config.suppress_errors = True\\ntorch.set_float32_matmul_precision('high')\\nimport ChatTTS\\nfrom IPython.display import Audio\\nchat = ChatTTS.Chat()\\nchat.load_models(compile=False)\\ntexts = [\\\"So we found being competitive and collaborative was a huge way of staying motivated towards our goals, so one person to call when you fall off, one person who gets you back on then one person to actually do the activity with.\\\"]\\nwavs = chat.infer(texts)\\nAudio(wavs[0], rate=24_000, autoplay=True)\\ntorchaudio.save(\\\"output.wav\\\", torch.from_numpy(wavs[0]), 24000)\"\n    },\n    \"pretrained_models_and_performance_metrics\": {\n        \"available_models\": \"N/A\",\n        \"pretrained_datasets\": \"N/A\",\n        \"performance_metrics\": {\n            \"model\": \"ChatTTS\",\n            \"size_pixels\": \"N/A\",\n            \"map_val50_95\": \"N/A\",\n            \"speed_cpu_onnx_ms\": \"N/A\",\n            \"speed_a100_tensorrt_ms\": \"N/A\",\n            \"params_m\": \"N/A\",\n            \"flops_b\": \"N/A\"\n        }\n    },\n    \"model_details\": {\n        \"model_description\": \"ChatTTS is a Text-to-Speech model that converts text input into audio output. It supports various parameters for finer control over the generated speech.\",\n        \"supported_labels\": \"N/A\"\n    },\n    \"limitations_and_biases\": {\n        \"limitations\": \"The model is intended for academic purposes only and should not be used for commercial or legal purposes.\",\n        \"biases\": \"N/A\",\n        \"risks\": \"N/A\"\n    },\n    \"recommendations\": \"For academic and research use only.\",\n    \"compute_infrastructure\": {\n        \"hardware\": \"N/A\",\n        \"software\": \"N/A\"\n    },\n    \"references\": {\n        \"related_papers_and_resources\": \"https://github.com/2noise/ChatTTS.git\"\n    },\n    \"example_implementation\": {\n        \"sample_code\": \"import torch\\nimport torchaudio\\ntorch._dynamo.config.cache_size_limit = 64\\ntorch._dynamo.config.suppress_errors = True\\ntorch.set_float32_matmul_precision('high')\\nimport ChatTTS\\nfrom IPython.display import Audio\\nchat = ChatTTS.Chat()\\nchat.load_models(compile=False)\\ntexts = [\\\"So we found being competitive and collaborative was a huge way of staying motivated towards our goals, so one person to call when you fall off, one person who gets you back on then one person to actually do the activity with.\\\"]\\nwavs = chat.infer(texts)\\nAudio(wavs[0], rate=24_000, autoplay=True)\\ntorchaudio.save(\\\"output.wav\\\", torch.from_numpy(wavs[0]), 24000)\"\n    }\n}\n```\n\n### Classification:\nThis model falls under the task category of \"Text-to-Audio Models.\"\n\nIn this transformed JSON, the fields have been populated based on the information presented in the original JSON. Note that some fields like `available_models`, `pretrained_datasets`, `performance_metrics`, and others are marked as \"N/A\" because the original JSON doesn't provide that information.",
+    "bark": {
+        "model_task": "Text-to-Audio Models",
+        "model_name": "Bark",
+        "developed_by": "Suno",
+        "model_type": "Transformer-based",
+        "licensing": "Research purposes only. The model output is not censored and the authors do not endorse the opinions in the generated content. Use at your own risk.",
+        "use_case": "Generating highly realistic, multilingual speech, music, background noise, simple sound effects, and nonverbal communications like laughing, sighing, and crying.",
+        "advantages": "Bark can generate multilingual speech and various audio types, including nonverbal communications, which makes it highly versatile for accessibility tools.",
+        "installation": {
+            "python_version": "Python 3.x",
+            "additional_libraries": "transformers, scipy, bark",
+            "installation_command": "pip install --upgrade pip\npip install --upgrade transformers scipy bark"
+        },
+        "usage": {
+            "cli_example": "Not available",
+            "python_example": "from transformers import pipeline, AutoProcessor, AutoModel\nimport scipy\n\nsynthesiser = pipeline(\"text-to-speech\", \"suno/bark\")\nspeech = synthesiser(\"Hello, my dog is cooler than you!\", forward_params={\"do_sample\": True})\nscipy.io.wavfile.write(\"bark_out.wav\", rate=speech[\"sampling_rate\"], data=speech[\"audio\"])\n\nprocessor = AutoProcessor.from_pretrained(\"suno/bark\")\nmodel = AutoModel.from_pretrained(\"suno/bark\")\n\ninputs = processor(\n    text=[\"Hello, my name is Suno. And, uh \u2013 and I like pizza. [laughs] But I also have other interests such as playing tic tac toe.\"],\n    return_tensors=\"pt\",\n)\n\nspeech_values = model.generate(**inputs, do_sample=True)\n\nsampling_rate = model.generation_config.sample_rate\nscipy.io.wavfile.write(\"bark_out.wav\", rate=sampling_rate, data=speech_values.cpu().numpy().squeeze())"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": "small, large",
+            "pretrained_datasets": "Not specified",
+            "performance_metrics": {
+                "model": "Bark",
+                "size_pixels": "Not applicable",
+                "map_val50_95": "Not applicable",
+                "speed_cpu_onnx_ms": "Not specified",
+                "speed_a100_tensorrt_ms": "Not specified",
+                "params_m": "80/300 M",
+                "flops_b": "Not specified"
+            }
+        },
+        "model_details": {
+            "model_description": "Bark is a series of three transformer models that turn text into audio. It includes Text to semantic tokens, Semantic to coarse tokens, and Coarse to fine tokens.",
+            "supported_labels": "Not applicable"
+        },
+        "limitations_and_biases": {
+            "limitations": "Potential for dual use, not straightforward to voice clone known people, but can still be used for nefarious purposes.",
+            "biases": "Not specified",
+            "risks": "Unintended use for nefarious purposes."
+        },
+        "recommendations": "Use for research purposes only and be aware of the potential risks associated with the model.",
+        "compute_infrastructure": {
+            "hardware": "Not specified",
+            "software": "Transformers library version 4.31.0 onwards, scipy, bark"
+        },
+        "references": {
+            "related_papers_and_resources": "Original GitHub repo and model card can be found here."
+        },
+        "example_implementation": {
+            "sample_code": "from transformers import pipeline, AutoProcessor, AutoModel\nimport scipy\n\nsynthesiser = pipeline(\"text-to-speech\", \"suno/bark\")\nspeech = synthesiser(\"Hello, my dog is cooler than you!\", forward_params={\"do_sample\": True})\nscipy.io.wavfile.write(\"bark_out.wav\", rate=speech[\"sampling_rate\"], data=speech[\"audio\"])\n\nprocessor = AutoProcessor.from_pretrained(\"suno/bark\")\nmodel = AutoModel.from_pretrained(\"suno/bark\")\n\ninputs = processor(\n    text=[\"Hello, my name is Suno. And, uh \u2013 and I like pizza. [laughs] But I also have other interests such as playing tic tac toe.\"],\n    return_tensors=\"pt\",\n)\n\nspeech_values = model.generate(**inputs, do_sample=True)\n\nsampling_rate = model.generation_config.sample_rate\nscipy.io.wavfile.write(\"bark_out.wav\", rate=sampling_rate, data=speech_values.cpu().numpy().squeeze())"
+        }
+    }
+}
