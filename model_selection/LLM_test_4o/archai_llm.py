@@ -18,7 +18,7 @@ client = chromadb.Client(Settings(persist_directory="./chroma"))
 collection = client.create_collection("model_index")
 
 # Load JSON data
-with open('LLM_test_4o/tranformed_schema.json', 'r') as f:
+with open('tranformed_schema.json', 'r') as f:
     json_data = json.load(f)
 
 model_info_map = {}
