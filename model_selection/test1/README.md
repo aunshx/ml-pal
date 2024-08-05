@@ -22,6 +22,12 @@ Make sure you have Python installed. You can download Python from the [official 
       ```bash
       .\env\Scripts\activate
       ```
+    Note: If this script cannot be loaded then most probably you would need to change Powershell's execution policy.
+    Open powershell and type in the following command which will make policy change for the current user. 
+      ```bash
+      Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+      ```
+
     - On macOS and Linux:
       ```bash
       source env/bin/activate

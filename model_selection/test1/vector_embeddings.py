@@ -2,6 +2,15 @@ import json
 from sentence_transformers import SentenceTransformer
 import chromadb
 from chromadb.config import Settings
+import sys
+print(sys.path)
+
+print('JNEFNEJFNF')
+
+with open('models_schema.json', 'r') as f:
+    json_data = json.load(f)
+
+print('HELLPO')
 
 # Load the model
 model = SentenceTransformer('all-MiniLM-L6-v2')
@@ -11,10 +20,6 @@ client = chromadb.Client(Settings(persist_directory="./chroma"))
 
 # Create a collection for the model index
 collection = client.create_collection("model_index")
-
-# Load the JSON data
-with open('test_models/models_schema.json', 'r') as f:
-    json_data = json.load(f)
 
 model_info_map = {}
 
