@@ -46,7 +46,7 @@ pip install -r requirements.txt
 ### 4. Set up .env file in the server folder
 
 ```bash
-DATABASE_URL=postgresql://myuser:mypassword@localhost/mydatabase
+DATABASE_URL=postgresql://super:!%40QW12qwaszx@postgresql-180434-0.cloudclusters.net:10056/mp_dumbledore
 AUTH0_DOMAIN=dev-mw81v5ryzhqlgb73.us.auth0.com
 API_AUDIENCE=https://dev-mw81v5ryzhqlgb73.us.auth0.com/api/v2/
 CLIENT_ID=C76sDcksezix8w6m2cSfI9iTwVgriewy
