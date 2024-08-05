@@ -22,7 +22,7 @@ cd app/server
 ### 2. Set up the virtual environment
 
 ```bash
-python3 -m venv venv
+python -m venv venv
 ```
 
 Windows:
