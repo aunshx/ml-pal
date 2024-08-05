@@ -17,7 +17,7 @@ def login():
     auth0_login_url = generate_auth0_login_url()
     return RedirectResponse(url=auth0_login_url)
 
-@router.get("/callback")
+@router.get("/callback", response_model=TokenResponse)
 def callback(request: Request):
     code = request.query_params.get("code")
     if not code:
