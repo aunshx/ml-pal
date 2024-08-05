@@ -1,6 +1,0 @@
-langchain_google_genai
-langchain
-chromadb
-sentence-transformers
-requests
-beautifulsoup4
