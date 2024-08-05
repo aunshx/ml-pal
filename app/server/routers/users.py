@@ -20,7 +20,7 @@ def get_db():
 def register_user(user: UserCreate, db: Session = Depends(get_db)):
     db_user = db.query(User).filter(User.email == user.email).first()
     if db_user:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Email already registered")
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="User already exists")
     hashed_password = pwd_context.hash(user.password)
     db_user = User(
         first_name=user.first_name,
@@ -35,6 +35,7 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
 
 @router.get("/users/me", response_model=UserResponse)
 def read_users_me(token: str = Depends(verify_token)):
+    print('HELLO 2')
     user_id = token.get("sub")
     db = next(get_db())
     db_user = db.query(User).filter(User.id == user_id).first()
