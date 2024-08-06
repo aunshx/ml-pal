@@ -35,7 +35,6 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
 
 @router.get("/users/me", response_model=UserResponse)
 def read_users_me(token: str = Depends(verify_token)):
-    print('HELLO 2')
     user_id = token.get("sub")
     db = next(get_db())
     db_user = db.query(User).filter(User.id == user_id).first()
