@@ -9,12 +9,15 @@ const Navbar: React.FC = () => {
     <nav>
       <h1>My App</h1>
       {user ? (
-        <>
+        <div className='flex gap-x-3'>
           <span>Welcome, {user.name}</span>
           <a href="/api/auth/logout">Logout</a>
-        </>
+                  <a href="/pages/dashboard">Dashboard</a>
+        </div>
       ) : (
-        <a href="/api/auth/login">Login</a>
+     <>
+         <a href="/api/auth/login">Login</a>
+     </>
       )}
     </nav>
   );
