@@ -13,68 +13,30 @@ with open('model_selection/model_list.json', 'r') as infile:
 
 # Define the prompt template
 template = """
-Given the following model specifications in JSON format, transform each model into a unified schema and provide the transformed JSON. Classifiy each model based of the following task and store it in order within these tasks :
-1. Object Detection
-2. Large Language Models
-3. Text-to-Audio Models
+Given the model specifications for LLM models, transform each model into a unified schema and provide the transformed JSON.
 
 Original JSON:
 {context}
 
-Transformed JSON:
 {{
-    "model_task" : "<Model Task>",
     "model_name": "<Model Name>",
-    "developed_by": "<Developed By>",
-    "model_type": "<Model Type>",
+    "model_architecture": "<Model Architecture>",
+    "training_objective": "<Training Objective>",
+    "parameters": "<Parameters>",
+    "primary_use_case": "<Primary Use Case>",
+    "performance_metrics": "<Performance Metrics>",
+    "training_data": "<Training Data>",
+    "inference_speed": "<Inference Speed>",
+    "memory_compute_requirements": "<Memory and Compute Requirements>",
+    "fine_tuning_capability": "<Fine-Tuning Capability>",
+    "bias_fairness": "<Bias and Fairness>",
+    "model_size": "<Model Size>",
     "licensing": "<Licensing>",
-    "use_case" : "<Use Cases or examples>",
-    "advantages" : "<An advantage only this model offers>"
-    "installation": {{
-        "python_version": "<Python Version>",
-        "additional_libraries": "<Additional Libraries>",
-        "installation_command": "<Installation Command>"
-    }},
-    "usage": {{
-        "cli_example": "<CLI Example>",
-        "python_example": "<Python Example>"
-    }},
-    "pretrained_models_and_performance_metrics": {{
-        "available_models": "<Available Models>",
-        "pretrained_datasets": "<Pretrained Datasets>",
-        "performance_metrics": {{
-            "model": "<Model>",
-            "size_pixels": "<Size (pixels)>",
-            "map_val50_95": "<mAPval50-95>",
-            "speed_cpu_onnx_ms": "<SpeedCPU ONNX (ms)>",
-            "speed_a100_tensorrt_ms": "<SpeedA100 TensorRT (ms)>",
-            "params_m": "<Params (M)>",
-            "flops_b": "<FLOPs (B)>"
-        }}
-    }},
-    "model_details": {{
-        "model_description": "<Model Description>",
-        "supported_labels": "<Supported Labels>"
-    }},
-    "limitations_and_biases": {{
-        "limitations": "<Limitations>",
-        "biases": "<Biases>",
-        "risks": "<Risks>"
-    }},
-    "recommendations": "<Recommendations>",
-    "compute_infrastructure": {{
-        "hardware": "<Hardware>",
-        "software": "<Software>"
-    }},
-    "references": {{
-        "related_papers_and_resources": "<Related Papers and Resources>"
-    }},
-    "example_implementation": {{
-        "sample_code": "<Sample Code>"
-    }}
-    
+    "advantages": "<Advantages>"
 }}
 """
+
+
 
 prompt = PromptTemplate(template=template, input_variables=['context'])
 
