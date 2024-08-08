@@ -5,21 +5,51 @@ from langchain_openai import ChatOpenAI
 from langchain_core.runnables import RunnableSequence
 from langchain.memory import ConversationBufferMemory
 from langchain_postgres import PGVector
-from model_selection.dumbledore.save_mem import MemoryDataSerializer
+from save_mem import MemoryDataSerializer
+
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
-
 connection = "postgresql+psycopg://langchain:langchain@localhost:6024/langchain"
-collection_name = "all_models"
+collection_names = {
+    "object_detection": "od",
+    "language_task": "llm",
+    "multimodal_task": "mm"
+}
 
 vector_store = PGVector(
     embeddings=embeddings,
-    collection_name=collection_name,
+    collection_name="od",  # Default collection
     connection=connection,
     use_jsonb=True,
 )
 
-def query_model(query_text):
+def determine_task_type(query_text):
+    # Use the LLM to determine the task type based on the query.
+    task_prompt = """
+    Determine the task type based on the user query. The possible task types are:
+    1. Object Detection
+    2. Language Task
+    3. Multimodal Task
+    
+    User Query: {query_text}
+    
+    Provide the task type as one of the following: object_detection, language_task, multimodal_task.
+    """
+    task_template = PromptTemplate(
+        input_variables=["query_text"], template=task_prompt
+    )
+    task_llm = ChatOpenAI(model='gpt-4o')
+    task_chain = RunnableSequence(task_template | task_llm)
+    
+    task_input_data = {"query_text": query_text}
+    task_response = task_chain.invoke(task_input_data)
+    task_type = task_response.content.strip().lower()
+    
+    return task_type
+
+def query_model(query_text, task_type):
+    collection = collection_names.get(task_type, "od")  # Default to 'od' if task type is unknown
+    vector_store.collection_name = collection  # Update the collection based on task type
 
     results = vector_store.similarity_search(query_text, k=1)
     retrieved_documents = []
@@ -30,7 +60,7 @@ def query_model(query_text):
         })
     return retrieved_documents
 
-#If the model does not exist in the given document just say sorry we dont not have a model for your specific needs.
+# If the model does not exist in the given document just say sorry we don't have a model for your specific needs.
 template = """
 Given the model schema for LLM models, you are an AI agent that should be able to answer all the user questions using the document alone.
 Ask the user only the most essential questions needed to find the best match from the document. Limit your questions to a maximum of three.
@@ -75,9 +105,14 @@ while True:
         print("AI: Goodbye!")
         break
 
-    retrieved_documents = query_model(query)
+    task_type = determine_task_type(query)
+    if task_type not in collection_names:
+        print("AI: Sorry, we don't have a model for your specific needs.")
+        continue
+
+    retrieved_documents = query_model(query, task_type)
     langchain_response = answer_query(query, retrieved_documents)
-    print("AI:", langchain_response)
+    print("Dumbledore:", langchain_response)
 
 memory_data = memory.load_memory_variables({})
 serializer = MemoryDataSerializer()
