@@ -1,0 +1,278 @@
+{
+  "YOLOv8": {
+    "model_name": "YOLOv8",
+    "model_architecture": "Ultralytics YOLOv8",
+    "training_objective": "Object detection and tracking, instance segmentation, image classification, and pose estimation.",
+    "parameters": {
+      "detection_COCO": {
+        "YOLOv8n": {
+          "size": "640",
+          "mAPval50-95": "37.3",
+          "Speed_CPU_ONNX(ms)": "80.4",
+          "Speed_A100_TensorRT(ms)": "0.99",
+          "params(M)": "3.2",
+          "FLOPs(B)": "8.7"
+        },
+        "YOLOv8s": {
+          "size": "640",
+          "mAPval50-95": "44.9",
+          "Speed_CPU_ONNX(ms)": "128.4",
+          "Speed_A100_TensorRT(ms)": "1.2",
+          "params(M)": "11.2",
+          "FLOPs(B)": "28.6"
+        },
+        "YOLOv8m": {
+          "size": "640",
+          "mAPval50-95": "50.2",
+          "Speed_CPU_ONNX(ms)": "234.7",
+          "Speed_A100_TensorRT(ms)": "1.83",
+          "params(M)": "25.9",
+          "FLOPs(B)": "78.9"
+        },
+        "YOLOv8l": {
+          "size": "640",
+          "mAPval50-95": "52.9",
+          "Speed_CPU_ONNX(ms)": "375.2",
+          "Speed_A100_TensorRT(ms)": "2.39",
+          "params(M)": "43.7",
+          "FLOPs(B)": "165.2"
+        },
+        "YOLOv8x": {
+          "size": "640",
+          "mAPval50-95": "53.9",
+          "Speed_CPU_ONNX(ms)": "479.1",
+          "Speed_A100_TensorRT(ms)": "3.53",
+          "params(M)": "68.2",
+          "FLOPs(B)": "257.8"
+        }
+      },
+      "detection_OpenImageV7": {
+        "YOLOv8n": {
+          "size": "640",
+          "mAPval50-95": "18.4",
+          "Speed_CPU_ONNX(ms)": "142.4",
+          "Speed_A100_TensorRT(ms)": "1.21",
+          "params(M)": "3.5",
+          "FLOPs(B)": "10.5"
+        },
+        "YOLOv8s": {
+          "size": "640",
+          "mAPval50-95": "27.7",
+          "Speed_CPU_ONNX(ms)": "183.1",
+          "Speed_A100_TensorRT(ms)": "1.4",
+          "params(M)": "11.4",
+          "FLOPs(B)": "29.7"
+        },
+        "YOLOv8m": {
+          "size": "640",
+          "mAPval50-95": "33.6",
+          "Speed_CPU_ONNX(ms)": "408.5",
+          "Speed_A100_TensorRT(ms)": "2.26",
+          "params(M)": "26.2",
+          "FLOPs(B)": "80.6"
+        },
+        "YOLOv8l": {
+          "size": "640",
+          "mAPval50-95": "34.9",
+          "Speed_CPU_ONNX(ms)": "596.9",
+          "Speed_A100_TensorRT(ms)": "2.43",
+          "params(M)": "44.1",
+          "FLOPs(B)": "167.4"
+        },
+        "YOLOv8x": {
+          "size": "640",
+          "mAPval50-95": "36.3",
+          "Speed_CPU_ONNX(ms)": "860.6",
+          "Speed_A100_TensorRT(ms)": "3.56",
+          "params(M)": "68.7",
+          "FLOPs(B)": "260.6"
+        }
+      },
+      "segmentation_COCO": {
+        "YOLOv8n-seg": {
+          "size": "640",
+          "mAPbox50-95": "36.7",
+          "mAPmask50-95": "30.5",
+          "Speed_CPU_ONNX(ms)": "96.1",
+          "Speed_A100_TensorRT(ms)": "1.21",
+          "params(M)": "3.4",
+          "FLOPs(B)": "12.6"
+        },
+        "YOLOv8s-seg": {
+          "size": "640",
+          "mAPbox50-95": "44.6",
+          "mAPmask50-95": "36.8",
+          "Speed_CPU_ONNX(ms)": "155.7",
+          "Speed_A100_TensorRT(ms)": "1.47",
+          "params(M)": "11.8",
+          "FLOPs(B)": "42.6"
+        },
+        "YOLOv8m-seg": {
+          "size": "640",
+          "mAPbox50-95": "49.9",
+          "mAPmask50-95": "40.8",
+          "Speed_CPU_ONNX(ms)": "317.0",
+          "Speed_A100_TensorRT(ms)": "2.18",
+          "params(M)": "27.3",
+          "FLOPs(B)": "110.2"
+        },
+        "YOLOv8l-seg": {
+          "size": "640",
+          "mAPbox50-95": "52.3",
+          "mAPmask50-95": "42.6",
+          "Speed_CPU_ONNX(ms)": "572.4",
+          "Speed_A100_TensorRT(ms)": "2.79",
+          "params(M)": "46.0",
+          "FLOPs(B)": "220.5"
+        },
+        "YOLOv8x-seg": {
+          "size": "640",
+          "mAPbox50-95": "53.4",
+          "mAPmask50-95": "43.4",
+          "Speed_CPU_ONNX(ms)": "712.1",
+          "Speed_A100_TensorRT(ms)": "4.02",
+          "params(M)": "71.8",
+          "FLOPs(B)": "344.1"
+        }
+      },
+      "pose_COCO": {
+        "YOLOv8n-pose": {
+          "size": "640",
+          "mAPpose50-95": "50.4",
+          "mAPpose50": "80.1",
+          "Speed_CPU_ONNX(ms)": "131.8",
+          "Speed_A100_TensorRT(ms)": "1.18",
+          "params(M)": "3.3",
+          "FLOPs(B)": "9.2"
+        },
+        "YOLOv8s-pose": {
+          "size": "640",
+          "mAPpose50-95": "60.0",
+          "mAPpose50": "86.2",
+          "Speed_CPU_ONNX(ms)": "133.2",
+          "Speed_A100_TensorRT(ms)": "1.42",
+          "params(M)": "11.6",
+          "FLOPs(B)": "30.2"
+        },
+        "YOLOv8m-pose": {
+          "size": "640",
+          "mAPpose50-95": "65.0",
+          "mAPpose50": "88.8",
+          "Speed_CPU_ONNX(ms)": "456.3",
+          "Speed_A100_TensorRT(ms)": "2.0",
+          "params(M)": "26.4",
+          "FLOPs(B)": "81.0"
+        },
+        "YOLOv8l-pose": {
+          "size": "640",
+          "mAPpose50-95": "67.6",
+          "mAPpose50": "90.0",
+          "Speed_CPU_ONNX(ms)": "784.5",
+          "Speed_A100_TensorRT(ms)": "2.59",
+          "params(M)": "44.4",
+          "FLOPs(B)": "168.6"
+        },
+        "YOLOv8x-pose": {
+          "size": "640",
+          "mAPpose50-95": "69.2",
+          "mAPpose50": "90.2",
+          "Speed_CPU_ONNX(ms)": "607.1",
+          "Speed_A100_TensorRT(ms)": "3.73",
+          "params(M)": "69.4",
+          "FLOPs(B)": "263.2"
+        },
+        "YOLOv8x-pose-p6": {
+          "size": "1280",
+          "mAPpose50-95": "71.6",
+          "mAPpose50": "91.2",
+          "Speed_CPU_ONNX(ms)": "4088.7",
+          "Speed_A100_TensorRT(ms)": "10.0",
+          "params(M)": "99.1",
+          "FLOPs(B)": "1066.4"
+        }
+      },
+      "OBB_DOTAv1": {
+        "YOLOv8n-obb": {
+          "size": "1024",
+          "mAPtest50": "43.5",
+          "Speed_CPU_ONNX(ms)": "232.4",
+          "Speed_A100_TensorRT(ms)": "2.6",
+          "params(M)": "5.2",
+          "FLOPs(B)": "15.4"
+        },
+        "YOLOv8s-obb": {
+          "size": "1024",
+          "mAPtest50": "48.7",
+          "Speed_CPU_ONNX(ms)": "316.3",
+          "Speed_A100_TensorRT(ms)": "2.9",
+          "params(M)": "13.7",
+          "FLOPs(B)": "37.1"
+        },
+        "YOLOv8m-obb": {
+          "size": "1024",
+          "mAPtest50": "52.4",
+          "Speed_CPU_ONNX(ms)": "541.2",
+          "Speed_A100_TensorRT(ms)": "3.3",
+          "params(M)": "31.5",
+          "FLOPs(B)": "92.0"
+        },
+        "YOLOv8l-obb": {
+          "size": "1024",
+          "mAPtest50": "54.7",
+          "Speed_CPU_ONNX(ms)": "804.6",
+          "Speed_A100_TensorRT(ms)": "3.8",
+          "params(M)": "49.8",
+          "FLOPs(B)": "210.0"
+        },
+        "YOLOv8x-obb": {
+          "size": "1024",
+          "mAPtest50": "56.1",
+          "Speed_CPU_ONNX(ms)": "1243.2",
+          "Speed_A100_TensorRT(ms)": "5.2",
+          "params(M)": "77.6",
+          "FLOPs(B)": "320.8"
+        }
+      }
+    }
+  },
+  "swin-tiny-patch4-window7-224": {
+    "model_name": "swin-tiny-patch4-window7-224",
+    "model_architecture": "Swin Transformer (tiny-sized model)",
+    "training_objective": "Trained on ImageNet-1k for image classification at resolution 224x224.",
+    "parameters": "Approximately 28 million parameters",
+    "primary_use_case": "Image classification",
+    "performance_metrics": {
+      "Top-1 Accuracy": "81.2% on ImageNet"
+    },
+    "training_data": "ImageNet-1k dataset",
+    "inference_speed": "Inference speed varies depending on hardware but is optimized for efficient performance due to hierarchical feature maps and local window self-attention.",
+    "memory_compute_requirements": "Linear computation complexity to input image size, suitable for deployment on GPUs with moderate memory.",
+    "fine_tuning_capability": "Available. Fine-tuned versions can be found on the model hub.",
+    "bias_fairness": "The model may inherit biases present in the ImageNet dataset. Developers should consider these biases and perform fairness evaluations tailored to their specific applications.",
+    "model_size": "Tiny-sized model with approximately 28 million parameters",
+    "licensing": "The model was released in the Swin Transformer repository under an appropriate open-source license.",
+    "advantages": "Linear computation complexity due to local window self-attention, suitable for both image classification and dense recognition tasks.",
+    "benchmarks": {
+      "ImageNet": "Top-1 Accuracy of 81.2%"
+    }
+  },
+  "detr-resnet-50": {
+    "model_name": "detr-resnet-50",
+    "model_architecture": "DETR (End-to-End Object Detection) model with ResNet-50 backbone",
+    "training_objective": "End-to-end object detection using COCO 2017 dataset. The model uses an encoder-decoder transformer with a bipartite matching loss for object detection.",
+    "parameters": "The model uses 100 object queries for detecting objects. It employs a linear layer for class labels and a multi-layer perceptron (MLP) for bounding boxes.",
+    "primary_use_case": "Object detection",
+    "performance_metrics": "Achieves an AP (average precision) of 42.0 on COCO 2017 validation.",
+    "training_data": "COCO 2017 object detection dataset, consisting of 118k annotated images for training and 5k annotated images for validation.",
+    "inference_speed": "Inference speed can vary based on hardware and implementation, but DETR models are generally slower than traditional CNN-based detectors due to the transformer architecture.",
+    "memory_compute_requirements": "Trained on 16 V100 GPUs for 300 epochs, with 4 images per GPU (total batch size of 64).",
+    "fine_tuning_capability": "Supports fine-tuning. Example usage provided in the original JSON.",
+    "bias_fairness": "The model may inherit biases present in the COCO dataset, such as overrepresentation or underrepresentation of certain objects or contexts. Developers should consider these biases and perform fairness evaluations tailored to their specific applications.",
+    "model_size": "Approximately 44 million parameters",
+    "licensing": "Apache 2.0 License",
+    "advantages": "End-to-end training, integrated object detection and bounding box prediction, uses transformer architecture with convolutional backbone.",
+    "benchmarks": {
+      "COCO 2017": "AP of 42.0 on validation set"
+    }
+  }
+}

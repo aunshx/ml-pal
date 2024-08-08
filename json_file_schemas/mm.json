@@ -1,0 +1,94 @@
+{
+    "git-base": {
+        "model_name": "GIT-base",
+        "model_architecture": "Transformer decoder conditioned on both CLIP image tokens and text tokens",
+        "training_objective": "Predict the next text token given the image tokens and previous text tokens",
+        "parameters": "124 million",
+        "primary_use_case": "Image captioning, Visual Question Answering (VQA) on images and videos, Image classification",
+        "performance_metrics": {
+            "COCO CIDEr": 131.4,
+            "TextCaps CIDEr": 64.9,
+            "VQAv2 accuracy": 72.72,
+            "TextVQA accuracy": 18.81,
+            "VATEX CIDEr": 60.0,
+            "MSRVTT CIDEr": 57.8,
+            "MSRVTT QA accuracy": 41.0
+        },
+        "training_data": "10 million image-text pairs, including datasets like COCO, Conceptual Captions (CC3M), SBU, Visual Genome (VG), Conceptual Captions (CC12M), ALT200M, and additional data",
+        "inference_speed": "Not specified in the provided information",
+        "memory_compute_requirements": "Typically requires moderate to high GPU resources depending on the task and batch size",
+        "fine_tuning_capability": "Fine-tuning versions available on the model hub for specific tasks",
+        "bias_fairness": "The model may inherit biases from the training data, and fairness assessments are recommended for deployment in sensitive applications.",
+        "model_size": "Base-sized variant of GIT",
+        "licensing": "Not specified in the provided information",
+        "advantages": "Capable of image and video captioning, VQA, and image classification with a bidirectional attention mask for image tokens and causal attention mask for text tokens",
+        "benchmarks": {
+            "COCO": "CIDEr score of 131.4",
+            "TextCaps": "CIDEr score of 64.9",
+            "VQAv2": "Accuracy of 72.72",
+            "TextVQA": "Accuracy of 18.81",
+            "VATEX": "CIDEr score of 60.0",
+            "MSRVTT": "CIDEr score of 57.8",
+            "MSRVTT QA": "Accuracy of 41.0"
+        }
+    },
+    "blip-image-captioning-large": {
+        "model_name": "blip-image-captioning-large",
+        "model_architecture": "BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation with ViT large backbone",
+        "training_objective": "Unified Vision-Language Understanding and Generation, pretrained on COCO dataset",
+        "parameters": "373 million",
+        "primary_use_case": "Conditional and un-conditional image captioning",
+        "performance_metrics": {
+            "image-text retrieval": "+2.7% in average recall@1",
+            "image captioning": "+2.8% in CIDEr",
+            "VQA": "+1.6% in VQA score",
+            "generalization": "Strong generalization ability in zero-shot video-language tasks"
+        },
+        "training_data": "Noisy web data (bootstrapped captions) and COCO dataset",
+        "inference_speed": "Approximately 1.33 seconds per iteration on a batch size of 16 with RTX 3060 GPU",
+        "memory_compute_requirements": "Can run on CPU, GPU (full precision and half precision)",
+        "fine_tuning_capability": "Code and models are released, implying fine-tuning capability",
+        "bias_fairness": "Not explicitly mentioned",
+        "model_size": "1.88 GB",
+        "licensing": "Creative Commons Attribution 4.0 International",
+        "advantages": "State-of-the-art results on a wide range of vision-language tasks, flexibility in transferring to both understanding and generation tasks",
+        "benchmarks": {
+            "COCO": "Achieves state-of-the-art performance with +2.8% in CIDEr score",
+            "Image-Text Retrieval": "+2.7% in average recall@1",
+            "VQA": "+1.6% in VQA score"
+        }
+    },
+    "trocr-base-handwritten": {
+        "model_name": "TrOCR Base Handwritten",
+        "model_architecture": "Encoder-Decoder Transformer",
+        "training_objective": "Optical Character Recognition (OCR)",
+        "parameters": {
+            "encoder": "Image Transformer initialized from BEiT",
+            "decoder": "Text Transformer initialized from RoBERTa",
+            "input_representation": "Images presented as sequence of fixed-size patches (16x16) with absolute position embeddings"
+        },
+        "primary_use_case": "Optical character recognition on single text-line images",
+        "performance_metrics": {
+            "character_error_rate": "5.35",
+            "f1_score": "84.52"
+        },
+        "training_data": "Fine-tuned on the IAM dataset",
+        "inference_speed": "Varies based on hardware; typically efficient for transformer models",
+        "memory_compute_requirements": "Moderate GPU resources required for training and inference",
+        "fine_tuning_capability": "Model can be fine-tuned on specific tasks",
+        "bias_fairness": "Potential biases may arise depending on training data representation",
+        "model_size": {
+            "encoder_parameters": "23.0M",
+            "decoder_parameters": "38.3M",
+            "total_parameters": "61.3M"
+        },
+        "licensing": "Not specified",
+        "advantages": "Combines image and text transformers for robust OCR; pre-trained weights from BEiT and RoBERTa",
+        "benchmarks": {
+            "IAM Dataset": {
+                "character_error_rate": "5.35",
+                "f1_score": "84.52"
+            }
+        }
+    }
+}
