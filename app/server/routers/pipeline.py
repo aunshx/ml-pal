@@ -19,11 +19,9 @@ def get_db():
         db.close()
 
 
-@router.post("/pipeline/create",response_model=PipelineCreateResponse)
+@router.get("/api/pipeline/create",response_model=PipelineCreateResponse)
 async def create_pipeline(response: Response, token: str = Depends(token_auth_scheme)):
     result = VerifyToken(token.credentials).verify()
-
-    print(token)
 
     db = next(get_db())
     new_pipeline = Pipeline(user_id=result['sub'])
@@ -33,6 +31,3 @@ async def create_pipeline(response: Response, token: str = Depends(token_auth_sc
     db.close()
     return new_pipeline
 
-@router.get("/pipeline/protected")
-def protected_route(token: str = Depends(token_auth_scheme)):
-    return {"message": "This is a protected route", "user": token}
