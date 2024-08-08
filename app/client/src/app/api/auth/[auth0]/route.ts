@@ -1,5 +1,4 @@
-import { handleAuth, handleLogin, handleLogout, handleCallback, handleProfile } from '@auth0/nextjs-auth0';
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { handleAuth, handleLogin } from '@auth0/nextjs-auth0';
 
 
 export const GET = handleAuth({
