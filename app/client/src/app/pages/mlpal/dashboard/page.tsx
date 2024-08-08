@@ -1,23 +1,18 @@
-'use client'
+"use client";
 
-import { authOptions } from '@/constants';
-import { withPageAuthRequired, UserProfile, useUser} from '@auth0/nextjs-auth0/client';
+import { useEffect } from "react";
+import useSWR from 'swr';
+import { useUser } from "@auth0/nextjs-auth0/client";
+import { getAccessToken  } from "@auth0/nextjs-auth0";
+import HomeView from "@/components/dashboard/HomeView";
+import { NextResponse } from "next/server";
+import axios from "axios";
 
-interface DashboardProps {
-    user: UserProfile
+
+export default function DashboardPage() {
+  const { user  } = useUser();
+
+  return (
+    <HomeView />
+  );
 }
-
-const Dashboard = () => {
-  const { user } = useUser();
-
-  return <div className='flex flex-col gap-y-3'>
-    <div>
-      Hello {user?.name}
-    </div>
-    <div>
-      <a href="/api/auth/logout">Logout</a>
-    </div>
-  </div>;
-}
-
-export default Dashboard;

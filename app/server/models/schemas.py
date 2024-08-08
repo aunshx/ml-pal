@@ -18,3 +18,13 @@ class UserResponse(BaseModel):
 class TokenData(BaseModel):
     access_token: str
     token_type: str
+
+class PipelineCreateResponse(BaseModel):
+    pipeline_id: int
+    user_id: int
+    created_at: str
+    updated_at: str
+    selection: bool
+    training: bool = None
+    inferencing: bool = None
+    infra: bool

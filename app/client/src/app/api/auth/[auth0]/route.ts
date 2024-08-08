@@ -3,6 +3,6 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 export const GET = handleAuth({
     login: handleLogin({
-        returnTo: "/pages/pal/dashboard",
+        returnTo: "/pages/mlpal/dashboard",
     }),
 });
