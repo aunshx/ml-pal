@@ -1,18 +1,20 @@
 "use client";
 
-import { useEffect } from "react";
-import useSWR from 'swr';
-import { useUser } from "@auth0/nextjs-auth0/client";
-import { getAccessToken  } from "@auth0/nextjs-auth0";
+import { createPipeline } from "@/api";
 import HomeView from "@/components/dashboard/HomeView";
-import { NextResponse } from "next/server";
-import axios from "axios";
+import { useAuthContext } from "@/context/AuthContext";
+import { useEffect } from "react";
 
 
 export default function DashboardPage() {
-  const { user  } = useUser();
+  const { token } = useAuthContext();  
 
   return (
-    <HomeView />
+    <>
+      <HomeView />
+      <div className="flex items-center justify-center w-100p h-8" onClick={() => createPipeline(token)}>
+        Hello
+      </div>
+    </>
   );
 }

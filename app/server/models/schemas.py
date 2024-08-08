@@ -1,4 +1,6 @@
 from pydantic import BaseModel, EmailStr, constr
+from typing import Optional
+from datetime import datetime
 
 class UserCreate(BaseModel):
     first_name: constr(min_length=1, max_length=50)
@@ -21,10 +23,10 @@ class TokenData(BaseModel):
 
 class PipelineCreateResponse(BaseModel):
     pipeline_id: int
-    user_id: int
-    created_at: str
-    updated_at: str
+    user_id: str
+    created_at: datetime
+    updated_at: datetime
     selection: bool
-    training: bool = None
-    inferencing: bool = None
+    training: Optional[bool] = None
+    inferencing:Optional[bool] = None
     infra: bool

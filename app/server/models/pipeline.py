@@ -7,7 +7,7 @@ from .db import Base
 class Pipeline(Base):
     __tablename__ = 'pipeline'
     pipeline_id = Column(BigInteger, primary_key=True, index=True)
-    user_id = Column(Integer, nullable=False)
+    user_id = Column(String, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     selection = Column(Boolean, default=True)

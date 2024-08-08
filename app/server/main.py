@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import auth, pipeline
+from routers import pipeline
+from routers import test
 import os
 from dotenv import load_dotenv
 
@@ -13,11 +14,12 @@ origins = origins = os.getenv("ALLOWED_ORIGINS", "").split(",")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=['http://localhost:3000'],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-app.include_router(auth.router)
+# app.include_router(auth.router)
 app.include_router(pipeline.router)
+app.include_router(test.router)
