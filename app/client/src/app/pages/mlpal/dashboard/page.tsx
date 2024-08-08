@@ -1,23 +1,38 @@
-'use client'
+"use client";
 
-import { authOptions } from '@/constants';
-import { withPageAuthRequired, UserProfile, useUser} from '@auth0/nextjs-auth0/client';
+import HomeView from "@/components/dashboard/HomeView";
+import { useState } from "react";
 
-interface DashboardProps {
-    user: UserProfile
+
+
+export default function DashboardPage() {
+  const [data, setData] = useState<any>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const fetchData = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch('/api/pipeline/create');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const result = await response.json();
+      setData(result);
+    } catch (error:any) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <>
+      <HomeView />
+      <div className="flex items-center justify-center w-100p h-8 border-2p border-solid border-gray-900" onClick={fetchData}>
+        Hello
+      </div>
+    </>
+  );
 }
-
-const Dashboard = () => {
-  const { user } = useUser();
-
-  return <div className='flex flex-col gap-y-3'>
-    <div>
-      Hello {user?.name}
-    </div>
-    <div>
-      <a href="/api/auth/logout">Logout</a>
-    </div>
-  </div>;
-}
-
-export default Dashboard;

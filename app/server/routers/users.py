@@ -1,9 +1,12 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from models.user import User, SessionLocal
-from auth.auth import verify_token
+from models.db import SessionLocal
+from model.user import User
 from models.schemas import UserCreate, UserResponse
 from passlib.context import CryptContext
+from fastapi.security import HTTPBearer
+
+token_auth_scheme = HTTPBearer()
 
 router = APIRouter()
 
@@ -34,7 +37,7 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
     return db_user
 
 @router.get("/users/me", response_model=UserResponse)
-def read_users_me(token: str = Depends(verify_token)):
+def read_users_me(token: str = Depends(token_auth_scheme)):
     user_id = token.get("sub")
     db = next(get_db())
     db_user = db.query(User).filter(User.id == user_id).first()
