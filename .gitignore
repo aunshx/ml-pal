@@ -1,0 +1,15 @@
+# Ignore Python cache files
+LLM_test_4o/__pycache__/
+
+# Ignore specific files
+LLM_test_4o/save_memory.py
+memory_data.json
+memory_data.pkl
+
+# Ignore entire directories
+api/
+api_test/
+dd_11/
+LLM_task/
+OD_test_4o/
+test_1/

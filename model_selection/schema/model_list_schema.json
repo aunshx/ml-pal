@@ -1,0 +1,498 @@
+{
+    "YOLOv8": {
+        "model_name": "YOLOv8",
+        "model_architecture": "Ultralytics YOLOv8",
+        "training_objective": "Object detection and tracking, instance segmentation, image classification, and pose estimation.",
+        "parameters": {
+            "detection_COCO": {
+                "YOLOv8n": {
+                    "size": "640",
+                    "mAPval50-95": "37.3",
+                    "Speed_CPU_ONNX(ms)": "80.4",
+                    "Speed_A100_TensorRT(ms)": "0.99",
+                    "params(M)": "3.2",
+                    "FLOPs(B)": "8.7"
+                },
+                "YOLOv8s": {
+                    "size": "640",
+                    "mAPval50-95": "44.9",
+                    "Speed_CPU_ONNX(ms)": "128.4",
+                    "Speed_A100_TensorRT(ms)": "1.2",
+                    "params(M)": "11.2",
+                    "FLOPs(B)": "28.6"
+                },
+                "YOLOv8m": {
+                    "size": "640",
+                    "mAPval50-95": "50.2",
+                    "Speed_CPU_ONNX(ms)": "234.7",
+                    "Speed_A100_TensorRT(ms)": "1.83",
+                    "params(M)": "25.9",
+                    "FLOPs(B)": "78.9"
+                },
+                "YOLOv8l": {
+                    "size": "640",
+                    "mAPval50-95": "52.9",
+                    "Speed_CPU_ONNX(ms)": "375.2",
+                    "Speed_A100_TensorRT(ms)": "2.39",
+                    "params(M)": "43.7",
+                    "FLOPs(B)": "165.2"
+                },
+                "YOLOv8x": {
+                    "size": "640",
+                    "mAPval50-95": "53.9",
+                    "Speed_CPU_ONNX(ms)": "479.1",
+                    "Speed_A100_TensorRT(ms)": "3.53",
+                    "params(M)": "68.2",
+                    "FLOPs(B)": "257.8"
+                }
+            },
+            "detection_OpenImageV7": {
+                "YOLOv8n": {
+                    "size": "640",
+                    "mAPval50-95": "18.4",
+                    "Speed_CPU_ONNX(ms)": "142.4",
+                    "Speed_A100_TensorRT(ms)": "1.21",
+                    "params(M)": "3.5",
+                    "FLOPs(B)": "10.5"
+                },
+                "YOLOv8s": {
+                    "size": "640",
+                    "mAPval50-95": "27.7",
+                    "Speed_CPU_ONNX(ms)": "183.1",
+                    "Speed_A100_TensorRT(ms)": "1.4",
+                    "params(M)": "11.4",
+                    "FLOPs(B)": "29.7"
+                },
+                "YOLOv8m": {
+                    "size": "640",
+                    "mAPval50-95": "33.6",
+                    "Speed_CPU_ONNX(ms)": "408.5",
+                    "Speed_A100_TensorRT(ms)": "2.26",
+                    "params(M)": "26.2",
+                    "FLOPs(B)": "80.6"
+                },
+                "YOLOv8l": {
+                    "size": "640",
+                    "mAPval50-95": "34.9",
+                    "Speed_CPU_ONNX(ms)": "596.9",
+                    "Speed_A100_TensorRT(ms)": "2.43",
+                    "params(M)": "44.1",
+                    "FLOPs(B)": "167.4"
+                },
+                "YOLOv8x": {
+                    "size": "640",
+                    "mAPval50-95": "36.3",
+                    "Speed_CPU_ONNX(ms)": "860.6",
+                    "Speed_A100_TensorRT(ms)": "3.56",
+                    "params(M)": "68.7",
+                    "FLOPs(B)": "260.6"
+                }
+            },
+            "segmentation_COCO": {
+                "YOLOv8n-seg": {
+                    "size": "640",
+                    "mAPbox50-95": "36.7",
+                    "mAPmask50-95": "30.5",
+                    "Speed_CPU_ONNX(ms)": "96.1",
+                    "Speed_A100_TensorRT(ms)": "1.21",
+                    "params(M)": "3.4",
+                    "FLOPs(B)": "12.6"
+                },
+                "YOLOv8s-seg": {
+                    "size": "640",
+                    "mAPbox50-95": "44.6",
+                    "mAPmask50-95": "36.8",
+                    "Speed_CPU_ONNX(ms)": "155.7",
+                    "Speed_A100_TensorRT(ms)": "1.47",
+                    "params(M)": "11.8",
+                    "FLOPs(B)": "42.6"
+                },
+                "YOLOv8m-seg": {
+                    "size": "640",
+                    "mAPbox50-95": "49.9",
+                    "mAPmask50-95": "40.8",
+                    "Speed_CPU_ONNX(ms)": "317.0",
+                    "Speed_A100_TensorRT(ms)": "2.18",
+                    "params(M)": "27.3",
+                    "FLOPs(B)": "110.2"
+                },
+                "YOLOv8l-seg": {
+                    "size": "640",
+                    "mAPbox50-95": "52.3",
+                    "mAPmask50-95": "42.6",
+                    "Speed_CPU_ONNX(ms)": "572.4",
+                    "Speed_A100_TensorRT(ms)": "2.79",
+                    "params(M)": "46.0",
+                    "FLOPs(B)": "220.5"
+                },
+                "YOLOv8x-seg": {
+                    "size": "640",
+                    "mAPbox50-95": "53.4",
+                    "mAPmask50-95": "43.4",
+                    "Speed_CPU_ONNX(ms)": "712.1",
+                    "Speed_A100_TensorRT(ms)": "4.02",
+                    "params(M)": "71.8",
+                    "FLOPs(B)": "344.1"
+                }
+            },
+            "pose_COCO": {
+                "YOLOv8n-pose": {
+                    "size": "640",
+                    "mAPpose50-95": "50.4",
+                    "mAPpose50": "80.1",
+                    "Speed_CPU_ONNX(ms)": "131.8",
+                    "Speed_A100_TensorRT(ms)": "1.18",
+                    "params(M)": "3.3",
+                    "FLOPs(B)": "9.2"
+                },
+                "YOLOv8s-pose": {
+                    "size": "640",
+                    "mAPpose50-95": "60.0",
+                    "mAPpose50": "86.2",
+                    "Speed_CPU_ONNX(ms)": "133.2",
+                    "Speed_A100_TensorRT(ms)": "1.42",
+                    "params(M)": "11.6",
+                    "FLOPs(B)": "30.2"
+                },
+                "YOLOv8m-pose": {
+                    "size": "640",
+                    "mAPpose50-95": "65.0",
+                    "mAPpose50": "88.8",
+                    "Speed_CPU_ONNX(ms)": "456.3",
+                    "Speed_A100_TensorRT(ms)": "2.0",
+                    "params(M)": "26.4",
+                    "FLOPs(B)": "81.0"
+                },
+                "YOLOv8l-pose": {
+                    "size": "640",
+                    "mAPpose50-95": "67.6",
+                    "mAPpose50": "90.0",
+                    "Speed_CPU_ONNX(ms)": "784.5",
+                    "Speed_A100_TensorRT(ms)": "2.59",
+                    "params(M)": "44.4",
+                    "FLOPs(B)": "168.6"
+                },
+                "YOLOv8x-pose": {
+                    "size": "640",
+                    "mAPpose50-95": "69.2",
+                    "mAPpose50": "90.2",
+                    "Speed_CPU_ONNX(ms)": "607.1",
+                    "Speed_A100_TensorRT(ms)": "3.73",
+                    "params(M)": "69.4",
+                    "FLOPs(B)": "263.2"
+                },
+                "YOLOv8x-pose-p6": {
+                    "size": "1280",
+                    "mAPpose50-95": "71.6",
+                    "mAPpose50": "91.2",
+                    "Speed_CPU_ONNX(ms)": "4088.7",
+                    "Speed_A100_TensorRT(ms)": "10.0",
+                    "params(M)": "99.1",
+                    "FLOPs(B)": "1066.4"
+                }
+            },
+            "OBB_DOTAv1": {
+                "YOLOv8n-obb": {
+                    "size": "1024",
+                    "mAPtest50": "78.0",
+                    "Speed_CPU_ONNX(ms)": "204.7",
+                    "Speed_A100_TensorRT(ms)": "73.5",
+                    "params(M)": "3.7",
+                    "FLOPs(B)": "23.3"
+                },
+                "YOLOv8s-obb": {
+                    "size": "1024",
+                    "mAPtest50": "79.5",
+                    "Speed_CPU_ONNX(ms)": "424.8",
+                    "Speed_A100_TensorRT(ms)": "84.0",
+                    "params(M)": "11.4",
+                    "FLOPs(B)": "76.3"
+                },
+                "YOLOv8m-obb": {
+                    "size": "1024",
+                    "mAPtest50": "80.5",
+                    "Speed_CPU_ONNX(ms)": "763.4",
+                    "Speed_A100_TensorRT(ms)": "87.6",
+                    "params(M)": "26.4",
+                    "FLOPs(B)": "208.6"
+                },
+                "YOLOv8l-obb": {
+                    "size": "1024",
+                    "mAPtest50": "80.7",
+                    "Speed_CPU_ONNX(ms)": "1278.4",
+                    "Speed_A100_TensorRT(ms)": "211.8",
+                    "params(M)": "44.5",
+                    "FLOPs(B)": "433.8"
+                },
+                "YOLOv8x-obb": {
+                    "size": "1024",
+                    "mAPtest50": "81.3",
+                    "Speed_CPU_ONNX(ms)": "1759.1",
+                    "Speed_A100_TensorRT(ms)": "1013.2",
+                    "params(M)": "69.5",
+                    "FLOPs(B)": "676.7"
+                }
+            },
+            "classification_ImageNet": {
+                "YOLOv8n-cls": {
+                    "size": "224",
+                    "acctop1": "69.0",
+                    "acctop5": "88.3",
+                    "Speed_CPU_ONNX(ms)": "12.9",
+                    "Speed_A100_TensorRT(ms)": "0.31",
+                    "params(M)": "2.7",
+                    "FLOPs(B)": "4.3"
+                },
+                "YOLOv8s-cls": {
+                    "size": "224",
+                    "acctop1": "73.8",
+                    "acctop5": "91.7",
+                    "Speed_CPU_ONNX(ms)": "23.4",
+                    "Speed_A100_TensorRT(ms)": "0.35",
+                    "params(M)": "6.4",
+                    "FLOPs(B)": "13.5"
+                },
+                "YOLOv8m-cls": {
+                    "size": "224",
+                    "acctop1": "76.8",
+                    "acctop5": "93.5",
+                    "Speed_CPU_ONNX(ms)": "85.4",
+                    "Speed_A100_TensorRT(ms)": "0.62",
+                    "params(M)": "17.0",
+                    "FLOPs(B)": "42.7"
+                },
+                "YOLOv8l-cls": {
+                    "size": "224",
+                    "acctop1": "76.8",
+                    "acctop5": "93.5",
+                    "Speed_CPU_ONNX(ms)": "163.0",
+                    "Speed_A100_TensorRT(ms)": "0.87",
+                    "params(M)": "37.5",
+                    "FLOPs(B)": "99.7"
+                },
+                "YOLOv8x-cls": {
+                    "size": "224",
+                    "acctop1": "79.0",
+                    "acctop5": "94.6",
+                    "Speed_CPU_ONNX(ms)": "232.0",
+                    "Speed_A100_TensorRT(ms)": "1.01",
+                    "params(M)": "57.4",
+                    "FLOPs(B)": "154.8"
+                }
+            }
+        },
+        "primary_use_case": "A wide range of tasks including object detection and tracking, instance segmentation, image classification, and pose estimation.",
+        "performance_metrics": {
+            "detection_COCO": {
+                "mAPval50-95": "37.3-53.9"
+            },
+            "detection_OpenImageV7": {
+                "mAPval50-95": "18.4-36.3"
+            },
+            "segmentation_COCO": {
+                "mAPbox50-95": "36.7-53.4",
+                "mAPmask50-95": "30.5-43.4"
+            },
+            "pose_COCO": {
+                "mAPpose50-95": "50.4-71.6",
+                "mAPpose50": "80.1-91.2"
+            },
+            "OBB_DOTAv1": {
+                "mAPtest50": "78.0-81.3"
+            },
+            "classification_ImageNet": {
+                "acctop1": "69.0-79.0",
+                "acctop5": "88.3-94.6"
+            }
+        },
+        "training_data": "Trained on datasets including COCO, Open Image V7, COCO-Seg, COCO-Pose, DOTAv1, and ImageNet.",
+        "inference_speed": "Speeds vary by model and hardware, e.g., YOLOv8x detection at 640 pixels: 479.1 ms (CPU ONNX), 3.53 ms (A100 TensorRT).",
+        "memory_compute_requirements": "Varies by model, e.g., YOLOv8x detection requires 68.2M parameters and 257.8B FLOPs.",
+        "fine_tuning_capability": "Supports fine-tuning for different tasks using CLI or Python API, with pretrained models available.",
+        "bias_fairness": "No specific information provided on bias and fairness; typically depends on training data and usage context.",
+        "model_size": "Models range from lightweight (YOLOv8n) to large (YOLOv8x) with varying parameters and FLOPs.",
+        "licensing": {
+            "AGPL-3.0 License": "Ideal for students and enthusiasts, promoting open collaboration and knowledge sharing.",
+            "Enterprise License": "Designed for commercial use, allows seamless integration of Ultralytics software and AI models into commercial goods and services."
+        },
+        "advantages": "Cutting-edge, state-of-the-art model that is fast, accurate, and easy to use. Supports a wide range of tasks with extensive documentation and community support."
+    },
+    "swin-tiny-patch4-window7-224": {
+        "model_name": "swin-tiny-patch4-window7-224",
+        "model_architecture": "Swin Transformer (tiny-sized model)",
+        "training_objective": "Trained on ImageNet-1k for image classification at resolution 224x224.",
+        "parameters": "Hierarchical feature maps, linear computation complexity due to local window self-attention, general-purpose backbone for image classification and dense recognition tasks.",
+        "primary_use_case": "Image classification.",
+        "performance_metrics": "Not specified in the original JSON.",
+        "training_data": "ImageNet-1k dataset.",
+        "inference_speed": "Not specified in the original JSON.",
+        "memory_compute_requirements": "Linear computation complexity to input image size.",
+        "fine_tuning_capability": "Available. Fine-tuned versions can be found on the model hub.",
+        "bias_fairness": "Not specified in the original JSON.",
+        "model_size": "Tiny-sized model.",
+        "licensing": "The model was released in the Swin Transformer repository.",
+        "advantages": "Linear computation complexity due to local window self-attention, suitable for both image classification and dense recognition tasks."
+    },
+    "detr-resnet-50": {
+        "model_name": "detr-resnet-50",
+        "model_architecture": "DETR (End-to-End Object Detection) model with ResNet-50 backbone",
+        "training_objective": "End-to-end object detection using COCO 2017 dataset. The model uses an encoder-decoder transformer with a bipartite matching loss for object detection.",
+        "parameters": "The model uses 100 object queries for detecting objects. It employs a linear layer for class labels and a multi-layer perceptron (MLP) for bounding boxes.",
+        "primary_use_case": "Object detection",
+        "performance_metrics": "Achieves an AP (average precision) of 42.0 on COCO 2017 validation.",
+        "training_data": "COCO 2017 object detection dataset, consisting of 118k annotated images for training and 5k annotated images for validation.",
+        "inference_speed": "Not explicitly mentioned",
+        "memory_compute_requirements": "Trained on 16 V100 GPUs for 300 epochs, with 4 images per GPU (total batch size of 64).",
+        "fine_tuning_capability": "Supports fine-tuning. Example usage provided in the original JSON.",
+        "bias_fairness": "Not explicitly mentioned",
+        "model_size": "Not explicitly mentioned",
+        "licensing": "Not explicitly mentioned",
+        "advantages": "End-to-end training, integrated object detection and bounding box prediction, uses transformer architecture with convolutional backbone."
+    },
+    
+
+    "openai-gpt-4": { "model_name": "GPT-4",
+    "model_architecture": "Transformer-based language model",
+    "training_objective": "Causal (unidirectional) transformer pre-trained using language modeling on a diverse and extensive corpus, incorporating longer context windows and improved handling of complex queries.",
+    "parameters": "Estimated at around 175 billion parameters, with enhanced architectural modifications to improve performance and efficiency over previous versions.",
+    "primary_use_case": "Advanced natural language understanding and generation tasks. Includes applications such as conversational agents, content creation, complex question answering, and nuanced language inference.",
+    "performance_metrics": "Achieves high scores across various benchmarks including human-like text generation, nuanced understanding of context, and handling of complex reasoning tasks. Demonstrates strong performance in areas like comprehension, summarization, and generation.",
+    "training_data": "Trained on a diverse and extensive dataset sourced from the web, books, and other texts to ensure broad knowledge and understanding. Specific datasets and volumes are proprietary.",
+    "inference_speed": "High, with optimizations for efficient deployment and scaling. Performance can vary based on the implementation and computational resources used.",
+    "memory_compute_requirements": "Significant, requiring substantial computational resources for both training and inference. Training involves large-scale distributed computing with GPUs or TPUs, and inference can be demanding depending on model size and application.",
+    "fine_tuning_capability": "Highly adaptable to specific tasks with fine-tuning, allowing for customization to various applications and domains. Fine-tuning can be performed with tailored datasets to improve model performance for specific use cases.",
+    "bias_fairness": "Despite improvements, GPT-4 may still exhibit biases present in the training data. Efforts are ongoing to mitigate harmful stereotypes and ensure more equitable and fair outputs.",
+    "model_size": "Estimated at around 175 billion parameters, making it one of the largest models in the GPT series.",
+    "licensing": "OpenAI's usage policies apply. Licensing details are subject to OpenAI's terms and conditions for access and use.",
+    "advantages": "Enhanced language generation and comprehension capabilities, improved handling of complex queries, and more accurate and contextually relevant responses compared to previous models. Demonstrates better understanding and generation of nuanced and diverse text."
+
+  
+    },
+    "bert-base-uncased": {
+        "model_name": "bert-base-uncased",
+        "model_architecture": "BERT base model (uncased)",
+        "training_objective": "Masked Language Modeling (MLM) and Next Sentence Prediction (NSP)",
+        "parameters": "110M",
+        "primary_use_case": "Fine-tuning on downstream tasks such as sequence classification, token classification, or question answering. Not intended for text generation.",
+        "performance_metrics": {
+            "GLUE": {
+                "MNLI-(m/mm)": "84.6/83.4",
+                "QQP": "71.2",
+                "QNLI": "90.5",
+                "SST-2": "93.5",
+                "CoLA": "52.1",
+                "STS-B": "85.8",
+                "MRPC": "88.9",
+                "RTE": "66.4",
+                "Average": "79.6"
+            }
+        },
+        "training_data": "BookCorpus (11,038 unpublished books) and English Wikipedia (excluding lists, tables, and headers).",
+        "inference_speed": "Not specified",
+        "memory_compute_requirements": "Trained on 4 cloud TPUs in Pod configuration (16 TPU chips total) for one million steps with a batch size of 256.",
+        "fine_tuning_capability": "Highly capable of being fine-tuned for various downstream tasks.",
+        "bias_fairness": "Even if the training data used for this model could be characterized as fairly neutral, this model can have biased predictions. Examples include gender bias in occupation predictions.",
+        "model_size": "110M parameters",
+        "licensing": "Not specified",
+        "advantages": [
+            "Pretrained on a large corpus of English data in a self-supervised fashion.",
+            "Can learn a bidirectional representation of the sentence.",
+            "Useful for downstream tasks that involve the whole sentence."
+        ]
+    },
+    "Meta-Llama-3-8B": {
+        "model_name": "Meta-Llama-3-8B",
+        "model_architecture": "Auto-regressive language model using an optimized transformer architecture with Grouped-Query Attention (GQA).",
+        "training_objective": "Pretrained and instruction tuned for generative text and code, optimized for dialogue use cases.",
+        "parameters": "8B parameters",
+        "primary_use_case": "Commercial and research use in English. Instruction tuned models are intended for assistant-like chat, whereas pretrained models can be adapted for a variety of natural language generation tasks.",
+        "performance_metrics": {
+            "Base pretrained models": {
+                "MMLU (5-shot)": 66.6,
+                "AGIEval English (3-5 shot)": 45.9,
+                "CommonSenseQA (7-shot)": 72.6,
+                "Winogrande (5-shot)": 76.1,
+                "BIG-Bench Hard (3-shot, CoT)": 61.1,
+                "ARC-Challenge (25-shot)": 78.6,
+                "TriviaQA-Wiki (5-shot)": 78.5,
+                "SQuAD (1-shot)": 76.4,
+                "QuAC (1-shot, F1)": 44.4,
+                "BoolQ (0-shot)": 75.7,
+                "DROP (3-shot, F1)": 58.4
+            },
+            "Instruction tuned models": {
+                "MMLU (5-shot)": 68.4,
+                "GPQA (0-shot)": 34.2,
+                "HumanEval (0-shot)": 62.2,
+                "GSM-8K (8-shot, CoT)": 79.6,
+                "MATH (4-shot, CoT)": 30.0
+            }
+        },
+        "training_data": "Pretrained on over 15 trillion tokens of publicly available online data. Fine-tuning data includes publicly available instruction datasets and over 10M human-annotated examples. The pretraining data has a cutoff of March 2023.",
+        "inference_speed": "Optimized for improved inference scalability using Grouped-Query Attention (GQA).",
+        "memory_compute_requirements": {
+            "training_factors": {
+                "GPU hours": "1.3M GPU hours on H100-80GB for Llama 3 8B",
+                "Power consumption": "700W TDP per GPU",
+                "Carbon emitted": "390 tCO2eq, offset by Meta's sustainability program"
+            }
+        },
+        "fine_tuning_capability": "Fine-tuning performed using supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF).",
+        "bias_fairness": "Responsible AI development steps taken to limit misuse and harm. The model may produce inaccurate, biased, or objectionable responses. Developers should perform safety testing and tuning tailored to their specific applications.",
+        "model_size": "8 billion parameters",
+        "licensing": "A custom commercial license available at: https://llama.meta.com/llama3/license",
+        "advantages": "Optimized for dialogue use cases, outperforms many open-source chat models on common industry benchmarks, improved safety and helpfulness, scalable inference with GQA, extensive safety measures and community feedback integration."
+    },
+    "stable-audio-open-1.0": {
+        "model_name": "Stable Audio Open 1.0",
+        "model_architecture": "Latent diffusion model based on a transformer architecture. It includes an autoencoder for waveform compression, a T5-based text embedding for text conditioning, and a transformer-based diffusion (DiT) model operating in the latent space of the autoencoder.",
+        "training_objective": "Generate variable-length (up to 47s) stereo audio at 44.1kHz from text prompts.",
+        "parameters": "Not specified",
+        "primary_use_case": "Research and experimentation on AI-based music and audio generation.",
+        "performance_metrics": "Not specified",
+        "training_data": "486492 audio recordings: 472618 from Freesound and 13874 from Free Music Archive (FMA). Licensed under CC0, CC BY, or CC Sampling+. Pre-trained T5 model (t5-base) for text conditioning.",
+        "inference_speed": "Not specified",
+        "memory_compute_requirements": "Not specified",
+        "fine_tuning_capability": "Not specified",
+        "bias_fairness": "The model may not perform equally well on all music genres and sound effects due to potential lack of diversity in the training data. It may reflect biases from the training data.",
+        "model_size": "Not specified",
+        "licensing": "Stability AI Community License. For commercial use, refer to https://stability.ai/license",
+        "advantages": "1. Generates high-quality stereo audio. 2. Can be used with stable-audio-tools library or diffusers library. 3. Designed for research and experimentation in AI-based music and audio generation."
+    },
+    "ChatTTS": {
+        "model_name": "ChatTTS",
+        "model_architecture": "Not specified in the original JSON",
+        "training_objective": "Training larger-scale models for text-to-speech (TTS)",
+        "parameters": "Not specified in the original JSON",
+        "primary_use_case": "Text-to-Speech conversion, academic purposes",
+        "performance_metrics": "Not specified in the original JSON",
+        "training_data": "Not specified in the original JSON",
+        "inference_speed": "Not specified in the original JSON",
+        "memory_compute_requirements": "torch._dynamo.config.cache_size_limit = 64, torch.set_float32_matmul_precision('high')",
+        "fine_tuning_capability": "Parameters for finer control over generated speech are available",
+        "bias_fairness": "Not specified in the original JSON",
+        "model_size": "Not specified in the original JSON",
+        "licensing": "For Academic Purposes Only",
+        "advantages": "Supports batching, adjustable parameters for speech generation such as specifying the speaker, adjusting speech speed, and adding laughter"
+    },
+    "bark": {
+        "model_name": "Bark",
+        "model_architecture": "Transformer-based text-to-audio model",
+        "training_objective": "Generate highly realistic, multilingual speech and other audio (including music, background noise, and simple sound effects). Also produce nonverbal communications like laughing, sighing, and crying.",
+        "parameters": {
+            "Text to semantic tokens": "80/300M parameters",
+            "Semantic to coarse tokens": "80/300M parameters",
+            "Coarse to fine tokens": "80/300M parameters"
+        },
+        "primary_use_case": "Text-to-audio generation for multilingual speech, music, background noise, sound effects, and nonverbal communications.",
+        "performance_metrics": "Output Vocab size: Text to semantic tokens: 10,000, Semantic to coarse tokens: 2x 1,024, Coarse to fine tokens: 6x 1,024",
+        "training_data": "Text tokenized with BERT tokenizer from Hugging Face, semantic tokens, and EnCodec Codec from Facebook",
+        "inference_speed": "Not specified",
+        "memory_compute_requirements": "Not specified",
+        "fine_tuning_capability": "Not specified",
+        "bias_fairness": "Model output is not censored; authors do not endorse opinions in generated content.",
+        "model_size": "Small and Large",
+        "licensing": "For research purposes only",
+        "advantages": "Highly realistic, multilingual speech generation; capable of producing music, background noise, sound effects, and nonverbal communications; supports creativity and accessibility tools."
+    }
+}

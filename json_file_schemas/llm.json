@@ -1,0 +1,140 @@
+{
+    "openai-gpt-4": {
+        "model_name": "GPT-4",
+        "model_architecture": "Transformer-based language model",
+        "training_objective": "Causal (unidirectional) transformer pre-trained using language modeling on a diverse and extensive corpus, incorporating longer context windows and improved handling of complex queries.",
+        "parameters": "Estimated at around 175 billion parameters, with enhanced architectural modifications to improve performance and efficiency over previous versions.",
+        "primary_use_case": "Advanced natural language understanding and generation tasks. Includes applications such as conversational agents, content creation, complex question answering, and nuanced language inference.",
+        "performance_metrics": "Achieves high scores across various benchmarks including human-like text generation, nuanced understanding of context, and handling of complex reasoning tasks. Demonstrates strong performance in areas like comprehension, summarization, and generation.",
+        "training_data": "Trained on a diverse and extensive dataset sourced from the web, books, and other texts to ensure broad knowledge and understanding. Specific datasets and volumes are proprietary.",
+        "inference_speed": "High, with optimizations for efficient deployment and scaling. Performance can vary based on the implementation and computational resources used.",
+        "memory_compute_requirements": "Significant, requiring substantial computational resources for both training and inference. Training involves large-scale distributed computing with GPUs or TPUs, and inference can be demanding depending on model size and application.",
+        "fine_tuning_capability": "Highly adaptable to specific tasks with fine-tuning, allowing for customization to various applications and domains. Fine-tuning can be performed with tailored datasets to improve model performance for specific use cases.",
+        "bias_fairness": "Despite improvements, GPT-4 may still exhibit biases present in the training data. Efforts are ongoing to mitigate harmful stereotypes and ensure more equitable and fair outputs.",
+        "model_size": "Estimated at around 175 billion parameters, making it one of the largest models in the GPT series.",
+        "licensing": "OpenAI's usage policies apply. Licensing details are subject to OpenAI's terms and conditions for access and use.",
+        "advantages": "Enhanced language generation and comprehension capabilities, improved handling of complex queries, and more accurate and contextually relevant responses compared to previous models. Demonstrates better understanding and generation of nuanced and diverse text.",
+        "benchmarks": {
+            "MMLU": "88.7% on reasoning capability benchmark",
+            "Bar Exam": "Top 10% of test takers",
+            "Biomedical Exams": "Exceeds student average in 7 of 9 exams"
+        }
+    },
+    "bert-base-uncased": {
+        "model_name": "bert-base-uncased",
+        "model_architecture": "BERT base model (uncased)",
+        "training_objective": "Masked Language Modeling (MLM) and Next Sentence Prediction (NSP)",
+        "parameters": "110M",
+        "primary_use_case": "Fine-tuning on downstream tasks such as sequence classification, token classification, or question answering. Not intended for text generation.",
+        "performance_metrics": {
+            "GLUE": {
+                "MNLI-(m/mm)": "84.6/83.4",
+                "QQP": "71.2",
+                "QNLI": "90.5",
+                "SST-2": "93.5",
+                "CoLA": "52.1",
+                "STS-B": "85.8",
+                "MRPC": "88.9",
+                "RTE": "66.4",
+                "Average": "79.6"
+            },
+            "SQuAD": {
+                "v1.1 EM": "82.78",
+                "v1.1 F1": "89.97",
+                "v2.0 EM": "75.04",
+                "v2.0 F1": "78.08"
+            }
+        },
+        "training_data": "BookCorpus (11,038 unpublished books) and English Wikipedia (excluding lists, tables, and headers).",
+        "inference_speed": "Not specified",
+        "memory_compute_requirements": "Trained on 4 cloud TPUs in Pod configuration (16 TPU chips total) for one million steps with a batch size of 256.",
+        "fine_tuning_capability": "Highly capable of being fine-tuned for various downstream tasks.",
+        "bias_fairness": "Even if the training data used for this model could be characterized as fairly neutral, this model can have biased predictions. Examples include gender bias in occupation predictions.",
+        "model_size": "110M parameters",
+        "licensing": "Not specified",
+        "advantages": [
+            "Pretrained on a large corpus of English data in a self-supervised fashion.",
+            "Can learn a bidirectional representation of the sentence.",
+            "Useful for downstream tasks that involve the whole sentence."
+        ],
+        "benchmarks": {
+            "GLUE": {
+                "MNLI-(m/mm)": "84.6/83.4",
+                "QQP": "71.2",
+                "QNLI": "90.5",
+                "SST-2": "93.5",
+                "CoLA": "52.1",
+                "STS-B": "85.8",
+                "MRPC": "88.9",
+                "RTE": "66.4",
+                "Average": "79.6"
+            },
+            "SQuAD": {
+                "v1.1 EM": "82.78",
+                "v1.1 F1": "89.97",
+                "v2.0 EM": "75.04",
+                "v2.0 F1": "78.08"
+            }
+        }
+    },
+    "Meta-Llama-3-8B": {
+        "model_name": "Meta-Llama-3-8B",
+        "model_architecture": "Auto-regressive language model using an optimized transformer architecture with Grouped-Query Attention (GQA).",
+        "training_objective": "Pretrained and instruction tuned for generative text and code, optimized for dialogue use cases.",
+        "parameters": "8B parameters",
+        "primary_use_case": "Commercial and research use in English. Instruction tuned models are intended for assistant-like chat, whereas pretrained models can be adapted for a variety of natural language generation tasks.",
+        "performance_metrics": {
+            "Base pretrained models": {
+                "MMLU (5-shot)": 66.6,
+                "AGIEval English (3-5 shot)": 45.9,
+                "CommonSenseQA (7-shot)": 72.6,
+                "Winogrande (5-shot)": 76.1,
+                "BIG-Bench Hard (3-shot, CoT)": 61.1,
+                "ARC-Challenge (25-shot)": 78.6,
+                "TriviaQA-Wiki (5-shot)": 78.5,
+                "SQuAD (1-shot)": 76.4,
+                "QuAC (1-shot, F1)": 44.4,
+                "BoolQ (0-shot)": 75.7,
+                "DROP (3-shot, F1)": 58.4
+            },
+            "Instruction tuned models": {
+                "MMLU (5-shot)": 68.4,
+                "GPQA (0-shot)": 34.2,
+                "HumanEval (0-shot)": 62.2,
+                "GSM-8K (8-shot, CoT)": 79.6,
+                "MATH (4-shot, CoT)": 30.0
+            }
+        },
+        "training_data": "Pretrained on over 15 trillion tokens of publicly available online data. Fine-tuning data includes publicly available instruction datasets and over 10M human-annotated examples. The pretraining data has a cutoff of March 2023.",
+        "inference_speed": "Optimized for improved inference scalability using Grouped-Query Attention (GQA).",
+        "memory_compute_requirements": {
+            "training_factors": {
+                "GPU hours": "1.3M GPU hours on H100-80GB for Llama 3 8B",
+                "Power consumption": "700W TDP per GPU",
+                "Carbon emitted": "390 tCO2eq, offset by Meta's sustainability program"
+            }
+        },
+        "fine_tuning_capability": "Fine-tuning performed using supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF).",
+        "bias_fairness": "Responsible AI development steps taken to limit misuse and harm. The model may produce inaccurate, biased, or objectionable responses. Developers should perform safety testing and tuning tailored to their specific applications.",
+        "model_size": "8 billion parameters",
+        "licensing": "A custom commercial license available at: https://llama.meta.com/llama3/license",
+        "advantages": "Optimized for dialogue use cases, outperforms many open-source chat models on common industry benchmarks, improved safety and helpfulness, scalable inference with GQA, extensive safety measures and community feedback integration.",
+        "benchmarks": {
+            "MMLU": "66.6 (5-shot) for base models, 68.4 (5-shot) for instruction-tuned models",
+            "AGIEval English": "45.9 (3-5 shot)",
+            "CommonSenseQA": "72.6 (7-shot)",
+            "Winogrande": "76.1 (5-shot)",
+            "BIG-Bench Hard": "61.1 (3-shot, CoT)",
+            "ARC-Challenge": "78.6 (25-shot)",
+            "TriviaQA-Wiki": "78.5 (5-shot)",
+            "SQuAD": "76.4 (1-shot)",
+            "QuAC": "44.4 (1-shot, F1)",
+            "BoolQ": "75.7 (0-shot)",
+            "DROP": "58.4 (3-shot, F1)",
+            "GPQA": "34.2 (0-shot)",
+            "HumanEval": "62.2 (0-shot)",
+            "GSM-8K": "79.6 (8-shot, CoT)",
+            "MATH": "30.0 (4-shot, CoT)"
+        }
+    }
+}
