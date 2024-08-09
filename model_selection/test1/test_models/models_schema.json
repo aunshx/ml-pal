@@ -1,0 +1,1597 @@
+{
+    "YOLOv8": {
+        "model_name": "YOLOv8",
+        "developed_by": "Ultralytics",
+        "model_type": "Object Detection",
+        "licensing": "AGPL-3.0 License (Open-Source) / Enterprise License (Commercial Use)",
+        "installation": {
+            "python_version": ">=3.8",
+            "additional_libraries": "Requirements in a Python environment with PyTorch>=1.8",
+            "installation_command": "pip install ultralytics"
+        },
+        "usage": {
+            "cli_example": "yolo predict model=yolov8n.ptsource='https://ultralytics.com/images/bus.jpg'",
+            "python_example": "from ultralytics import YOLO\nmodel = YOLO(\"yolov8n.yaml\")"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "YOLOv8n",
+                "YOLOv8s",
+                "YOLOv8m",
+                "YOLOv8l",
+                "YOLOv8x",
+                "YOLOv8n-seg",
+                "YOLOv8s-seg",
+                "YOLOv8m-seg",
+                "YOLOv8l-seg",
+                "YOLOv8x-seg",
+                "YOLOv8n-pose",
+                "YOLOv8s-pose",
+                "YOLOv8m-pose",
+                "YOLOv8l-pose",
+                "YOLOv8x-pose",
+                "YOLOv8x-pose-p6",
+                "YOLOv8n-obb",
+                "YOLOv8s-obb",
+                "YOLOv8m-obb",
+                "YOLOv8l-obb",
+                "YOLOv8x-obb",
+                "YOLOv8n-cls",
+                "YOLOv8s-cls",
+                "YOLOv8m-cls",
+                "YOLOv8l-cls",
+                "YOLOv8x-cls"
+            ],
+            "pretrained_datasets": [
+                "COCO",
+                "Open Image V7",
+                "COCO-Seg",
+                "COCO-Pose",
+                "DOTAv1",
+                "ImageNet"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "YOLOv8n",
+                        "size_pixels": "640",
+                        "map_val50_95": "80.4",
+                        "speed_cpu_onnx_ms": "3.2",
+                        "speed_a100_tensorrt_ms": "8.7",
+                        "params_m": "9.2",
+                        "flops_b": "28.6"
+                    },
+                    {
+                        "model": "YOLOv8s",
+                        "size_pixels": "640",
+                        "map_val50_95": "28.4",
+                        "speed_cpu_onnx_ms": "1.20",
+                        "speed_a100_tensorrt_ms": "8.6",
+                        "params_m": "28.6",
+                        "flops_b": "78.9"
+                    },
+                    {
+                        "model": "YOLOv8m",
+                        "size_pixels": "640",
+                        "map_val50_95": "34.7",
+                        "speed_cpu_onnx_ms": "1.83",
+                        "speed_a100_tensorrt_ms": "25.9",
+                        "params_m": "78.9",
+                        "flops_b": "234.7"
+                    },
+                    {
+                        "model": "YOLOv8l",
+                        "size_pixels": "640",
+                        "map_val50_95": "75.2",
+                        "speed_cpu_onnx_ms": "2.39",
+                        "speed_a100_tensorrt_ms": "43.7",
+                        "params_m": "165.2",
+                        "flops_b": "682.2"
+                    },
+                    {
+                        "model": "YOLOv8x",
+                        "size_pixels": "640",
+                        "map_val50_95": "79.1",
+                        "speed_cpu_onnx_ms": "3.53",
+                        "speed_a100_tensorrt_ms": "68.2",
+                        "params_m": "257.8",
+                        "flops_b": "1257.8"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "YOLOv8 is a cutting-edge, state-of-the-art (SOTA) model for various tasks including object detection and tracking, instance segmentation, image classification, and pose estimation.",
+            "supported_labels": [
+                "General object detection labels (COCO 80 classes)",
+                "Open Image V7 classes (600 pre-trained classes)",
+                "COCO-Seg classes (80 pre-trained classes)"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [],
+            "biases": [],
+            "risks": []
+        },
+        "recommendations": [],
+        "compute_infrastructure": {
+            "hardware": "Amazon EC2 P4d instance",
+            "software": "PyTorch>=1.8"
+        },
+        "contact_information": {
+            "model_card_contact": "See GitHub Issues or join the Discord community"
+        },
+        "references": {
+            "related_papers_and_resources": []
+        },
+        "example_implementation": {
+            "sample_code": ""
+        }
+    },
+    "rtdetr_r50vd": {
+        "model_name": "RT-DETR R50",
+        "developed_by": "Yian Zhao and Sangbum Choi",
+        "model_type": "RT-DETR",
+        "licensing": "Apache-2.0",
+        "installation": {
+            "python_version": "3.8 or higher",
+            "additional_libraries": [
+                "transformers"
+            ],
+            "installation_command": "pip install transformers"
+        },
+        "usage": {
+            "cli_example": "Not provided",
+            "python_example": "See original JSON for code"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "RT-DETR R50"
+            ],
+            "pretrained_datasets": [
+                "COCO 2017",
+                "Objects365"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "RT-DETR R50",
+                        "size_pixels": "640x640",
+                        "map_val50_95": "53.1",
+                        "speed_cpu_onnx_ms": "Not provided",
+                        "speed_a100_tensorrt_ms": "Not provided",
+                        "params_m": "136",
+                        "flops_b": "108"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "RT-DETR is the first real-time end-to-end object detector that eliminates NMS by using a Transformer-based architecture. It achieves state-of-the-art accuracy and speed on COCO.",
+            "supported_labels": [
+                "cat",
+                "dog",
+                "person",
+                "car",
+                "bus"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "May not perform as well on small objects or in crowded scenes"
+            ],
+            "biases": [
+                "Not provided"
+            ],
+            "risks": [
+                "Not provided"
+            ]
+        },
+        "recommendations": [
+            "Use for real-time object detection tasks where accuracy and speed are important"
+        ],
+        "compute_infrastructure": {
+            "hardware": "NVIDIA T4 GPU",
+            "software": "PyTorch"
+        },
+        "contact_information": {
+            "model_card_contact": "Sangbum Choi"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "https://arxiv.org/abs/2304.08069"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "See original JSON for code"
+        }
+    },
+    "yolos-tiny": {
+        "model_name": "YOLOS-Tiny",
+        "developed_by": "Fang et al.",
+        "model_type": "Object Detection",
+        "licensing": "Not provided",
+        "installation": {
+            "python_version": "Not provided",
+            "additional_libraries": "Not provided",
+            "installation_command": "Not provided"
+        },
+        "usage": {
+            "cli_example": "Not provided",
+            "python_example": "from transformersimportYolosImageProcessor, YolosForObjectDetection\nfrom PILimportImage\nimporttorch\nimportrequests\n\nurl =\"http://images.cocodataset.org/val2017/000000039769.jpg\"image = Image.open(requests.get(url, stream=True).raw)\n\nmodel = YolosForObjectDetection.from_pretrained('hustvl/yolos-tiny')\nimage_processor = YolosImageProcessor.from_pretrained(\"hustvl/yolos-tiny\")\n\ninputs = image_processor(images=image, return_tensors=\"pt\")\noutputs = model(**inputs)# model predicts bounding boxes and corresponding COCO classeslogits = outputs.logits\nbboxes = outputs.pred_boxes# print resultstarget_sizes = torch.tensor([image.size[::-1]])\nresults = image_processor.post_process_object_detection(outputs, threshold=0.9, target_sizes=target_sizes)[0]forscore, label, boxinzip(results[\"scores\"], results[\"labels\"], results[\"boxes\"]):\n    box = [round(i,2)foriinbox.tolist()]print(f\"Detected{model.config.id2label[label.item()]}with confidence \"f\"{round(score.item(),3)}at location{box}\")"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "YOLOS-Tiny"
+            ],
+            "pretrained_datasets": [
+                "COCO 2017"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "YOLOS-Tiny",
+                        "size_pixels": "Not provided",
+                        "map_val50_95": "28.7",
+                        "speed_cpu_onnx_ms": "Not provided",
+                        "speed_a100_tensorrt_ms": "Not provided",
+                        "params_m": "Not provided",
+                        "flops_b": "Not provided"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "YOLOS is a Vision Transformer (ViT) trained using the DETR loss. It is able to achieve 42 AP on COCO validation 2017.",
+            "supported_labels": "COCO classes"
+        },
+        "limitations_and_biases": {
+            "limitations": "Not provided",
+            "biases": "Not provided",
+            "risks": "Not provided"
+        },
+        "recommendations": "Not provided",
+        "compute_infrastructure": {
+            "hardware": "Not provided",
+            "software": "Not provided"
+        },
+        "contact_information": {
+            "model_card_contact": "Not provided"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "You Only Look at One Sequence: Rethinking Transformer in Vision through Object Detection"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "Not provided"
+        }
+    },
+    "stockmarket-future-prediction": {
+        "model_name": "stockmarket-future-prediction",
+        "developed_by": "FODUU AI",
+        "model_type": "Object Detection",
+        "licensing": "Not provided",
+        "installation": {
+            "python_version": "Not provided",
+            "additional_libraries": [
+                "ultralyticsplus==0.0.28",
+                "ultralytics==8.0.43"
+            ],
+            "installation_command": "pip install ultralyticsplus==0.0.28 ultralytics==8.0.43"
+        },
+        "usage": {
+            "cli_example": "Not provided",
+            "python_example": "from ultralyticsplusimportYOLO, render_resultimportcv2\n# load model\nmodel = YOLO('foduucom/stockmarket-future-prediction')\n# set model parameters\nmodel.overrides['conf'] =0.25\n# NMS confidence threshold\nmodel.overrides['iou'] =0.45\n# NMS IoU threshold\nmodel.overrides['agnostic_nms'] =False\n# NMS class-agnostic\nmodel.overrides['max_det'] =1000\n# maximum number of detections per image\n# set image\nimage ='/path/to/your/document/images'\n# perform inferenceresults = model.predict(image)\n# observe results\nprint(results[0].boxes)\nrender = render_result(model=model, image=image, result=results[0])\nrender.show()"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "stockmarket-future-prediction"
+            ],
+            "pretrained_datasets": [
+                "Not provided"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": []
+            }
+        },
+        "model_details": {
+            "model_description": "The YOLOv8s Stock Market future trends prediction model is an object detection model based on the YOLO (You Only Look Once) framework. It is designed to detect various chart patterns in real-time stock market trading video data. The model aids traders and investors by automating the analysis of chart patterns, providing timely insights for informed decision-making.",
+            "supported_labels": [
+                "Down",
+                "Up"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "Performance may be affected by variations in video quality, lighting conditions, and pattern complexity within live trading data.",
+                "Rapid market fluctuations and noise in video data may impact the model's accuracy and responsiveness.",
+                "Market-specific patterns or anomalies not well-represented in the training data may pose challenges for detection."
+            ],
+            "biases": [
+                "Not provided"
+            ],
+            "risks": [
+                "Not provided"
+            ]
+        },
+        "recommendations": [
+            "Users should be aware of the model's limitations and potential biases.",
+            "Thorough testing and validation within live trading simulations are advised before deploying the model in real trading environments."
+        ],
+        "compute_infrastructure": {
+            "hardware": "NVIDIA GeForce RTX 3080 card",
+            "software": "Jupyter Notebook environment"
+        },
+        "contact_information": {
+            "model_card_contact": "info@foduu.com"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "Not provided"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "Not provided"
+        }
+    },
+    "table-transformer-detection": {
+        "model_name": "Table Transformer (fine-tuned for Table Detection)",
+        "developed_by": "Smock et al.",
+        "model_type": "Table Detection",
+        "licensing": "N/A",
+        "installation": {
+            "python_version": "N/A",
+            "additional_libraries": "N/A",
+            "installation_command": "N/A"
+        },
+        "usage": {
+            "cli_example": "N/A",
+            "python_example": "N/A"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [],
+            "pretrained_datasets": [
+                "PubTables1M"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": []
+            }
+        },
+        "model_details": {
+            "model_description": "Table Transformer (DETR) model trained on PubTables1M. It is equivalent to DETR, a Transformer-based object detection model.",
+            "supported_labels": [
+                "Tables"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [],
+            "biases": [],
+            "risks": []
+        },
+        "recommendations": [],
+        "compute_infrastructure": {
+            "hardware": "N/A",
+            "software": "N/A"
+        },
+        "contact_information": {
+            "model_card_contact": "Hugging Face team"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "PubTables-1M: Towards Comprehensive Table Extraction From Unstructured Documents"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "N/A"
+        }
+    },
+    "web-form-ui-field-detection": {
+        "model_name": "web-form-ui-field-detection",
+        "developed_by": "Foduu.com",
+        "model_type": "Object Detection",
+        "licensing": "Not specified",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": [
+                "ultralyticsplusimportYOLO, render_result"
+            ],
+            "installation_command": "pip install ultralyticsplusimportYOLO, render_result"
+        },
+        "usage": {
+            "cli_example": "Not provided",
+            "python_example": "from ultralyticsplusimportYOLO, render_result\n# load model\nmodel = YOLO('foduucom/web-form-ui-field-detection')\n# set model parameters\nmodel.overrides['conf'] =0.25\n# NMS confidence threshold\nmodel.overrides['iou'] =0.45\n# NMS IoU threshold\nmodel.overrides['agnostic_nms'] =False\n# NMS class-agnostic\nmodel.overrides['max_det'] =1000\n# maximum number of detections per image\n# set image\nimage ='/path/to/your/document/images'\n# perform inferenceresults = model.predict(image)\n# observe results\nprint(results[0].boxes)\nrender = render_result(model=model, image=image, result=results[0])\nrender.show()"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "YOLOv8s web-form ui fields detection"
+            ],
+            "pretrained_datasets": [
+                "Dataset of annotated ui form images"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "YOLOv8s web-form ui fields detection",
+                        "size_pixels": "Not specified",
+                        "map_val50_95": "0.51",
+                        "speed_cpu_onnx_ms": "Not specified",
+                        "speed_a100_tensorrt_ms": "Not specified",
+                        "params_m": "Not specified",
+                        "flops_b": "Not specified"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "The web-form-Detect model is a yolov8 object detection model trained to detect and locate ui form fields in images. It is built upon the ultralytics library and fine-tuned using a dataset of annotated ui form images.",
+            "supported_labels": [
+                "Name,number,email,password,button,redio bullet"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "Performance may vary based on input data distribution and quality",
+                "May struggle with detecting web ui form in cases of extreme occlusion",
+                "May not generalize well to non-standard ui form formats or variations"
+            ],
+            "biases": [
+                "Not specified"
+            ],
+            "risks": [
+                "Not specified"
+            ]
+        },
+        "recommendations": [
+            "Not specified"
+        ],
+        "compute_infrastructure": {
+            "hardware": "NVIDIA GeForce RTX 3090 GPU",
+            "software": "Jupyter Notebook environment"
+        },
+        "contact_information": {
+            "model_card_contact": "info@foduu.com"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "Not specified"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "Not provided"
+        }
+    },
+    "rtdetr_r50vd_coco_o365": {
+        "model_name": "rtdetr_r50vd_coco_o365",
+        "developed_by": "Yian Zhao and Sangbum Choi",
+        "model_type": "RT-DETR",
+        "licensing": "Apache-2.0",
+        "installation": {
+            "python_version": "N/A",
+            "additional_libraries": [
+                "torch",
+                "requests",
+                "PIL",
+                "transformers"
+            ],
+            "installation_command": "pip install transformers"
+        },
+        "usage": {
+            "cli_example": "N/A",
+            "python_example": "import torch\nimport requests\nfrom PIL import Image\nfrom transformers import RTDetrForObjectDetection, RTDetrImageProcessor\n\nurl = 'http://images.cocodataset.org/val2017/000000039769.jpg'\nimage = Image.open(requests.get(url, stream=True).raw)\n\nimage_processor = RTDetrImageProcessor.from_pretrained(\"PekingU/rtdetr_r50vd_coco_o365\")\nmodel = RTDetrForObjectDetection.from_pretrained(\"PekingU/rtdetr_r50vd_coco_o365\")\n\ninputs = image_processor(images=image, return_tensors=\"pt\")\nwith torch.no_grad():\n    outputs = model(**inputs)\n\nresults = image_processor.post_process_object_detection(outputs, target_sizes=torch.tensor([image.size[::-1]]), threshold=0.3)\nfor result in results:\n    for score, label_id, box in zip(result[\"scores\"], result[\"labels\"], result[\"boxes\"]):\n        score, label = score.item(), label_id.item()\n        box = [round(i,2) for i in box.tolist()]\n        print(f\"{model.config.id2label[label]}:{score:.2f}{box}\")"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "rtdetr_r50vd_coco_o365"
+            ],
+            "pretrained_datasets": [
+                "COCO 2017",
+                "Objects365"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "RT-DETR-R50",
+                        "size_pixels": "640x640",
+                        "map_val50_95": "53.1",
+                        "speed_cpu_onnx_ms": "N/A",
+                        "speed_a100_tensorrt_ms": "N/A",
+                        "params_m": "136",
+                        "flops_b": "108"
+                    },
+                    {
+                        "model": "RT-DETR-R101",
+                        "size_pixels": "640x640",
+                        "map_val50_95": "54.3",
+                        "speed_cpu_onnx_ms": "N/A",
+                        "speed_a100_tensorrt_ms": "N/A",
+                        "params_m": "259",
+                        "flops_b": "74"
+                    },
+                    {
+                        "model": "RT-DETR-R50 (Objects 365 pretrained)",
+                        "size_pixels": "640x640",
+                        "map_val50_95": "55.3",
+                        "speed_cpu_onnx_ms": "N/A",
+                        "speed_a100_tensorrt_ms": "N/A",
+                        "params_m": "136",
+                        "flops_b": "108"
+                    },
+                    {
+                        "model": "RT-DETR-R101 (Objects 365 pretrained)",
+                        "size_pixels": "640x640",
+                        "map_val50_95": "56.2",
+                        "speed_cpu_onnx_ms": "N/A",
+                        "speed_a100_tensorrt_ms": "N/A",
+                        "params_m": "259",
+                        "flops_b": "74"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "RT-DETR is a real-time end-to-end object detector that addresses the trade-off between speed and accuracy. It builds upon the DETR architecture and introduces an efficient hybrid encoder and uncertainty-minimal query selection to improve performance.",
+            "supported_labels": [
+                "sofa",
+                "cat",
+                "remote"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "May not be suitable for all object detection tasks"
+            ],
+            "biases": [
+                "May exhibit bias towards certain object classes"
+            ],
+            "risks": [
+                "May be used for malicious purposes"
+            ]
+        },
+        "recommendations": [
+            "Use RT-DETR for real-time object detection tasks"
+        ],
+        "compute_infrastructure": {
+            "hardware": "N/A",
+            "software": "N/A"
+        },
+        "contact_information": {
+            "model_card_contact": "Sangbum Choi"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "https://arxiv.org/abs/2304.08069"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "See usage section"
+        }
+    },
+    "yolov10x": {
+        "model_name": "yolov10x",
+        "developed_by": "THU-MIG",
+        "model_type": "Object Detection",
+        "licensing": "Not specified",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": [
+                "ultralytics"
+            ],
+            "installation_command": "pip install git+https://github.com/THU-MIG/yolov10.git"
+        },
+        "usage": {
+            "cli_example": "Not provided",
+            "python_example": "from ultralyticsimport YOLOv10\n\nmodel = YOLOv10.from_pretrained('jameslahm/yolov10x')\n\nsource ='http://images.cocodataset.org/val2017/000000039769.jpg'\nmodel.predict(source=source, save=True)"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "yolov10x"
+            ],
+            "pretrained_datasets": [
+                "COCO"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": []
+            }
+        },
+        "model_details": {
+            "model_description": "YOLOv10: Real-Time End-to-End Object Detection",
+            "supported_labels": []
+        },
+        "limitations_and_biases": {
+            "limitations": [],
+            "biases": [],
+            "risks": []
+        },
+        "recommendations": [],
+        "compute_infrastructure": {
+            "hardware": "Not specified",
+            "software": "Not specified"
+        },
+        "contact_information": {
+            "model_card_contact": "Not provided"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "https://arxiv.org/abs/2405.14458v1"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "Not provided"
+        }
+    },
+    "YOLOv10-Document-Layout-Analysis": {
+        "model_name": "YOLOv10-Document-Layout-Analysis",
+        "developed_by": "Omar Moured",
+        "model_type": "Object Detection",
+        "licensing": "Not specified",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": "Not specified",
+            "installation_command": "Not specified"
+        },
+        "usage": {
+            "cli_example": "Not specified",
+            "python_example": "Not specified"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "YOLOv10-x",
+                "YOLOv10-b",
+                "YOLOv10-l",
+                "YOLOv10-m",
+                "YOLOv10-s",
+                "YOLOv10-n"
+            ],
+            "pretrained_datasets": [
+                "Doclaynet-base"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "YOLOv10-x",
+                        "size_pixels": "Not specified",
+                        "map_val50_95": "0.740",
+                        "speed_cpu_onnx_ms": "Not specified",
+                        "speed_a100_tensorrt_ms": "Not specified",
+                        "params_m": "Not specified",
+                        "flops_b": "Not specified"
+                    },
+                    {
+                        "model": "YOLOv10-b",
+                        "size_pixels": "Not specified",
+                        "map_val50_95": "0.732",
+                        "speed_cpu_onnx_ms": "Not specified",
+                        "speed_a100_tensorrt_ms": "Not specified",
+                        "params_m": "Not specified",
+                        "flops_b": "Not specified"
+                    },
+                    {
+                        "model": "YOLOv10-l",
+                        "size_pixels": "Not specified",
+                        "map_val50_95": "0.732",
+                        "speed_cpu_onnx_ms": "Not specified",
+                        "speed_a100_tensorrt_ms": "Not specified",
+                        "params_m": "Not specified",
+                        "flops_b": "Not specified"
+                    },
+                    {
+                        "model": "YOLOv10-m",
+                        "size_pixels": "Not specified",
+                        "map_val50_95": "0.737",
+                        "speed_cpu_onnx_ms": "Not specified",
+                        "speed_a100_tensorrt_ms": "Not specified",
+                        "params_m": "Not specified",
+                        "flops_b": "Not specified"
+                    },
+                    {
+                        "model": "YOLOv10-s",
+                        "size_pixels": "Not specified",
+                        "map_val50_95": "0.713",
+                        "speed_cpu_onnx_ms": "Not specified",
+                        "speed_a100_tensorrt_ms": "Not specified",
+                        "params_m": "Not specified",
+                        "flops_b": "Not specified"
+                    },
+                    {
+                        "model": "YOLOv10-n",
+                        "size_pixels": "Not specified",
+                        "map_val50_95": "0.685",
+                        "speed_cpu_onnx_ms": "Not specified",
+                        "speed_a100_tensorrt_ms": "Not specified",
+                        "params_m": "Not specified",
+                        "flops_b": "Not specified"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "Real-time end-to-end object detection model for document layout analysis.",
+            "supported_labels": "Not specified"
+        },
+        "limitations_and_biases": {
+            "limitations": "Not specified",
+            "biases": "Not specified",
+            "risks": "Not specified"
+        },
+        "recommendations": "Not specified",
+        "compute_infrastructure": {
+            "hardware": "4xA100 GPUs",
+            "software": "Not specified"
+        },
+        "contact_information": {
+            "model_card_contact": "Omar Moured"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                {
+                    "title": "YOLOv10: Real-Time End-to-End Object Detection",
+                    "authors": [
+                        "Wang, Ao",
+                        "Chen, Hui",
+                        "Liu, Lihao",
+                        "Chen, Kai",
+                        "Lin, Zijia",
+                        "Han, Jungong",
+                        "Ding, Guiguang"
+                    ],
+                    "year": "2024",
+                    "conference": "arXiv preprint arXiv:2405.14458"
+                },
+                {
+                    "title": "DocLayNet: A Large Human-Annotated Dataset for Document-Layout Analysis",
+                    "authors": [
+                        "Pfitzmann, Birgit",
+                        "Auer, Christoph",
+                        "Dolfi, Michele",
+                        "Nassar, Ahmed S",
+                        "Staar, Peter W J"
+                    ],
+                    "year": "2022",
+                    "conference": "https://arxiv.org/abs/2206.01062"
+                }
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "Not specified"
+        }
+    },
+    "Object-Detection-RetinaNet": {
+        "model_name": "Object-Detection-RetinaNet",
+        "developed_by": "Kavya Bisht",
+        "model_type": "Object Detection",
+        "licensing": "Not specified",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": "Not specified",
+            "installation_command": "Not specified"
+        },
+        "usage": {
+            "cli_example": "Not specified",
+            "python_example": "Not specified"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [],
+            "pretrained_datasets": [],
+            "performance_metrics": {
+                "example_metrics_table": []
+            }
+        },
+        "model_details": {
+            "model_description": "Model descriptionImplementing RetinaNet: Focal Loss for Dense Object Detection.This repo contains the model for the notebookObject Detection with RetinaNetHere the model is tasked with localizing the objects present in an image, and at the same time, classifying them into different categories. In this, RetinaNet has been implemented, a popularsingle-stage detector, which is accurate and runs fast. RetinaNet uses afeature pyramid networkto efficiently detect objects at multiple scales and introduces a new loss, theFocal loss function, to alleviate the problem of the extreme foreground-background class imbalance.",
+            "supported_labels": []
+        },
+        "limitations_and_biases": {
+            "limitations": [],
+            "biases": [],
+            "risks": []
+        },
+        "recommendations": [],
+        "compute_infrastructure": {
+            "hardware": "Not specified",
+            "software": "Not specified"
+        },
+        "contact_information": {
+            "model_card_contact": "Not specified"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "RetinaNet Paper",
+                "Feature Pyramid Network Paper"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "Not specified"
+        }
+    },
+    "table-transformer-structure-recognition": {
+        "model_name": "Table Transformer (fine-tuned for Table Structure Recognition)",
+        "developed_by": "Smock et al.",
+        "model_type": "Table Structure Recognition Model",
+        "licensing": "Not specified",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": "Not specified",
+            "installation_command": "Not specified"
+        },
+        "usage": {
+            "cli_example": "Not specified",
+            "python_example": "Not specified"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "Table Transformer (fine-tuned for Table Structure Recognition)"
+            ],
+            "pretrained_datasets": [
+                "PubTables1M"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": []
+            }
+        },
+        "model_details": {
+            "model_description": "The Table Transformer is equivalent to DETR, a Transformer-based object detection model. It uses the \"normalize before\" setting of DETR, meaning layernorm is applied before self- and cross-attention.",
+            "supported_labels": [
+                "Rows",
+                "Columns"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [],
+            "biases": [],
+            "risks": []
+        },
+        "recommendations": [],
+        "compute_infrastructure": {
+            "hardware": "Not specified",
+            "software": "Not specified"
+        },
+        "contact_information": {
+            "model_card_contact": "Not specified"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "PubTables-1M: Towards Comprehensive Table Extraction From Unstructured Documents"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "Not specified"
+        }
+    },
+    "yolos-fashionpedia": {
+        "model_name": "yolos-fashionpedia",
+        "model_description": "This is a fine-tunned object detection model for fashion.",
+        "supported_labels": [
+            "shirt, blouse",
+            "top, t-shirt, sweatshirt",
+            "sweater",
+            "cardigan",
+            "jacket",
+            "vest",
+            "pants",
+            "shorts",
+            "skirt",
+            "coat",
+            "dress",
+            "jumpsuit",
+            "cape",
+            "glasses",
+            "hat",
+            "headband, head covering, hair accessory",
+            "tie",
+            "glove",
+            "watch",
+            "belt",
+            "leg warmer",
+            "tights, stockings",
+            "sock",
+            "shoe",
+            "bag, wallet",
+            "scarf",
+            "umbrella",
+            "hood",
+            "collar",
+            "lapel",
+            "epaulette",
+            "sleeve",
+            "pocket",
+            "neckline",
+            "buckle",
+            "zipper",
+            "applique",
+            "bead",
+            "bow",
+            "flower",
+            "fringe",
+            "ribbon",
+            "rivet",
+            "ruffle",
+            "sequin",
+            "tassel"
+        ]
+    },
+    "mmdet-yolox-tiny": {
+        "model_name": "mmdet-yolox-tiny",
+        "developed_by": "Fatih Cagatay Akyon, Sinan Onur Altinuc, Alptekin Temizel",
+        "model_type": "Object Detection",
+        "licensing": "Not specified",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": [
+                "sahi",
+                "mmdet",
+                "mmcv-full",
+                "torch"
+            ],
+            "installation_command": "pip install -U sahi\npip install mmcv-full==1.7.0 -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.11.0/index.html\npip install mmdet==2.26.0"
+        },
+        "usage": {
+            "cli_example": "Not provided",
+            "python_example": "from sahi import AutoDetectionModel\nfrom sahi.utils.file import download_from_url\nfrom sahi.predictimport get_prediction\nfrom sahi.cv import read_image_as_pil\n\nMMDET_YOLOX_TINY_MODEL_URL =\"https://huggingface.co/fcakyon/mmdet-yolox-tiny/resolve/main/yolox_tiny_8x8_300e_coco_20211124_171234-b4047906.pth\"MMDET_YOLOX_TINY_MODEL_PATH =\"yolox.pt\"MMDET_YOLOX_TINY_CONFIG_URL =\"https://huggingface.co/fcakyon/mmdet-yolox-tiny/raw/main/yolox_tiny_8x8_300e_coco.py\"MMDET_YOLOX_TINY_CONFIG_PATH =\"config.py\"IMAGE_URL =\"https://user-images.githubusercontent.com/34196005/142730935-2ace3999-a47b-49bb-83e0-2bdd509f1c90.jpg\"# download weight and configdownload_from_url(\n  MMDET_YOLOX_TINY_MODEL_URL,\n  MMDET_YOLOX_TINY_MODEL_PATH,\n)\ndownload_from_url(\n  MMDET_YOLOX_TINY_CONFIG_URL,\n  MMDET_YOLOX_TINY_CONFIG_PATH,\n)# create modeldetection_model = AutoDetectionModel.from_pretrained(\n    model_type='mmdet',\n    model_path=MMDET_YOLOX_TINY_MODEL_PATH,\n    config_path=MMDET_YOLOX_TINY_CONFIG_PATH,\n    confidence_threshold=0.5,\n    device=\"cuda:0\",# or 'cpu')# prepare input imageimage = read_image_as_pil(IMAGE_URL)# perform predictionprediction_result = get_prediction(\n  image=image,\n  detection_model=detection_model\n)# visualize predictionsprediction_result.export_predictions(export_dir='results/')# get predictionsprediction_result.object_prediction_list"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "mmdet-yolox-tiny"
+            ],
+            "pretrained_datasets": [
+                "ImageNet-1k",
+                "COCO 2017"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": []
+            }
+        },
+        "model_details": {
+            "model_description": "Improved anchor-free YOLO architecture for object detection task.",
+            "supported_labels": [
+                "Not specified"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "Not specified"
+            ],
+            "biases": [
+                "Not specified"
+            ],
+            "risks": [
+                "Not specified"
+            ]
+        },
+        "recommendations": [],
+        "compute_infrastructure": {
+            "hardware": "Not specified",
+            "software": "Not specified"
+        },
+        "contact_information": {
+            "model_card_contact": "Not specified"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                {
+                    "title": "Slicing Aided Hyper Inference and Fine-tuning for Small Object Detection",
+                    "authors": [
+                        "Fatih Cagatay Akyon",
+                        "Sinan Onur Altinuc",
+                        "Alptekin Temizel"
+                    ],
+                    "publication": "2022 IEEE International Conference on Image Processing (ICIP)",
+                    "doi": "10.1109/ICIP46576.2022.9897990",
+                    "pages": "966-970",
+                    "year": "2022"
+                },
+                {
+                    "title": "YOLOX: Exceeding YOLO Series in 2021",
+                    "authors": [
+                        "Zheng Ge",
+                        "Songtao Liu",
+                        "Feng Wang",
+                        "Zeming Li",
+                        "Jian Sun"
+                    ],
+                    "publication": "arXiv preprint arXiv:2107.08430",
+                    "year": "2021"
+                }
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "Not provided"
+        }
+    },
+    "yolov8s": {
+        "model_name": "YOLOv8s",
+        "developed_by": "ultralytics",
+        "model_type": "Object Detection",
+        "licensing": "MIT License",
+        "installation": {
+            "python_version": "3.7+",
+            "additional_libraries": [
+                "ultralyticsplus==0.0.14"
+            ],
+            "installation_command": "pip install -U ultralyticsplus==0.0.14"
+        },
+        "usage": {
+            "cli_example": "python -m ultralyticsplus.yolov8s --image path/to/image.jpg",
+            "python_example": "from ultralyticsplus import YOLO; model = YOLO('ultralyticsplus/yolov8s'); results = model.predict(image)"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "YOLOv8s"
+            ],
+            "pretrained_datasets": [],
+            "performance_metrics": {}
+        },
+        "model_details": {
+            "model_description": "Object detection model with support for 80 COCO classes.",
+            "supported_labels": [
+                "person",
+                "bicycle",
+                "car",
+                "motorcycle",
+                "airplane",
+                "bus",
+                "train",
+                "truck",
+                "boat",
+                "traffic light",
+                "fire hydrant",
+                "stop sign",
+                "parking meter",
+                "bench",
+                "bird",
+                "cat",
+                "dog",
+                "horse",
+                "sheep",
+                "cow",
+                "elephant",
+                "bear",
+                "zebra",
+                "giraffe",
+                "backpack",
+                "umbrella",
+                "handbag",
+                "tie",
+                "suitcase",
+                "frisbee",
+                "skis",
+                "snowboard",
+                "sports ball",
+                "kite",
+                "baseball bat",
+                "baseball glove",
+                "skateboard",
+                "surfboard",
+                "tennis racket",
+                "bottle",
+                "wine glass",
+                "cup",
+                "fork",
+                "knife",
+                "spoon",
+                "bowl",
+                "banana",
+                "apple",
+                "sandwich",
+                "orange",
+                "broccoli",
+                "carrot",
+                "hot dog",
+                "pizza",
+                "donut",
+                "cake",
+                "chair",
+                "couch",
+                "potted plant",
+                "bed",
+                "dining table",
+                "toilet",
+                "tv",
+                "laptop",
+                "mouse",
+                "remote",
+                "keyboard",
+                "cell phone",
+                "microwave",
+                "oven",
+                "toaster",
+                "sink",
+                "refrigerator",
+                "book",
+                "clock",
+                "vase",
+                "scissors",
+                "teddy bear",
+                "hair drier",
+                "toothbrush"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [],
+            "biases": [],
+            "risks": []
+        },
+        "recommendations": [],
+        "compute_infrastructure": {
+            "hardware": "CPU/GPU",
+            "software": "Python, PyTorch"
+        },
+        "contact_information": {
+            "model_card_contact": "ultralytics@gmail.com"
+        },
+        "references": {
+            "related_papers_and_resources": []
+        },
+        "example_implementation": {
+            "sample_code": "from ultralyticsplus import YOLO; model = YOLO('ultralyticsplus/yolov8s'); results = model.predict(image)"
+        }
+    },
+    "yolov8s-plane-detection": {
+        "model_name": "yolov8s-plane-detection",
+        "developed_by": "keremberke",
+        "model_type": "Object Detection",
+        "licensing": "Not specified",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": [
+                "ultralyticsplus==0.0.23",
+                "ultralytics==8.0.21"
+            ],
+            "installation_command": "pip install ultralyticsplus ultralytics"
+        },
+        "usage": {
+            "cli_example": "Not provided",
+            "python_example": "from ultralyticsplusimport YOLO, render_result\n# load model\nmodel = YOLO('keremberke/yolov8s-plane-detection')\n# set model parameters\nmodel.overrides['conf'] =0.25\nmodel.overrides['iou'] =0.45\nmodel.overrides['agnostic_nms'] =False\nmodel.overrides['max_det'] =1000\n# set image\nimage ='https://github.com/ultralytics/yolov5/raw/master/data/images/zidane.jpg'\n# perform inference\nresults = model.predict(image)\n# observe results\nprint(results[0].boxes)\nrender = render_result(model=model, image=image, result=results[0])\nrender.show()"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "yolov8s-plane-detection"
+            ],
+            "pretrained_datasets": [
+                "Not specified"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": []
+            }
+        },
+        "model_details": {
+            "model_description": "Object detection model trained to detect planes.",
+            "supported_labels": [
+                "planes"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [],
+            "biases": [],
+            "risks": []
+        },
+        "recommendations": [],
+        "compute_infrastructure": {
+            "hardware": "Not specified",
+            "software": "Not specified"
+        },
+        "contact_information": {
+            "model_card_contact": "Not provided"
+        },
+        "references": {
+            "related_papers_and_resources": []
+        },
+        "example_implementation": {
+            "sample_code": "Not provided"
+        }
+    },
+    "yolov8m-nlf-head-detection": {
+        "model_name": "yolov8m-nlf-head-detection",
+        "model_type": "Object Detection",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": [
+                "ultralyticsplus==0.0.24",
+                "ultralytics==8.0.23"
+            ],
+            "installation_command": "pip install ultralyticsplus==0.0.24 ultralytics==8.0.23"
+        },
+        "usage": {
+            "python_example": "from ultralyticsplusimportYOLO, render_result\n# load model\nmodel = YOLO('keremberke/yolov8m-nlf-head-detection')\n# set model parameters\nmodel.overrides['conf'] =0.25\nmodel.overrides['iou'] =0.45\nmodel.overrides['agnostic_nms'] =False\nmodel.overrides['max_det'] =1000\n# set image\nimage ='https://github.com/ultralytics/yolov5/raw/master/data/images/zidane.jpg'\n# perform inference\nresults = model.predict(image)\n# observe results\nprint(results[0].boxes)\nrender = render_result(model=model, image=image, result=results[0])\nrender.show()"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "yolov8m-nlf-head-detection"
+            ],
+            "pretrained_datasets": [
+                "Not specified"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": []
+            }
+        },
+        "model_details": {
+            "model_description": "Supported Labels['Helmet', 'Helmet-Blurred', 'Helmet-Difficult', 'Helmet-Partial', 'Helmet-Sideline']",
+            "supported_labels": [
+                "Helmet",
+                "Helmet-Blurred",
+                "Helmet-Difficult",
+                "Helmet-Partial",
+                "Helmet-Sideline"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [],
+            "biases": [],
+            "risks": []
+        },
+        "recommendations": [],
+        "compute_infrastructure": {
+            "hardware": "Not specified",
+            "software": "Not specified"
+        },
+        "contact_information": {
+            "model_card_contact": "Not specified"
+        },
+        "references": {
+            "related_papers_and_resources": []
+        },
+        "example_implementation": {
+            "sample_code": "Not provided"
+        }
+    },
+    "deta-swin-large": {
+        "model_name": "DETA-Swin-Large",
+        "model_type": "Object Detection",
+        "model_details": {
+            "model_description": "DETA re-introduces IoU assignment and NMS for transformer-based detectors."
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "DETA-Swin-Large"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "DETA-Swin-Large",
+                        "map_val50_95": "50.2"
+                    }
+                ]
+            }
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "NMS Strikes Back"
+            ]
+        }
+    },
+    "fashionfail": {
+        "model_name": "FashionFail",
+        "developed_by": "Riza Velioglu, Robin Chan, Barbara Hammer",
+        "model_type": "Mask R-CNN",
+        "licensing": "Server Side Public License (SSPL)",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": [
+                "torchvision",
+                "onnxruntime",
+                "huggingface_hub"
+            ],
+            "installation_command": "pip install torchvision onnxruntime huggingface_hub"
+        },
+        "usage": {
+            "cli_example": "Not applicable",
+            "python_example": "Refer to the original JSON for Python usage instructions."
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "facere_base.onnx",
+                "facere_plus.onnx"
+            ],
+            "pretrained_datasets": [
+                "Fashionpedia-train",
+                "FashionFail-train"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "facere_base",
+                        "size_pixels": "Not specified",
+                        "map_val50_95": "Not specified",
+                        "speed_cpu_onnx_ms": "Not specified",
+                        "speed_a100_tensorrt_ms": "Not specified",
+                        "params_m": "Not specified",
+                        "flops_b": "Not specified"
+                    },
+                    {
+                        "model": "facere_plus",
+                        "size_pixels": "Not specified",
+                        "map_val50_95": "Not specified",
+                        "speed_cpu_onnx_ms": "Not specified",
+                        "speed_a100_tensorrt_ms": "Not specified",
+                        "params_m": "Not specified",
+                        "flops_b": "Not specified"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "A pre-trained Mask R-CNN fine-tuned on Fashionpedia-train and FashionFail-train for fashion object detection and segmentation.",
+            "supported_labels": [
+                "Not specified"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "Not specified"
+            ],
+            "biases": [
+                "Not specified"
+            ],
+            "risks": [
+                "Not specified"
+            ]
+        },
+        "recommendations": [
+            "Not specified"
+        ],
+        "compute_infrastructure": {
+            "hardware": "Not specified",
+            "software": "Not specified"
+        },
+        "contact_information": {
+            "model_card_contact": "Not specified"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                {
+                    "title": "FashionFail: Addressing Failure Cases in Fashion Object Detection and Segmentation",
+                    "authors": [
+                        "Riza Velioglu",
+                        "Robin Chan",
+                        "Barbara Hammer"
+                    ],
+                    "publication_venue": "IJCNN",
+                    "publication_date": "2024",
+                    "arxiv_id": "2404.08582"
+                }
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "Refer to the original JSON for sample code."
+        }
+    },
+    "yolov8x-visdrone": {
+        "model_name": "yolov8x-visdrone",
+        "developed_by": "mshamrai",
+        "model_type": "Object Detection",
+        "licensing": "Unknown",
+        "installation": {
+            "python_version": "Unknown",
+            "additional_libraries": [
+                "ultralyticsplus==0.0.28",
+                "ultralytics==8.0.4"
+            ],
+            "installation_command": "pip install ultralyticsplus==0.0.28 ultralytics==8.0.4"
+        },
+        "usage": {
+            "cli_example": "Unknown",
+            "python_example": "from ultralyticsplusimport YOLO, render_result\n# load model\nmodel = YOLO('mshamrai/yolov8x-visdrone')\n# set model parameters\nmodel.overrides['conf'] =0.25\n# NMS confidence threshold\nmodel.overrides['iou'] =0.45\n# NMS IoU threshold\nmodel.overrides['agnostic_nms'] =False\n# NMS class-agnostic\nmodel.overrides['max_det'] =1000\n# maximum number of detections per image\n# set image\nimage ='https://github.com/ultralytics/yolov5/raw/master/data/images/zidane.jpg'\n# perform inferenceresults = model.predict(image)\n# observe results\nprint(results[0].boxes)\nrender = render_result(model=model, image=image, result=results[0])\nrender.show()"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [],
+            "pretrained_datasets": [],
+            "performance_metrics": {
+                "example_metrics_table": []
+            }
+        },
+        "model_details": {
+            "model_description": "Object Detection model trained on the VisDrone dataset. Supported Objects: ['pedestrian', 'people', 'bicycle', 'car', 'van', 'truck', 'tricycle', 'awning-tricycle', 'bus', 'motor']",
+            "supported_labels": [
+                "pedestrian",
+                "people",
+                "bicycle",
+                "car",
+                "van",
+                "truck",
+                "tricycle",
+                "awning-tricycle",
+                "bus",
+                "motor"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [],
+            "biases": [],
+            "risks": []
+        },
+        "recommendations": [],
+        "compute_infrastructure": {
+            "hardware": "Unknown",
+            "software": "Unknown"
+        },
+        "contact_information": {
+            "model_card_contact": "Unknown"
+        },
+        "references": {
+            "related_papers_and_resources": []
+        },
+        "example_implementation": {
+            "sample_code": "Unknown"
+        }
+    },
+    "yolov7-lego": {
+        "model_name": "yolov7-lego",
+        "developed_by": "Undefined",
+        "model_type": "Object Detection",
+        "licensing": "Undefined",
+        "installation": {
+            "python_version": "Undefined",
+            "additional_libraries": "Undefined",
+            "installation_command": "Undefined"
+        },
+        "usage": {
+            "cli_example": "Undefined",
+            "python_example": "Undefined"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "yolov7-lego"
+            ],
+            "pretrained_datasets": [
+                "thedreamfactor/biggest-lego-dataset-600-parts"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": []
+            }
+        },
+        "model_details": {
+            "model_description": "The model(s) in this repository are trained with thedreamfactor/biggest-lego-dataset-600-partsfrom Kaggle and theYolov7training script.",
+            "supported_labels": [
+                "Lego objects"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "Zero-shot-1000-single-class model does not differentiate lego classes.",
+                "Many false positives on non-Lego objects.",
+                "Small training dataset (1000 images)."
+            ],
+            "biases": [],
+            "risks": []
+        },
+        "recommendations": [],
+        "compute_infrastructure": {
+            "hardware": "Undefined",
+            "software": "Undefined"
+        },
+        "contact_information": {
+            "model_card_contact": "Undefined"
+        },
+        "references": {
+            "related_papers_and_resources": []
+        },
+        "example_implementation": {
+            "sample_code": "Undefined"
+        }
+    },
+    "table-detection-and-extraction": {
+        "model_name": "YOLOv8s Table Detection",
+        "developed_by": "FODUU AI",
+        "model_type": "Object Detection",
+        "licensing": "Not specified",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": [
+                "ultralyticsplus==0.0.28",
+                "ultralytics==8.0.43"
+            ],
+            "installation_command": "pip install ultralyticsplus==0.0.28 ultralytics==8.0.43"
+        },
+        "usage": {
+            "cli_example": "Not applicable",
+            "python_example": "from ultralyticsplusimport YOLO, render_result\nmodel = YOLO('foduucom/table-detection-and-extraction')\nmodel.overrides['conf'] =0.25\nmodel.overrides['iou'] =0.45\nmodel.overrides['agnostic_nms'] =False\nmodel.overrides['max_det'] =1000\nimage ='/path/to/your/document/images'\nresults = model.predict(image)\nprint(results[0].boxes)\nrender = render_result(model=model, image=image, result=results[0])\nrender.show()"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [
+                "YOLOv8s Table Detection"
+            ],
+            "pretrained_datasets": [
+                "Diverse dataset containing images of tables from various sources"
+            ],
+            "performance_metrics": {
+                "example_metrics_table": [
+                    {
+                        "model": "YOLOv8s Table Detection",
+                        "size_pixels": "Not specified",
+                        "map_val50_95": "0.962",
+                        "speed_cpu_onnx_ms": "Not specified",
+                        "speed_a100_tensorrt_ms": "Not specified",
+                        "params_m": "Not specified",
+                        "flops_b": "Not specified"
+                    }
+                ]
+            }
+        },
+        "model_details": {
+            "model_description": "The YOLOv8s Table Detection model is an object detection model based on the YOLO (You Only Look Once) framework. It is designed to detect tables, whether they are bordered or borderless, in images. The model has been fine-tuned on a vast dataset and achieved high accuracy in detecting tables and distinguishing between bordered and borderless ones.",
+            "supported_labels": [
+                "bordered",
+                "borderless"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [
+                "Performance may vary based on the quality, diversity, and representativeness of the training data",
+                "The model may face challenges in detecting tables with intricate designs or complex arrangements",
+                "Accuracy may be affected by variations in lighting conditions, image quality, and resolution",
+                "Detection of very small or distant tables might be less accurate",
+                "The model's ability to classify bordered and borderless tables may be influenced by variations in design"
+            ],
+            "biases": "Not specified",
+            "risks": "Not specified"
+        },
+        "recommendations": [
+            "Users should be informed about the model's limitations and potential biases",
+            "Further testing and validation are advised for specific use cases to evaluate its performance accurately"
+        ],
+        "compute_infrastructure": {
+            "hardware": "NVIDIA GeForce RTX 3060 card",
+            "software": "Jupyter Notebook environment"
+        },
+        "contact_information": {
+            "model_card_contact": "info@foduu.com"
+        },
+        "references": {
+            "related_papers_and_resources": "Not specified"
+        },
+        "example_implementation": {
+            "sample_code": "Not provided"
+        }
+    },
+    "human-detector": {
+        "model_name": "Human Detector",
+        "developed_by": "monet-joe",
+        "model_type": "Object Detection",
+        "licensing": "Not specified",
+        "installation": {
+            "python_version": "Not specified",
+            "additional_libraries": "Not specified",
+            "installation_command": "Not specified"
+        },
+        "usage": {
+            "cli_example": "Not specified",
+            "python_example": "Not specified"
+        },
+        "pretrained_models_and_performance_metrics": {
+            "available_models": [],
+            "pretrained_datasets": [],
+            "performance_metrics": {
+                "example_metrics_table": []
+            }
+        },
+        "model_details": {
+            "model_description": "MiVOLO (Multi-Input VOLO) is a simple approach to age and gender estimation utilizing the state-of-the-art Vision Transformer. The method integrates these two tasks into a unified two-input/output model that utilizes not only facial information but also person image data. This improves the generalization ability of the model, allowing it to provide satisfactory results even when faces are not visible in the image.",
+            "supported_labels": [
+                "age",
+                "gender"
+            ]
+        },
+        "limitations_and_biases": {
+            "limitations": [],
+            "biases": [],
+            "risks": []
+        },
+        "recommendations": [],
+        "compute_infrastructure": {
+            "hardware": "Not specified",
+            "software": "Not specified"
+        },
+        "contact_information": {
+            "model_card_contact": "Not specified"
+        },
+        "references": {
+            "related_papers_and_resources": [
+                "https://github.com/WildChlamydia/MiVOLO"
+            ]
+        },
+        "example_implementation": {
+            "sample_code": "Not specified"
+        }
+    }
+}
