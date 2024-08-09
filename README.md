@@ -1,8 +1,8 @@
-![Dumbledore Model Selection Logo](https://i.postimg.cc/7Lm8FGbG/Wizard-Cap.png)
+![Dumbledore Model Selection Logo](https://i.postimg.cc/pXCby5Cq/logo.png)
 
-# Dumbledore
+# Mlpal.ai - Dumbledore
 
-Model selection for mlpal.ai
+Server, client and model selection for mlpal.ai
 
 ## Prerequisites
 
@@ -23,9 +23,9 @@ cd app/server
 ### Usage 
 Depending on the what you want to use either go to the following folders:
 ```bash
-  app -> client | For dumbledore FE
-  app -> server | For dumbledore BE
-  model_selection | For selection tech
+  app -> client | For mlpal.ai FE
+  app -> server | For mlpal.ai BE
+  model_selection | For all things Dumbledore
 ```
 
 ## Authors
