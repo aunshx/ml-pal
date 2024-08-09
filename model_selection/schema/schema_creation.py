@@ -8,7 +8,7 @@ import os
 os.environ['OPENAI_API_KEY'] = 'sk-proj-NvqIphRNzF9iGBurzBy2T3BlbkFJ1yFpMCXSYc2ubsrt8Xh1'
 
 # Load the original data
-with open('model_selection/model_list.json', 'r') as infile:
+with open('model_list.json', 'r') as infile:
     original_data = json.load(infile)
 
 # Define the prompt template
@@ -68,7 +68,7 @@ for model_name, model_data in original_data.items():
         print(f"Could not find JSON structure for model {model_name}:")
        
 
-with open('model_selection/schema/model_list_schema.json', 'w') as outfile:
+with open('model_list_dd.json', 'w') as outfile:
     json.dump(transformed_models, outfile, indent=4)
 
 print("Combined transformed schema saved to model_list_schema.json")

@@ -5,7 +5,6 @@ from langchain.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_core.runnables import RunnableSequence
 from langchain.memory import ConversationBufferMemory
-
 from langchain_core.documents import Document
 from langchain_postgres import PGVector
 from langchain_postgres.vectorstores import PGVector
@@ -14,9 +13,10 @@ import getpass
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
 #os.environ['OPENAI_API_KEY'] = 'sk-proj-NvqIphRNzF9iGBurzBy2T3BlbkFJ1yFpMCXSYc2ubsrt8Xh1'
-connection = "postgresql+psycopg://langchain:langchain@localhost:6024/langchain"  # Uses psycopg3!
-collection_name = "testing"
-
+# Uses psycopg3!
+connection = "postgresql+psycopg://langchain:langchain@localhost:6024/langchain"
+collection_name = "all_models"
+# 06c9e80d-fe54-461a-8e35-d244b0a0c19f
 vector_store = PGVector(
     embeddings= embeddings,
     collection_name=collection_name,
@@ -24,7 +24,7 @@ vector_store = PGVector(
     use_jsonb=True,
 )
 
-with open('LLM_models_schema_new.json', 'r') as f:
+with open('model_selection/schema/model_list_schema.json', 'r') as f:
     json_data = json.load(f)
 
 model_info_map = {}
@@ -49,7 +49,7 @@ for model_type, model_info in json_data.items():
     model_info_map[model_name] = model_info
 
 def query_model(query_text):
-    query_embedding = embeddings.embed_query(query_text)
+    #query_embedding = embeddings.embed_query(query_text)
     results = vector_store.similarity_search(query_text, k=1)
     
     retrieved_documents = []
@@ -59,7 +59,6 @@ def query_model(query_text):
             "model_name": doc.metadata['type']
         })
     return retrieved_documents
-
 
 template = """
 Given the model schema for LLM models, you are an AI agent that should be able to answer all the user questions using the document alone.

@@ -11,7 +11,7 @@ embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
 # Uses psycopg3!
 connection = "postgresql+psycopg://langchain:langchain@localhost:6024/langchain"
-collection_name = "all_models"
+collection_name = "mm"
 # 06c9e80d-fe54-461a-8e35-d244b0a0c19f
 vector_store = PGVector(
     embeddings= embeddings,
@@ -20,7 +20,7 @@ vector_store = PGVector(
     use_jsonb=True,
 )
 
-with open('model_selection/schema/model_list_schema.json', 'r') as f:
+with open('json_file_schemas/mm.json', 'r') as f:
     json_data = json.load(f)
 
 model_info_map = {}
@@ -31,6 +31,7 @@ for model_type, model_info in json_data.items():
     model_details = model_info.get("model_details", {}).get("model_description", "")
     example_implementation = model_info.get("example_implementation", {})
     model_architecture = model_info.get("model_details", {}).get("model_description", "")
+    model_benchmarks = model_info.get("benchmarks",)
     model_installation = example_implementation.get("sample_code", "") if example_implementation else ""
 
     text = f"{model_name} - {model_overview} - {model_details} - {model_architecture}"
@@ -39,7 +40,7 @@ for model_type, model_info in json_data.items():
     vector_store.add_documents([
         Document(
             page_content=text,
-            metadata={"description": model_installation, "type": model_type},
+            metadata={"description": (model_installation,model_benchmarks), "type": model_type},
         )
     ])
     model_info_map[model_name] = model_info

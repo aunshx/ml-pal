@@ -349,36 +349,24 @@
         "licensing": "Not explicitly mentioned",
         "advantages": "End-to-end training, integrated object detection and bounding box prediction, uses transformer architecture with convolutional backbone."
     },
-    "gpt2": {
-        "model_name": "GPT-2",
-        "model_architecture": "Transformers model",
-        "training_objective": "Pretrained model on English language using a causal language modeling (CLM) objective.",
-        "parameters": "124M parameters",
-        "primary_use_case": "Text generation and fine-tuning to downstream tasks",
-        "performance_metrics": {
-            "LAMBADA PPL": 35.1,
-            "LAMBADA ACC": 45.99,
-            "CBT-CN ACC": 87.65,
-            "CBT-NE ACC": 83.4,
-            "WikiText2 PPL": 29.4,
-            "PTB PPL": 65.85,
-            "enwiki8 BPB": 1.16,
-            "text8 BPC": 1.173,
-            "WikiText103 PPL": 37.5,
-            "1BW PPL": 75.2
-        },
-        "training_data": "WebText dataset (scraped web pages from outbound links on Reddit with at least 3 karma, 40GB of texts, Wikipedia pages removed)",
-        "inference_speed": "Not disclosed",
-        "memory_compute_requirements": "256 cloud TPU v3 cores for the larger model; exact details not disclosed",
-        "fine_tuning_capability": "Can be fine-tuned to downstream tasks",
-        "bias_fairness": "Reflects biases inherent in the training data; use caution for sensitive use cases. Example biases in text generation based on race.",
-        "model_size": "Smallest version with 124M parameters",
-        "licensing": "Not explicitly stated",
-        "advantages": {
-            "self_supervised_training": "Pretrained on a large corpus of English data in a self-supervised fashion, allowing it to generate coherent text from prompts.",
-            "versatility": "Can be used directly for text generation or fine-tuned for specific tasks.",
-            "pretrained_features": "Learns an inner representation of the English language useful for various downstream tasks."
-        }
+    
+
+    "openai-gpt-4": { "model_name": "GPT-4",
+    "model_architecture": "Transformer-based language model",
+    "training_objective": "Causal (unidirectional) transformer pre-trained using language modeling on a diverse and extensive corpus, incorporating longer context windows and improved handling of complex queries.",
+    "parameters": "Estimated at around 175 billion parameters, with enhanced architectural modifications to improve performance and efficiency over previous versions.",
+    "primary_use_case": "Advanced natural language understanding and generation tasks. Includes applications such as conversational agents, content creation, complex question answering, and nuanced language inference.",
+    "performance_metrics": "Achieves high scores across various benchmarks including human-like text generation, nuanced understanding of context, and handling of complex reasoning tasks. Demonstrates strong performance in areas like comprehension, summarization, and generation.",
+    "training_data": "Trained on a diverse and extensive dataset sourced from the web, books, and other texts to ensure broad knowledge and understanding. Specific datasets and volumes are proprietary.",
+    "inference_speed": "High, with optimizations for efficient deployment and scaling. Performance can vary based on the implementation and computational resources used.",
+    "memory_compute_requirements": "Significant, requiring substantial computational resources for both training and inference. Training involves large-scale distributed computing with GPUs or TPUs, and inference can be demanding depending on model size and application.",
+    "fine_tuning_capability": "Highly adaptable to specific tasks with fine-tuning, allowing for customization to various applications and domains. Fine-tuning can be performed with tailored datasets to improve model performance for specific use cases.",
+    "bias_fairness": "Despite improvements, GPT-4 may still exhibit biases present in the training data. Efforts are ongoing to mitigate harmful stereotypes and ensure more equitable and fair outputs.",
+    "model_size": "Estimated at around 175 billion parameters, making it one of the largest models in the GPT series.",
+    "licensing": "OpenAI's usage policies apply. Licensing details are subject to OpenAI's terms and conditions for access and use.",
+    "advantages": "Enhanced language generation and comprehension capabilities, improved handling of complex queries, and more accurate and contextually relevant responses compared to previous models. Demonstrates better understanding and generation of nuanced and diverse text."
+
+  
     },
     "bert-base-uncased": {
         "model_name": "bert-base-uncased",

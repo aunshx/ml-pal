@@ -1,12 +1,12 @@
 import json
+import psycopg2
 from langchain_openai import OpenAIEmbeddings
 from langchain.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_core.runnables import RunnableSequence
 from langchain.memory import ConversationBufferMemory
 from langchain_postgres import PGVector
-from save_mem import MemoryDataSerializer
-
+import uuid
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
 connection = "postgresql+psycopg://langchain:langchain@localhost:6024/langchain"
@@ -22,6 +22,16 @@ vector_store = PGVector(
     connection=connection,
     use_jsonb=True,
 )
+
+# Connect to PostgreSQL
+db_conn = psycopg2.connect(
+    dbname='langchain',
+    user='langchain',
+    password='langchain',
+    host='localhost',
+    port='6024'
+)
+db_cursor = db_conn.cursor()
 
 def determine_task_type(query_text):
     task_prompt = """
@@ -82,6 +92,7 @@ memory = ConversationBufferMemory(memory_key="chat_history", input_key="user_inp
 
 chain = RunnableSequence(prompt | llm)
 
+
 def answer_query(query, retrieved_documents):
     chat_history = memory.load_memory_variables({})['chat_history']
     documents_json = json.dumps(retrieved_documents, indent=4)
@@ -98,20 +109,40 @@ def answer_query(query, retrieved_documents):
     
     return response_content
 
+def save_memory_to_db(memory_data):
+    # Extract chat history as a single string
+    chat_history = memory_data.get('chat_history', '')
+
+    # Generate a unique session ID
+    session_id = str(uuid.uuid4())
+
+    # Insert the entire conversation into the database
+    if chat_history:
+        print(f"Inserting session: session_id={session_id}, conversation={chat_history}")
+
+        db_cursor.execute(
+            "INSERT INTO conversation_history (id, conversation) VALUES (%s, %s)",
+            (session_id, chat_history)
+        )
+    else:
+        print("No conversation data to insert")
+
+    db_conn.commit()
+
 def main():
     print("You can start asking questions about the models. Type 'exit' to end the conversation.")
     retrieved_documents = None
     while True:
         query = input("User: ")
-        
+
         if query.lower() in ["exit", "quit", "stop"]:
-            print("Dumbledore: Goodbye!")
+            print("AI: Goodbye!")
             break
 
         if retrieved_documents is None:
             task_type = determine_task_type(query)
             if task_type not in collection_names:
-                print("Dumbledore: Sorry, we don't have a model for your specific needs.")
+                print("Du: Sorry, we don't have a model for your specific needs.")
                 continue
 
             retrieved_documents = query_model(task_type)
@@ -120,8 +151,7 @@ def main():
         print("Dumbledore:", langchain_response)
 
     memory_data = memory.load_memory_variables({})
-    serializer = MemoryDataSerializer()
-    serializer.save_memory_data_to_json(memory_data)
-    
+    save_memory_to_db(memory_data)
+
 if __name__ == "__main__":
     main()
