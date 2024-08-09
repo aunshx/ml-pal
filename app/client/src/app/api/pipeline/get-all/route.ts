@@ -16,6 +16,7 @@ export async function GET(req: NextApiRequest, res: NextApiResponse) {
         },
       }
     );
+    console.log("PIPELINES", response.data);
     return NextResponse.json(response.data, { status: 200 });
   } catch (error: any) {
     console.error("Error fetching data: ", error);

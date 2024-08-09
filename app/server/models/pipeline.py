@@ -6,6 +6,8 @@ from .db import Base
 
 class Pipeline(Base):
     __tablename__ = 'pipeline'
+    __table_args__ = {'schema': 'store'}
+
     pipeline_id = Column(BigInteger, primary_key=True, index=True)
     user_id = Column(String, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
@@ -14,3 +16,5 @@ class Pipeline(Base):
     training = Column(Boolean)
     inferencing = Column(Boolean)
     infra = Column(Boolean, default=True)
+    pipeline_desc = Column(String)
+    pipeline_name = Column(String)

@@ -10,11 +10,19 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 interface ProjectCardProps {
-    title: string;
-    description: string;
+    id: number;
+    createdAt: Date;
+    title?: string;
+    description?: string;
+    selection: boolean;
+    infra: boolean;
+    inferencing?: boolean | null;
+    training?: boolean | null;
 }
 
-export default function ProjectCard({ title, description }: ProjectCardProps) {
+export default function ProjectCard(props: ProjectCardProps) {
+  const { id, title, description, createdAt, selection, infra, inferencing, training } = props;
+
   return (
     <Card className="transform transition-transform duration-300 hover:scale-105">
       <CardHeader>

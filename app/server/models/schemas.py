@@ -14,3 +14,5 @@ class PipelineCreateResponse(BaseModel):
     training: Optional[bool] = None
     inferencing:Optional[bool] = None
     infra: bool
+    pipeline_desc: Optional[str] = None
+    pipeline_name: Optional[str] = None
