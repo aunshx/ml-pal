@@ -16,3 +16,6 @@ class PipelineCreateResponse(BaseModel):
     infra: bool
     pipeline_desc: Optional[str] = None
     pipeline_name: Optional[str] = None
+
+    class Config:
+        orm_mode = True

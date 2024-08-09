@@ -59,13 +59,13 @@ async def get_all_pipelines(response: Response, token: str = Depends(token_auth_
         db: Session = next(get_db())
         
         pipelines = db.query(Pipeline).filter(Pipeline.user_id == result['sub']).all()
-
-        print('HELLO')
         
-        if not pipelines:
+        pipelines_response = [PipelineCreateResponse.from_orm(pipeline) for pipeline in pipelines]
+        
+        if not pipelines_response:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No pipelines found for the user")
             
-        return pipelines
+        return pipelines_response
 
     except HTTPException as e:
         raise e

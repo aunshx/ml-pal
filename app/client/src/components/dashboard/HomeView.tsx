@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import ProjectCard from "./ProjectCard";
 import { usePipelineContext } from "@/context/PipelineContext";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card";
+import { Loader } from "../ui/loader";
 
 const projects = [
   {
@@ -57,15 +58,23 @@ const projects = [
 ];
 
 function AddProjectCard() {
+  const { newPipelineLoading, createNewPipeline } = usePipelineContext();
+
   return (
-    <Link href="/dashboard/new-project" passHref>
-      <div className="flex flex-col items-center justify-center p-6 border rounded-lg cursor-pointer transition-shadow hover:shadow-md bg-background h-full">
-        <Plus className="h-12 w-12 text-muted-foreground mb-2" />
-        <span className="text-lg font-medium text-muted-foreground">
-          Add New Project
-        </span>
-      </div>
-    </Link>
+      <button className="flex flex-col items-center justify-center p-6 border rounded-lg cursor-pointer transition-shadow hover:shadow-md bg-background h-full w-full" disabled={newPipelineLoading} onClick={createNewPipeline}>
+        {newPipelineLoading ? (
+          <div>
+            <Loader />
+          </div>
+        ) : (
+          <>
+            <Plus className="h-12 w-12 text-muted-foreground mb-2" />
+            <span className="text-lg font-medium text-muted-foreground">
+              Add New Project
+            </span>
+          </>
+        )}
+      </button>
   );
 }
 
@@ -92,7 +101,7 @@ const LoadingCard = () => {
 
 
 export default function HomeView() {
-  const { loading, handleLoading, pipelines, error } = usePipelineContext();
+  const { loading, pipelines } = usePipelineContext();
 
   return (
     <div className="w-80per mx-auto px-4 py-8 sm:px-6 lg:px-8">
