@@ -31,13 +31,10 @@ class VerifyToken():
         self.scopes = scopes
         self.config = set_up()
 
-        # This gets the JWKS from a given URL and does processing so you can use any of
-        # the keys available
         jwks_url = f'https://{self.config["DOMAIN"]}/.well-known/jwks.json'
         self.jwks_client = jwt.PyJWKClient(jwks_url)
 
     def verify(self):
-        # This gets the 'kid' from the passed token
         try:
             self.signing_key = self.jwks_client.get_signing_key_from_jwt(
                 self.token

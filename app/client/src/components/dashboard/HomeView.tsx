@@ -15,6 +15,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import ProjectCard from "./ProjectCard";
+import { usePipelineContext } from "@/context/PipelineContext";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card";
+import { Loader } from "../ui/loader";
 
 const projects = [
   {
@@ -47,25 +50,62 @@ const projects = [
     title: "Project F",
     description: "A brief description of Project F and what it entails.",
   },
+  {
+    id: 7,
+    title: "Project F",
+    description: "A brief description of Project F and what it entails.",
+  },
 ];
 
 function AddProjectCard() {
+  const { newPipelineLoading, createNewPipeline } = usePipelineContext();
+
   return (
-    <Link href="/dashboard/new-project" passHref>
-      <div className="flex flex-col items-center justify-center p-6 border rounded-lg cursor-pointer transition-shadow hover:shadow-md bg-background h-full">
-        <Plus className="h-12 w-12 text-muted-foreground mb-2" />
-        <span className="text-lg font-medium text-muted-foreground">
-          Add New Project
-        </span>
-      </div>
-    </Link>
+      <button className="flex flex-col items-center justify-center p-6 border rounded-lg cursor-pointer transition-shadow hover:shadow-md bg-background h-full w-full" disabled={newPipelineLoading} onClick={createNewPipeline}>
+        {newPipelineLoading ? (
+          <div>
+            <Loader />
+          </div>
+        ) : (
+          <>
+            <Plus className="h-12 w-12 text-muted-foreground mb-2" />
+            <span className="text-lg font-medium text-muted-foreground">
+              Add New Project
+            </span>
+          </>
+        )}
+      </button>
   );
 }
 
-export default function HomeView() {
+
+const LoadingCard = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
-      <div className="flex items-center justify-between mb-6">
+    <Card className="transform transition-transform duration-300 hover:scale-105 w-full">
+      <CardHeader className="w-full">
+        <CardTitle className="h-6 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-4 animate-pulse">
+        </CardTitle>
+        <CardDescription className="h-4 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-4 animate-pulse mt-1" />
+      </CardHeader>
+      <CardContent>
+        <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-4 animate-pulse mt-2"></div>
+      </CardContent>
+      <CardFooter className="flex justify-end items-center">
+        <div className="text-white">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercit
+        </div>
+      </CardFooter>
+    </Card>
+  )
+}
+
+
+export default function HomeView() {
+  const { loading, pipelines } = usePipelineContext();
+
+  return (
+    <div className="w-80per mx-auto px-4 py-8 sm:px-6 lg:px-8">
+      <div className="flex items-center justify-between mb-6 w-full">
         <div className="relative w-full max-w-md">
           <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
           <Input
@@ -96,15 +136,32 @@ export default function HomeView() {
         </DropdownMenu>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <AddProjectCard />
-        {projects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            title={project.title}
-            description={project.description}
-            // chatPrompt={project.chatPrompt}
-          />
-        ))}
+        {loading ? (
+          <>
+            {projects.map((project, index) => (
+              <LoadingCard
+                key={index}
+              />
+            ))}
+          </>
+        ) : (
+          <>
+            <AddProjectCard />
+            {pipelines.map((project) => (
+              <ProjectCard
+                key={project.pipeline_id}
+                id={project.pipeline_id}
+                title={project.pipeline_name ?? 'No Title'}
+                description={project.pipeline_desc ?? 'No Description Provided'}
+                createdAt={project.created_at}
+                selection={project.selection}
+                infra={project.infra}
+                inferencing={project?.inferencing}
+                training={project?.training}
+              />
+            ))}
+          </>
+        )}
       </div>
     </div>
   );

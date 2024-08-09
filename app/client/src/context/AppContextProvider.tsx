@@ -1,7 +1,7 @@
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { FC, ReactNode } from 'react';
-import { AuthProvider } from './AuthContext';
 import { ViewProvider } from './ViewContext';
+import { PipelineProvider } from './PipelineContext';
 
 type ProviderComponent = FC<{ children: ReactNode }>;
 
@@ -21,9 +21,9 @@ export const combineComponents = (...components: ProviderComponent[]): ProviderC
 
 
 const providers = [
-  AuthProvider,
   ViewProvider,
-  UserProvider
+  UserProvider,
+  PipelineProvider
 ]
 
 export const AppContextProvider = combineComponents(...providers);
